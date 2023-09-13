@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import Header from "../components/Header";
-import Footer from "../components/Footer";
+// import Footer from "../components/Footer";
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
       <main>{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
