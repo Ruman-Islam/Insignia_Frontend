@@ -13,6 +13,12 @@ export default {
       },
       colors: {
         color__brand: "#A3238D",
+        brand__white: "#FFFF",
+        brand__cyan: "#007186",
+        bg__gray: "rgba(255, 255, 255, 0.3)",
+      },
+      padding: {
+        content__padding: "0 10px",
       },
       keyframes: {
         zoomIn: {
