@@ -25,7 +25,7 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full h-20 md:h-24 lg:h-28 fixed z-50 left-0 right-0 flex justify-between items-center ${
+      className={`w-full h-20 md:h-24 lg:h-28 fixed z-50 left-0 right-0 flex justify-between items-center duration-500 ${
         isHomePage ? "bg-transparent" : "bg-brand__cyan"
       }`}
     >

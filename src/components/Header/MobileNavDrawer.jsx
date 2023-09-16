@@ -19,7 +19,7 @@ const MobileNavDrawer = ({ isNavbarOpen, toggleNavbar }) => {
       size={250}
       className="block md:hidden"
     >
-      <div className="bg-brand__cyan h-full text-white">
+      <div className="bg-brand__cyan h-full text-brand__white">
         <Logo className="mt-0 px-4 py-4 border-b border-gray-400" />
         {isNavbarOpen && (
           <ul className="flex flex-col duration-200">

@@ -49,10 +49,12 @@ export default {
         "2xl": "1536px",
       },
       colors: {
-        brand__white: "#FFFF",
+        brand__white: "#FAF7F5",
         brand__cyan: "#007186",
         brand__light__cyan: "#08787F",
         bg__gray: "rgba(255, 255, 255, 0.3)",
+        brand__bg__hover: "#EEEEEE",
+        brand__gray__border: "#9ca3af",
       },
       padding: {
         content__padding: "0 10px",
@@ -60,17 +62,14 @@ export default {
       keyframes: {
         zoomIn: {
           "0%": {
-            opacity: "0",
             filter: "blur(20px)",
             transform: "translateX(50%) scaleX(3)",
           },
           "5%": {
-            opacity: "1",
             filter: "blur(0px)",
             transform: "translateX(0) scaleX(1)",
           },
           "100%": {
-            opacity: "0.6",
             transform: "scale(1.5, 1.5)",
           },
         },

@@ -5,7 +5,7 @@ import Dropdown from "./Dropdown";
 
 const PcNavigation = () => {
   return (
-    <div className="border hidden md:block border-gray-400 rounded-full backdrop-filter backdrop-blur-md">
+    <div className="border hidden md:block border-brand__gray__border rounded-full backdrop-filter backdrop-blur-lg">
       <ul className="flex items-center px-1 lg:px-2 xl:px-4 py-0.5 xl:py-1 duration-200">
         {navItems.map(({ title, route }) => (
           <li

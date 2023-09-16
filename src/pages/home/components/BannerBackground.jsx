@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 const images = [
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694844180/banner2_bjcpws.jpg",
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694844179/banner1_oelhre.jpg",
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694844179/banner3_jqodji.jpg",
+  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694892824/mamun-srizon-qay3lNDSHzc-unsplash_uzw9gp.jpg",
+  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694894595/chetan-kolte-E43T1qjXtQM-unsplash_evha43.jpg",
+  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694900390/Best-Hill-Stations-to-Explore-in-India_vsnrx3.jpg",
 ];
 
 const BannerBackground = () => {

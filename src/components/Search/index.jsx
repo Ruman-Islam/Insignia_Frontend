@@ -1,4 +1,6 @@
 import { GrSearch } from "react-icons/gr";
+import { GrLocation } from "react-icons/gr";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Button from "../UI/Button";
 import Autosuggest from "react-autosuggest";
 import { useState } from "react";
@@ -11,27 +13,26 @@ const theme = {
     outline: "0",
     padding: "0 6px",
     fontSize: "15px",
+    backgroundColor: "#FAF7F5",
   },
   suggestionsContainerOpen: {
     position: "absolute",
     top: "48px",
     left: "0",
     right: "0",
-    maxHeight: "400px",
-    overflowX: "hidden",
+    maxHeight: "300px",
     overflowY: "auto",
-    backgroundColor: "white",
+    backgroundColor: "#FAF7F5",
     borderRadius: "12px",
-    padding: '5px 0'
+    padding: "20px 0",
   },
   suggestion: {
     cursor: "pointer",
-    padding: "10px 25px",
-    margin: "5px 0",
+    padding: "10px 20px",
     fontSize: "15px",
   },
   suggestionHighlighted: {
-    backgroundColor: "rgb(229 231 235)",
+    backgroundColor: "#EEEEEE",
   },
 };
 
@@ -39,6 +40,7 @@ const Search = () => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getSuggestionValue = (suggestion) => {
     console.log("getSuggestionValue .... ", suggestion);
@@ -47,13 +49,28 @@ const Search = () => {
   };
 
   const renderSuggestion = (suggestion) => {
-    return <span>{suggestion.title}</span>;
+    return (
+      <div>
+        <div className="flex items-center gap-x-2">
+          <div className="border flex justify-center items-center w-9 h-9 rounded-full shadow-sm">
+            <GrLocation size={20} />
+          </div>
+          <div className="pl-1">
+            <p>{suggestion.title}</p>
+            <small className="block">Chittagong Division, Bangladesh</small>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   const onSuggestionsFetchRequested = ({ value }) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
+
+    setLoading(true);
     if (inputLength === 0) {
+      setLoading(false);
       setSuggestions([]);
     } else {
       const url = `https://boighor-server.vercel.app/api/v1/book/search?char=${value}`;
@@ -61,6 +78,11 @@ const Search = () => {
         .then((res) => res.json())
         .then((data) => {
           setSuggestions(data.result);
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching suggestions:", error);
+          setLoading(false);
         });
     }
   };
@@ -85,10 +107,14 @@ const Search = () => {
   };
 
   return (
-    <div className="max-w-[850px] mr-auto w-full relative mb-6 md:mb-0">
-      <div className="relative w-full rounded-full border-2 border-brand__cyan bg-white flex items-center justify-center">
+    <div className="max-w-[650px] md:max-w-[755px] lg:max-w-[925px] mr-auto w-full relative mb-6 md:mb-0">
+      <div className="relative w-full rounded-full border-2 border-brand__cyan bg-[#FAF7F5] flex items-center justify-center">
         <div className="p-3 border-r">
-          <GrSearch size={20} />
+          {loading ? (
+            <AiOutlineLoading3Quarters className="animate-spin" size={22} />
+          ) : (
+            <GrSearch size={22} />
+          )}
         </div>
         <div className="w-full">
           <Autosuggest
@@ -102,7 +128,7 @@ const Search = () => {
           />
         </div>
         <div>
-          <Button className="bg-brand__cyan hover:bg-brand__light__cyan duration-300 rounded-full py-2 px-4 mr-0.5 text-white">
+          <Button className="bg-brand__cyan hover:bg-brand__light__cyan duration-300 rounded-full py-2 px-4 mr-0.5 text-brand__white">
             Search
           </Button>
         </div>

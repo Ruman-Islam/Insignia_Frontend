@@ -29,35 +29,35 @@ const Modal = ({ isModalOpen, toggleModal }) => {
           <ImCross size={24} />
         </Button>
         <img src={brand___logo} alt="" />
-        <p className="mb-12 text-lg text-white ">
+        <p className="mb-12 text-lg text-brand__white ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
           optio? Lorem ipsum dolor sit amet consectetur adipisicing elit.
           Cumque, optio?
         </p>
         <div>
-          <h3 className="text-2xl text-white font-semibold tracking-wider mb-8">
+          <h3 className="text-2xl text-brand__white font-semibold tracking-wider mb-8">
             Contacts
           </h3>
           <div className="flex items-center gap-x-3 mb-3">
-            <MdOutlineLocationOn size={22} className="text-white" />
-            <p className="text-sm font-semibold text-white tracking-wider">
+            <MdOutlineLocationOn size={22} className="text-brand__white" />
+            <p className="text-sm font-semibold text-brand__white tracking-wider">
               Random Location, 51/3. Dhaka
             </p>
           </div>
           <div className="flex items-center gap-x-3 mb-3">
-            <AiOutlineMail size={22} className="text-white" />
-            <p className="text-sm font-semibold text-white tracking-wider">
+            <AiOutlineMail size={22} className="text-brand__white" />
+            <p className="text-sm font-semibold text-brand__white tracking-wider">
               example@gmail.com
             </p>
           </div>
           <div className="flex items-center gap-x-3 mb-3">
-            <BsPhone size={22} className="text-white" />
-            <p className="text-sm font-semibold text-white tracking-wider">
+            <BsPhone size={22} className="text-brand__white" />
+            <p className="text-sm font-semibold text-brand__white tracking-wider">
               01758947856
             </p>
           </div>
         </div>
-        <div className="text-white flex flex-col items-end gap-5">
+        <div className="text-brand__white flex flex-col items-end gap-5">
           {bannerSocialIcons.map(({ Icon, url }) => (
             <Link
               key={url}
