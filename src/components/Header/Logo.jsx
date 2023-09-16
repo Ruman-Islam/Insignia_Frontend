@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import brand___logo from "../../assets/images/brand/brand_logo.png";
 
-const Logo = () => {
+const Logo = ({className}) => {
   return (
-    <div className="mt-2">
+    <div className={className}>
       <Link to={"/"}>
         <img
           src={brand___logo}

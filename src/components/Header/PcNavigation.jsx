@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { navItems } from "../../constants/navigation";
 import { BsChevronDown } from "react-icons/bs";
-import Dropdown from "../Dropdown";
+import Dropdown from "./Dropdown";
 
 const PcNavigation = () => {
   return (

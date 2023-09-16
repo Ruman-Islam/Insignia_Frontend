@@ -1,30 +1,49 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
-import MobileNavigation from "./MobileNavigation";
+import MobileNavDrawer from "./MobileNavDrawer";
+import Modal from "./Modal";
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setIsNavbarOpen(!isNavbarOpen);
+    setIsNavbarOpen((prevState) => !prevState);
+  };
+  const toggleModal = () => {
+    setIsModalOpen((prevState) => !prevState);
   };
 
+  useEffect(() => {
+    setIsNavbarOpen(false);
+  }, []);
+
   return (
-    <header className="w-full relative">
-      <div
-        className={`max-w-screen-xl m-auto fixed left-0 right-0 w-full z-50  text-brand__white p-content__padding ${
-          isNavbarOpen &&
-          "backdrop-filter md:backdrop-filter-none backdrop-blur-md md:backdrop-blur-none"
-        }`}
-      >
-        <div className="flex justify-between items-center h-20 md:h-28">
-          <Logo />
+    <header
+      className={`w-full h-20 md:h-24 lg:h-28 fixed z-50 left-0 right-0 flex justify-between items-center ${
+        isHomePage ? "bg-transparent" : "bg-brand__cyan"
+      }`}
+    >
+      <div className="max-w-screen-xl m-auto w-full z-50 text-brand__white p-content__padding">
+        <div className="flex justify-between items-center">
+          <Logo className="mt-2" />
           <PcNavigation />
-          <ToggleButton toggleNavbar={toggleNavbar} />
+          <ToggleButton
+            toggleNavbar={toggleNavbar}
+            toggleModal={toggleModal}
+            isModalOpen={isModalOpen}
+          />
         </div>
-        <MobileNavigation isNavbarOpen={isNavbarOpen} />
+        <MobileNavDrawer
+          isNavbarOpen={isNavbarOpen}
+          toggleNavbar={toggleNavbar}
+        />
+        <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} />
       </div>
     </header>
   );

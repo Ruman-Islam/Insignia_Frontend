@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 import PrivateRoute from "./auth/PrivateRoute";
-import Layout from "./layout/Layout";
 import ProfileScreen from "./pages/profile";
 import { publicRoutes } from "./routes/publicRoutes";
 import { privateRoutes } from "./routes/privateRoutes";
+import NotFoundScreen from "./pages/not-found";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <Layout>
+    <>
+      <Header />
       <Routes>
         {publicRoutes.map(({ path, name, Component }) => (
           <Route key={name} path={path} element={<Component />} />
@@ -25,8 +27,10 @@ function App() {
             ))}
           </Route>
         </Route>
+        <Route path="*" element={<NotFoundScreen />} />
       </Routes>
-    </Layout>
+      {/* <Footer /> */}
+    </>
   );
 }
 

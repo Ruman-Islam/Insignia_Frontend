@@ -1,13 +1,17 @@
 /* eslint-disable react/prop-types */
-import Button from "../Button";
+import Button from "../UI/Button";
 import { FaBars } from "react-icons/fa";
 
-const ToggleButton = ({ toggleNavbar }) => {
+const ToggleButton = ({ toggleNavbar, toggleModal }) => {
   return (
     <>
-      <Button className="mt-1.5 hidden md:block">
+      <Button
+        onClick={toggleModal}
+        className="mt-1.5 hidden md:block relative z-[100]"
+      >
         <FaBars size={24} />
       </Button>
+
       <Button onClick={toggleNavbar} className="mt-1.5 block md:hidden">
         <FaBars size={24} />
       </Button>

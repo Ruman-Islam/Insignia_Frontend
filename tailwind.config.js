@@ -3,6 +3,43 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: [
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          '"Segoe UI"',
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          '"Noto Sans"',
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+        serif: [
+          "ui-serif",
+          "Georgia",
+          "Cambria",
+          '"Times New Roman"',
+          "Times",
+          "serif",
+        ],
+        mono: [
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Monaco",
+          "Consolas",
+          '"Liberation Mono"',
+          '"Courier New"',
+          "monospace",
+        ],
+        saira: ["Saira"],
+      },
       screens: {
         xs: "300px",
         sm: "640px",
@@ -12,9 +49,9 @@ export default {
         "2xl": "1536px",
       },
       colors: {
-        color__brand: "#A3238D",
         brand__white: "#FFFF",
         brand__cyan: "#007186",
+        brand__light__cyan: "#08787F",
         bg__gray: "rgba(255, 255, 255, 0.3)",
       },
       padding: {
@@ -40,6 +77,9 @@ export default {
       },
       animation: {
         zoom__in: "zoomIn 15s linear infinite",
+      },
+      backgroundImage: {
+        not__found: "url('../src/assets/svg/image-error-404.f7a6f4a6.svg')",
       },
     },
   },
