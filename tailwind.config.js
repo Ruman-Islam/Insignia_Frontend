@@ -56,6 +56,11 @@ export default {
         brand__bg__hover: "#EEEEEE",
         brand__gray__border: "#9ca3af",
       },
+      fontWeight: {
+        font__thin: "300",
+        font__semibold: "600",
+        font__bold: "700",
+      },
       padding: {
         content__padding: "0 10px",
       },

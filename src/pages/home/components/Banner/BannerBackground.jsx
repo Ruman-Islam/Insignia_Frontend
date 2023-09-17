@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-
-const images = [
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694892824/mamun-srizon-qay3lNDSHzc-unsplash_uzw9gp.jpg",
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694894595/chetan-kolte-E43T1qjXtQM-unsplash_evha43.jpg",
-  "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694900390/Best-Hill-Stations-to-Explore-in-India_vsnrx3.jpg",
-];
+import { bannerImages } from "../../../../constants/common";
 
 const BannerBackground = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideLength = images.length;
+  const slideLength = bannerImages.length;
   const autoZoom = true;
   let slideInterval;
   let intervalTime = 15000;
@@ -40,7 +35,7 @@ const BannerBackground = () => {
   return (
     <div className="h-full overflow-hidden">
       <div className="w-full h-full bg-center opacity-[0.6]">
-        {images.map((img, index) => {
+        {bannerImages.map((img, index) => {
           return (
             <div key={index}>
               {index === currentSlide && (

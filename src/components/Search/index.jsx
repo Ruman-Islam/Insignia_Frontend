@@ -19,6 +19,7 @@ const theme = {
     position: "absolute",
     top: "48px",
     left: "0",
+    zIndex: '999',
     right: "0",
     maxHeight: "300px",
     overflowY: "auto",

@@ -4,8 +4,8 @@ import { dropdownNavItems } from "../../constants/navigation";
 
 const Dropdown = () => {
   return (
-    <div className="absolute before:absolute before:w-full before:h-full before:-top-4 hidden group-hover:block top-10 lg:top-12 left-4 w-[200px] mt-2 -ml-2 bg-brand__white text-black font-semibold rounded-md py-2 shadow-md">
-      <div className="bg-brand__white relative z-10">
+    <div className="absolute before:absolute before:w-full before:h-full before:-top-4 hidden group-hover:block top-10 lg:top-12 left-4 w-[200px] mt-2 -ml-2 bg-white text-black font-semibold rounded-md py-2 shadow-md">
+      <div className="bg-white relative z-10">
         {dropdownNavItems.map(({ title, route }) => (
           <Link
             key={title}

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { bannerSocialIcons } from "../../../constants/bannerSocialIcons";
+import { bannerSocialIcons } from "../../../../constants/bannerSocialIcons";
 
 const BannerContent = () => {
   return (
     <div className="w-full text-brand__white mb-0 md:mb-10">
       <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="basis-5/7 backdrop-filter backdrop-blur-lg py-4 p-content__padding rounded-md">
+        <div className="basis-5/7 backdrop-filter backdrop-blur-lg py-8 p-content__padding rounded-md">
           <h1 className="text-5xl xl:text-6xl font-semibold">
             Explore your journey with us
           </h1>

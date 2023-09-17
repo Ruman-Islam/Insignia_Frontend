@@ -1,6 +1,7 @@
 // import { lazy, Suspense } from "react";
 import Banner from "./components/Banner";
 import { Helmet } from "react-helmet";
+import Foreigner from "./components/Foreigner";
 
 // const Banner = lazy(() => import("./components/Banner"));
 
@@ -17,6 +18,8 @@ const HomeScreen = () => {
       </Suspense> */}
 
       <Banner />
+
+      <Foreigner />
     </>
   );
 };
