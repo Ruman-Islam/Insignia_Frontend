@@ -67,20 +67,20 @@ export default {
       keyframes: {
         zoomIn: {
           "0%": {
-            filter: "blur(20px)",
-            transform: "translateX(50%) scaleX(3)",
-          },
-          "5%": {
             filter: "blur(0px)",
-            transform: "translateX(0) scaleX(1)",
+            transform: "scaleX(1)",
+          },
+          "97%": {
+            filter: "blur(0px)",
           },
           "100%": {
-            transform: "scale(1.5, 1.5)",
+            filter: "blur(20px)",
+            transform: "scale(1.5)",
           },
         },
       },
       animation: {
-        zoom__in: "zoomIn 15s linear infinite",
+        zoom__in: "zoomIn 10s linear infinite",
       },
       backgroundImage: {
         not__found: "url('../src/assets/svg/image-error-404.f7a6f4a6.svg')",

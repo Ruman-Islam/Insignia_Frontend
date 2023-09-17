@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { bannerImages } from "../../../../constants/common";
+import Image from "../../../../components/UI/Image";
 
 const BannerBackground = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideLength = bannerImages.length;
   const autoZoom = true;
   let slideInterval;
-  let intervalTime = 15000;
+  let intervalTime = 10000;
 
   const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
@@ -39,7 +40,7 @@ const BannerBackground = () => {
           return (
             <div key={index}>
               {index === currentSlide && (
-                <img
+                <Image
                   className="animate-zoom__in object-cover w-full h-[100vh]"
                   src={img}
                   alt="Banner"

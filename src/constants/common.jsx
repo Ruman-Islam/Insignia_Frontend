@@ -78,3 +78,26 @@ export const foreignerPackages = [
     location: "Cox's Bazar",
   },
 ];
+
+export const windowImages = [
+  {
+    text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
+    imageUrl:
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694944427/IMG_20180915_172458-3456x2592_xmeqvv.jpg",
+  },
+  {
+    text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>INDIA</span>",
+    imageUrl:
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957304/D14559D2-A3CD-4803-B3C0A72EB88AF9C8_lu0zxu.avif",
+  },
+  {
+    text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>NEPAL</span>",
+    imageUrl:
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957447/546508_jpc1zz.jpg",
+  },
+  {
+    text: "<span class='text-sm mb-2 font-font__bold'>FOREIGNERS</span><span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
+    imageUrl:
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957847/6170678_bgzyjb.jpg",
+  },
+];

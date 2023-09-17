@@ -1,4 +1,5 @@
 import Button from "../UI/Button";
+import Image from "../UI/Image";
 
 /* eslint-disable react/prop-types */
 const Card = ({ pkg }) => {
@@ -11,7 +12,7 @@ const Card = ({ pkg }) => {
         <div className="absolute inset-0 bg-black opacity-40 group-hover:opacity-0 transition-opacity duration-700"></div>
 
         {/* Image */}
-        <img className="w-full h-full object-cover" src={image} alt="" />
+        <Image className="w-full h-full object-cover" src={image} alt="" />
       </div>
       {/* Content */}
       <div className="absolute bottom-2 translate-y-0 group-hover:-translate-y-[500px] group-hover:opacity-0 duration-700 w-full p-2">

@@ -9,6 +9,7 @@ import { bannerSocialIcons } from "../../constants/bannerSocialIcons";
 import { Link } from "react-router-dom";
 import Button from "../UI/Button";
 import { ImCross } from "react-icons/im";
+import Image from "../UI/Image";
 
 // eslint-disable-next-line react/prop-types
 const Modal = ({ isModalOpen, toggleModal }) => {
@@ -28,7 +29,8 @@ const Modal = ({ isModalOpen, toggleModal }) => {
         <Button onClick={toggleModal} className="absolute top-0 -left-10 p-2">
           <ImCross size={24} />
         </Button>
-        <img src={brand___logo} alt="" />
+
+        <Image src={brand___logo} alt="" />
         <p className="mb-12 text-lg text-brand__white ">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque,
           optio? Lorem ipsum dolor sit amet consectetur adipisicing elit.
