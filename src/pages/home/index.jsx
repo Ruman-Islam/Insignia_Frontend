@@ -3,6 +3,9 @@ import Banner from "./components/Banner";
 import { Helmet } from "react-helmet";
 import Foreigner from "./components/Foreigner";
 import Window from "./components/Window";
+import PopularDestination from "./components/PopularDestination";
+import VideoGallery from "./components/VideoGallery";
+import Faq from "./components/FAQ";
 
 // const Banner = lazy(() => import("./components/Banner"));
 
@@ -23,6 +26,23 @@ const HomeScreen = () => {
       <Foreigner />
 
       <Window />
+
+      <PopularDestination />
+
+      <VideoGallery />
+
+      <Faq />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </>
   );
 };

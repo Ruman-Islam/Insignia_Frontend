@@ -1,39 +1,44 @@
 /* eslint-disable react/prop-types */
 
-const Input = (props) => {
+const TextArea = (props) => {
   // without handler
-  let input = (
-    <input
+  let textarea = (
+    <textarea
       type={props?.type}
       name={props?.name}
+      cols={props?.cols}
+      rows={props?.rows}
+      value={props?.value}
       disabled={props?.disabled}
       className={props?.className}
       style={props?.style}
-      value={props?.value}
       placeholder={props?.placeholder}
     >
       {props?.children}
-    </input>
+    </textarea>
   );
 
   // with handler
   if (props.onClick) {
-    input = (
-      <input
+    textarea = (
+      <textarea
         type={props?.type}
         name={props?.name}
-        className={props?.className}
-        onClick={props?.onClick}
+        cols={props?.cols}
+        rows={props?.rows}
         value={props?.value}
-        style={props?.style}
+        onClick={props?.onClick}
         disabled={props?.disabled}
+        className={props?.className}
+        style={props?.style}
         placeholder={props?.placeholder}
       >
         {props?.children}
-      </input>
+      </textarea>
     );
   }
-  return input;
+
+  return textarea;
 };
 
-export default Input;
+export default TextArea;

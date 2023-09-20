@@ -12,16 +12,16 @@ const theme = {
     border: "0",
     outline: "0",
     padding: "0 6px",
-    fontSize: "15px",
+    fontSize: "16px",
     backgroundColor: "#FAF7F5",
   },
   suggestionsContainerOpen: {
     position: "absolute",
     top: "48px",
     left: "0",
-    zIndex: '999',
+    zIndex: "999",
     right: "0",
-    maxHeight: "300px",
+    maxHeight: "250px",
     overflowY: "auto",
     backgroundColor: "#FAF7F5",
     borderRadius: "12px",
@@ -108,8 +108,8 @@ const Search = () => {
   };
 
   return (
-    <div className="max-w-[650px] md:max-w-[755px] lg:max-w-[925px] mr-auto w-full relative mb-6 md:mb-0">
-      <div className="relative w-full rounded-full border-2 border-brand__cyan bg-[#FAF7F5] flex items-center justify-center">
+    <div className="max-w-[600px] ml-auto w-full relative mb-6 md:mb-0">
+      <div className="relative w-full rounded-full border border-brand__cyan bg-brand__white flex items-center justify-center">
         <div className="p-3 border-r">
           {loading ? (
             <AiOutlineLoading3Quarters className="animate-spin" size={22} />

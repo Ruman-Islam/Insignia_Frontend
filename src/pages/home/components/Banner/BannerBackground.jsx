@@ -1,54 +1,61 @@
 import { useEffect, useState } from "react";
 import { bannerImages } from "../../../../constants/common";
 import Image from "../../../../components/UI/Image";
+import {
+  BsFillArrowLeftCircleFill,
+  BsFillArrowRightCircleFill,
+} from "react-icons/bs";
 
 const BannerBackground = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const slideLength = bannerImages.length;
-  const autoZoom = true;
-  let slideInterval;
-  let intervalTime = 10000;
+  const [autoPlay] = useState(true);
+  let timeOut = null;
 
   const nextSlide = () => {
-    setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+    setCurrentSlide((prev) =>
+      prev === bannerImages.length - 1 ? 0 : prev + 1
+    );
   };
 
-  // const prevSlide = () => {
-  //   setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
-  // };
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  function auto() {
-    slideInterval = setInterval(nextSlide, intervalTime);
-  }
+  const prevSlide = () => {
+    setCurrentSlide((prev) =>
+      prev === 0 ? bannerImages.length - 1 : prev - 1
+    );
+  };
 
   useEffect(() => {
-    setCurrentSlide(0);
+    timeOut =
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      autoPlay &&
+      setInterval(() => {
+        nextSlide();
+      }, 15000);
+
+    return () => clearTimeout(timeOut);
   }, []);
 
-  useEffect(() => {
-    if (autoZoom) {
-      auto();
-    }
-    return () => clearInterval(slideInterval);
-  }, [auto, autoZoom, currentSlide, slideInterval]);
-
   return (
-    <div className="h-full overflow-hidden">
-      <div className="w-full h-full bg-center opacity-[0.6]">
-        {bannerImages.map((img, index) => {
-          return (
-            <div key={index}>
-              {index === currentSlide && (
-                <Image
-                  className="animate-zoom__in object-cover w-full h-[100vh]"
-                  src={img}
-                  alt="Banner"
-                />
-              )}
-            </div>
-          );
-        })}
+    <div className="h-full">
+      {bannerImages.map((image, index) => {
+        return (
+          <div
+            key={index}
+            className={`w-full h-full absolute before:absolute before:top-0 before:w-full before:h-full before:bg-black before:opacity-[0.5] ${
+              index == currentSlide ? "animate-zoom__in" : "opacity-0"
+            }`}
+          >
+            <Image className="w-full h-full object-cover" src={image} alt="" />
+          </div>
+        );
+      })}
+
+      <div className="absolute z-10 bottom-0 left-0 right-0 mx-auto flex h-fit w-fit gap-x-5 mb-5">
+        <div className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
+          <BsFillArrowLeftCircleFill onClick={prevSlide} />
+        </div>
+        <div className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
+          <BsFillArrowRightCircleFill onClick={nextSlide} />
+        </div>
       </div>
     </div>
   );

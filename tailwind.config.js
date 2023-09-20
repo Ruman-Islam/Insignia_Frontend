@@ -3,42 +3,24 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontSize: {
+        brand__font__size__xs: "12px",
+        brand__font__size__sm: "14px",
+        brand__font__size__base: "16px",
+        brand__font__size__md: "20px",
+        brand__font__size__lg: "24px",
+        brand__font__size__xl: "52px",
+        brand__font__size__2xl: "74px",
+      },
       fontFamily: {
-        sans: [
-          "ui-sans-serif",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          '"Segoe UI"',
-          "Roboto",
-          "Helvetica Neue",
-          "Arial",
-          '"Noto Sans"',
-          "sans-serif",
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
-          "Noto Color Emoji",
-        ],
-        serif: [
-          "ui-serif",
-          "Georgia",
-          "Cambria",
-          '"Times New Roman"',
-          "Times",
-          "serif",
-        ],
-        mono: [
-          "ui-monospace",
-          "SFMono-Regular",
-          "Menlo",
-          "Monaco",
-          "Consolas",
-          '"Liberation Mono"',
-          '"Courier New"',
-          "monospace",
-        ],
-        saira: ["Saira"],
+        brand__font__family__fancy: "El Messiri",
+        brand__font__family__regular: "Karla",
+      },
+      fontWeight: {
+        brand__font__light: "300",
+        brand__font__regular: "400",
+        brand__font__semibold: "600",
+        brand__font__bold: "700",
       },
       screens: {
         xs: "300px",
@@ -52,14 +34,11 @@ export default {
         brand__white: "#FAF7F5",
         brand__cyan: "#007186",
         brand__light__cyan: "#08787F",
+        brand__warm__white: "#FFFAED",
+        brand__sky__blue: "#D1E4F5",
         bg__gray: "rgba(255, 255, 255, 0.3)",
         brand__bg__hover: "#EEEEEE",
-        brand__gray__border: "#9ca3af",
-      },
-      fontWeight: {
-        font__thin: "300",
-        font__semibold: "600",
-        font__bold: "700",
+        brand__gray__border: "#ffffff4d",
       },
       padding: {
         content__padding: "0 10px",
@@ -67,10 +46,9 @@ export default {
       keyframes: {
         zoomIn: {
           "0%": {
-            filter: "blur(0px)",
-            transform: "scaleX(1)",
+            transform: "scale(1)",
           },
-          "97%": {
+          "95%": {
             filter: "blur(0px)",
           },
           "100%": {
@@ -80,10 +58,18 @@ export default {
         },
       },
       animation: {
-        zoom__in: "zoomIn 10s linear infinite",
+        zoom__in: "zoomIn 15s linear 1",
       },
       backgroundImage: {
         not__found: "url('../src/assets/svg/image-error-404.f7a6f4a6.svg')",
+        landing__masking__title:
+          "url('../src/assets/images/masking/text__clipping.jpg')",
+        foreigner__background:
+          "url('../src/assets/images/background/foreigner__bg.jpg')",
+        popular__destination__background:
+          "url('../src/assets/images/background/13237371_BG-6.jpg')",
+        faq__background:
+          "url('../src/assets/images/background/faq__bg.webp')",
       },
     },
   },

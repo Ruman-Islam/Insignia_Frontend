@@ -14,21 +14,21 @@ const Window = () => {
   };
 
   return (
-    <section className="w-full h-[90vh] relative">
+    <section className="w-full h-screen relative">
       <div
-        className={`bg-cover bg-center w-full h-full`}
+        className={`bg-cover bg-center bg-no-repeat w-full h-full`}
         style={{
           backgroundImage: `url(${backgroundImage})`,
           transition: "background-image 0.3s ease",
         }}
       ></div>
-      <div className="absolute top-0 bottom-0 left-0 right-0 mx-auto w-full grid grid-cols-2 md:grid-cols-4">
+      <div className="absolute top-0 bottom-0 left-0 right-0 mx-auto w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {windowImages.map((item, index) => {
           return (
             <div
               onMouseEnter={() => changeBackGround(item)}
               className={`relative overflow-hidden flex-1 flex flex-col h-full group text-brand__white ${
-                index !== 3 ? "border-r" : "border-r-0"
+                index !== 4 ? "border-r" : "border-r-0"
               } border-brand__gray__border`}
               key={item.text}
             >

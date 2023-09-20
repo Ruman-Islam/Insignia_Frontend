@@ -5,10 +5,12 @@ import { publicRoutes } from "./routes/publicRoutes";
 import { privateRoutes } from "./routes/privateRoutes";
 import NotFoundScreen from "./pages/not-found";
 import Header from "./components/Header";
+import ScrollToTop from "./hooks/UseAutoScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <Routes>
         {publicRoutes.map(({ path, name, Component }) => (
