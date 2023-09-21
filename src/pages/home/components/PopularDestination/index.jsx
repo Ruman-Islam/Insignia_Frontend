@@ -15,10 +15,10 @@ const PopularDestination = () => {
     <section className="pt-5">
       <div className="max-w-screen-xl mx-auto p-content__padding">
         <div className="md:py-10 w-full mb-4">
-          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">
+          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight border-b border-brand__cyan pr-3 w-fit">
             Popular Destination
           </h2>
-          <h3 className="text-brand__font__size__md">
+          <h3 className="text-brand__font__size__md mt-2">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
             cupiditate architecto perferendis officia voluptas, dicta corrupti
             amet ullam doloremque iure!

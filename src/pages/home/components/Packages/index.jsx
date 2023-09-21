@@ -3,13 +3,13 @@ import PackagesSection from "./PackagesSection";
 
 const Packages = () => {
   return (
-    <section className="bg-[#F0F0F0] pb-20 border-t-2">
+    <section className="] pb-20 border-t">
       <div className="max-w-screen-xl mx-auto p-content__padding">
         <div className="py-5 lg:py-10 w-full mb-4 text-right">
-          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">
+          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight border-b border-brand__cyan pl-3 w-fit ms-auto">
             Checkout Our Packages
           </h2>
-          <h3 className="text-brand__font__size__md">
+          <h3 className="text-brand__font__size__md mt-2">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
             cupiditate architecto perferendis officia voluptas, dicta corrupti
             amet ullam doloremque iure!

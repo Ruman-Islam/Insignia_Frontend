@@ -36,22 +36,11 @@ const HomeScreen = () => {
 
       <Packages />
 
-      <Faq />
+      <Testimonial />
 
       <PhotoGallery />
 
-      <Testimonial />
-
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <Faq />
     </>
   );
 };

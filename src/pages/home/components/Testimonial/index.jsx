@@ -12,8 +12,8 @@ import { BsQuote } from "react-icons/bs";
 
 const Testimonial = () => {
   return (
-    <section className="my-10 py-0 lg:py-10 bg-brand__cyan relative bg-[url('https://sweetpickleswy.com/cdn/shop/files/review_section_backgroundArtboard_19.png?v=1654279099&width=1500')] bg-cover bg-center">
-      <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-50"></div>
+    <section className="py-0 lg:py-10 relative bg-[url('https://blog-frontend.envato.com/cdn-cgi/image/width=2400,quality=75,format=auto/uploads/sites/2/2021/03/TrendSpotlight-LineArt-Header.jpg')] bg-cover bg-center">
+      <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-70"></div>
       <div className="max-w-screen-xl mx-auto p-content__padding">
         <div className="py-10 w-full text-right text-white relative">
           <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">
@@ -57,7 +57,7 @@ const Testimonial = () => {
                   </p>
                 </div>
 
-                <div className="flex items-center border-t-2 pt-2">
+                <div className="flex items-center border-t pt-2">
                   {/* <Image
                 alt="testimonial"
                 src={item?.imageUrl}

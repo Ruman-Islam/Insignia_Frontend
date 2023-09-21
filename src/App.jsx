@@ -6,6 +6,7 @@ import { privateRoutes } from "./routes/privateRoutes";
 import NotFoundScreen from "./pages/not-found";
 import Header from "./components/Header";
 import ScrollToTop from "./hooks/UseAutoScrollToTop";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -31,7 +32,7 @@ function App() {
         </Route>
         <Route path="*" element={<NotFoundScreen />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
