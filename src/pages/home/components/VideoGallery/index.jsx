@@ -13,7 +13,7 @@ const VideoGallery = () => {
               className="rounded-3xl aspect-video w-full h-full"
               src={`${currentVideo}?controls=0&rel=0`}
               allow="autoplay"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
 
@@ -34,7 +34,7 @@ const VideoGallery = () => {
                     <iframe
                       className="rounded-xl aspect-video w-full h-full"
                       src={`${item}?controls=0&rel=0`}
-                      allowfullscreen
+                      allowFullScreen
                     ></iframe>
                   </div>
                 );
@@ -60,7 +60,7 @@ const VideoGallery = () => {
                   <iframe
                     className="rounded-xl aspect-video w-full h-full"
                     src={`${item}?controls=0&rel=0`}
-                    allowfullscreen
+                    allowFullScreen
                   ></iframe>
                 </div>
               );

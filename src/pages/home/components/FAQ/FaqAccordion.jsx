@@ -10,7 +10,7 @@ import { accordionData } from "../../../../constants/common";
 
 const FaqAccordion = () => {
   return (
-    <div className="max-w-[500px] w-full text-white">
+    <div className="max-w-[500px] w-full text-white relative">
       <h3 className="py-2 text-brand__font__size__xl font-brand__font__family__fancy">
         FAQ&rsquo;s
       </h3>

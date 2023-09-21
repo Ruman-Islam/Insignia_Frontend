@@ -83,27 +83,22 @@ export const windowImages = [
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
     imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695143043/pexels-ariful-haque-3560020_vymmoz.jpg",
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__foreignerBD_plaioq.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>INDIA</span>",
     imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957304/D14559D2-A3CD-4803-B3C0A72EB88AF9C8_lu0zxu.avif",
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304951/pexels-maahid-photos-3881104_shbpgi.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>NEPAL</span>",
     imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957447/546508_jpc1zz.jpg",
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__nepal_jtuwqb.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>FOREIGNERS</span><span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
     imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1694957847/6170678_bgzyjb.jpg",
-  },
-  {
-    text: "<span class='text-sm mb-2 font-font__bold'>TEST</span><span class='text-lg tracking-widest mb-2 font-font__bold'>PURPOSE</span>",
-    imageUrl:
-      "https://free4kwallpapers.com/uploads/originals/2021/07/21/road-in-iceland-wallpaper.jpg",
+      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__bangladesh_efkkk0.jpg",
   },
 ];
 
@@ -214,6 +209,12 @@ export const accordionData = [
   },
   {
     uuid: 4,
+    heading: "Is the meaning of life the same for animals and humans?",
+    content:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor veniam sint incididunt esse duis duis dolore sunt aute incididunt amet quis.",
+  },
+  {
+    uuid: 5,
     heading: "Is the meaning of life the same for animals and humans?",
     content:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor veniam sint incididunt esse duis duis dolore sunt aute incididunt amet quis.",

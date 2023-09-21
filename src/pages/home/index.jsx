@@ -1,16 +1,27 @@
-// import { lazy, Suspense } from "react";
-import Banner from "./components/Banner";
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet";
-import Foreigner from "./components/Foreigner";
-import Window from "./components/Window";
-import PopularDestination from "./components/PopularDestination";
-import VideoGallery from "./components/VideoGallery";
-import Faq from "./components/FAQ";
-import Packages from "./components/Packages";
-import PhotoGallery from "./components/PhotoGallery";
-import Testimonial from "./components/Testimonial";
+import Spinner from "../../components/common/Spinner";
+import Banner from "./components/Banner";
+// import Foreigner from "./components/Foreigner";
+// import Window from "./components/Window";
+// import PopularDestination from "./components/PopularDestination";
+// import VideoGallery from "./components/VideoGallery";
+// import Faq from "./components/FAQ";
+// import Packages from "./components/Packages";
+// import PhotoGallery from "./components/PhotoGallery";
+// import Testimonial from "./components/Testimonial";
 
 // const Banner = lazy(() => import("./components/Banner"));
+const Foreigner = lazy(() => import("./components/Foreigner"));
+const Window = lazy(() => import("./components/Window"));
+const PopularDestination = lazy(() =>
+  import("./components/PopularDestination")
+);
+const VideoGallery = lazy(() => import("./components/VideoGallery"));
+const Faq = lazy(() => import("./components/FAQ"));
+const Packages = lazy(() => import("./components/Packages"));
+const PhotoGallery = lazy(() => import("./components/PhotoGallery"));
+const Testimonial = lazy(() => import("./components/Testimonial"));
 
 const HomeScreen = () => {
   return (
@@ -20,27 +31,83 @@ const HomeScreen = () => {
         <title>Insignia</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      {/* <Suspense fallback={<h1>Loading</h1>}>
+
+      {/* <Suspense fallback={<Spinner />}>
         <Banner />
       </Suspense> */}
-
       <Banner />
 
-      <Foreigner />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <Foreigner />
+      </Suspense>
+      {/* <Foreigner /> */}
 
-      <Window />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <Window />
+      </Suspense>
+      {/* <Window /> */}
 
-      <PopularDestination />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <PopularDestination />
+      </Suspense>
+      {/* <PopularDestination /> */}
 
-      <VideoGallery />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <VideoGallery />
+      </Suspense>
+      {/* <VideoGallery /> */}
 
-      <Packages />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <Packages />
+      </Suspense>
+      {/* <Packages /> */}
 
-      <Testimonial />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <Testimonial />
+      </Suspense>
+      {/* <Testimonial /> */}
 
-      <PhotoGallery />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <PhotoGallery />
+      </Suspense>
+      {/* <PhotoGallery /> */}
 
-      <Faq />
+      <Suspense
+        fallback={
+          <Spinner className="h-screen flex flex-col justify-center items-center" />
+        }
+      >
+        <Faq />
+      </Suspense>
+      {/* <Faq /> */}
     </>
   );
 };

@@ -68,8 +68,7 @@ export default {
           "url('../src/assets/images/background/foreigner__bg.jpg')",
         popular__destination__background:
           "url('../src/assets/images/background/13237371_BG-6.jpg')",
-        faq__background:
-          "url('../src/assets/images/background/faq__bg.webp')",
+        faq__background: "url('../src/assets/images/background/faq__bg.webp')",
       },
     },
   },

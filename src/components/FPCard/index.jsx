@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 import Image from "../UI/Image";
 
 /* eslint-disable react/prop-types */
-const Card = ({ pkg }) => {
+const FPCard = ({ pkg }) => {
   const { image, price, description, name, location } = pkg;
 
   return (
@@ -35,4 +35,4 @@ const Card = ({ pkg }) => {
   );
 };
 
-export default Card;
+export default FPCard;

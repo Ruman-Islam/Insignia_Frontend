@@ -1,4 +1,4 @@
-import ForeignerPackageCard from "../../../../components/ForeignerPackageCard";
+import FPCard from "../../../../components/FPCard";
 import Button from "../../../../components/UI/Button";
 import { foreignerPackages } from "../../../../constants/common";
 import UseNavbar from "../../../../hooks/UseNavbar";
@@ -21,8 +21,8 @@ const Foreigner = () => {
         <div className={`duration-300 ${navbar ? "pt-20 md:pt-28" : "pt-0"}`}>
           <div className="p-content__padding max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {foreignerPackages?.slice(0, 4)?.map((pkg) => (
-                <ForeignerPackageCard key={pkg.id} pkg={pkg} />
+              {foreignerPackages?.slice(0, 4)?.map((pkg, index) => (
+                <FPCard key={index} pkg={pkg} />
               ))}
             </div>
 

@@ -6,9 +6,9 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import Image from "../../../../components/UI/Image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import PDCard from "../../../../components/PDCard";
 
 const PopularDestination = () => {
   return (
@@ -43,41 +43,8 @@ const PopularDestination = () => {
           }
           responsive={popularDesignationCarouselResponsive}
         >
-          {popularDestination?.map((card, index) => (
-            <div
-              key={index}
-              className="max-w-[300px] h-[450px] rounded-2xl overflow-hidden m-2 relative card__inner__shadow bg-center bg-cover bg-no-repeat cursor-pointer"
-              style={{ backgroundImage: `url(${card?.backgroundImage})` }}
-            >
-              {/* <div className="w-full h-full shadow__class">
-                <Image src={card?.backgroundUrl} className="w-full h-full shadow__class" />
-              </div> */}
-              <div className="max-w-[250px] w-full mx-auto flex justify-between items-center p-2 text-white absolute left-0 right-0 bottom-5 backdrop-blur-3xl border border-brand__gray__border rounded-xl">
-                <div className="flex flex-col justify-between items-start">
-                  <div className="flex items-center gap-x-1 mb-1">
-                    <Image
-                      className="w-7 h-7 rounded-full"
-                      src={card?.imageUrl}
-                      alt="Flag"
-                    />{" "}
-                    <p className="font-brand__font__family__fancy mt-1.5">
-                      {card?.country}
-                    </p>
-                  </div>
-                  <p className="text-brand__font__size__sm font-brand__font__semibold">
-                    {card?.destination.length > 26
-                      ? card?.destination.slice(0, 24) + ".."
-                      : card?.destination}
-                  </p>
-                </div>
-                <div>
-                  <p className="text-brand__font__size__xs">Start From</p>
-                  <p className="text-base font-bold text-end">
-                    $<span>{card.price}</span>
-                  </p>
-                </div>
-              </div>
-            </div>
+          {popularDestination?.map((item, index) => (
+            <PDCard key={index} data={item} />
           ))}
         </Carousel>
       </div>

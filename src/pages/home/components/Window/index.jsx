@@ -3,11 +3,9 @@ import { windowImages } from "../../../../constants/common";
 import Button from "../../../../components/UI/Button";
 
 const Window = () => {
-  const initialBackgroundImage = windowImages[0]?.imageUrl;
   const [backgroundImage, setBackgroundImage] = useState(
-    initialBackgroundImage
+    windowImages[0]?.imageUrl
   );
-  //   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const changeBackGround = (item) => {
     setBackgroundImage(item?.imageUrl);
@@ -16,19 +14,18 @@ const Window = () => {
   return (
     <section className="w-full h-screen relative">
       <div
-        className={`bg-cover bg-center bg-no-repeat w-full h-full`}
+        className={`bg-cover bg-center bg-no-repeat w-full h-full transition-all`}
         style={{
           backgroundImage: `url(${backgroundImage})`,
-          transition: "background-image 0.3s ease",
         }}
       ></div>
-      <div className="absolute top-0 bottom-0 left-0 right-0 mx-auto w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+      <div className="absolute top-0 bottom-0 left-0 right-0 mx-auto w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {windowImages.map((item, index) => {
           return (
             <div
               onMouseEnter={() => changeBackGround(item)}
               className={`relative overflow-hidden flex-1 flex flex-col h-full group text-brand__white ${
-                index !== 4 ? "border-r" : "border-r-0"
+                index !== 3 ? "border-r" : "border-r-0"
               } border-brand__gray__border`}
               key={item.text}
             >
