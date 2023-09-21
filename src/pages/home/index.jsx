@@ -6,6 +6,9 @@ import Window from "./components/Window";
 import PopularDestination from "./components/PopularDestination";
 import VideoGallery from "./components/VideoGallery";
 import Faq from "./components/FAQ";
+import Packages from "./components/Packages";
+import PhotoGallery from "./components/PhotoGallery";
+import Testimonial from "./components/Testimonial";
 
 // const Banner = lazy(() => import("./components/Banner"));
 
@@ -31,7 +34,13 @@ const HomeScreen = () => {
 
       <VideoGallery />
 
+      <Packages />
+
       <Faq />
+
+      <PhotoGallery />
+
+      <Testimonial />
 
       <br />
       <br />

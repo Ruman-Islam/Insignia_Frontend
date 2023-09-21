@@ -21,7 +21,7 @@ const AskQuestion = () => {
             <Input
               type="text"
               placeholder="Your name"
-              className="w-full rounded py-3 px-4 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm"
+              className="w-full rounded py-3 pl-4 pr-9 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm"
             />
 
             <RiProfileLine className="absolute top-3 right-2" size={20} />
@@ -30,7 +30,7 @@ const AskQuestion = () => {
             <Input
               type="text"
               placeholder="Your phone or email"
-              className="w-full rounded py-3 px-4 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm"
+              className="w-full rounded py-3 pl-4 pr-9 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm"
             />
             <TfiEmail className="absolute top-3 right-2" size={18} />
           </div>
@@ -40,7 +40,7 @@ const AskQuestion = () => {
               type="text"
               rows="6"
               placeholder="Please write your question"
-              className="w-full rounded p-4 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm"
+              className="w-full rounded py-3 pl-4 pr-9 border-0 outline-none mb-2 placeholder:text-brand__font__size__sm resize-none"
             />
             <BsCardText className="absolute top-3 right-2" size={20} />
           </div>

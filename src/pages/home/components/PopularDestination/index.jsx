@@ -12,10 +12,10 @@ import "react-multi-carousel/lib/styles.css";
 
 const PopularDestination = () => {
   return (
-    <section className="py-5">
+    <section className="pt-5">
       <div className="max-w-screen-xl mx-auto p-content__padding">
-        <div className="py-5 w-full mb-4">
-          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy">
+        <div className="md:py-10 w-full mb-4">
+          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">
             Popular Destination
           </h2>
           <h3 className="text-brand__font__size__md">

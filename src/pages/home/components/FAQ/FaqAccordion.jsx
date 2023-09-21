@@ -14,7 +14,7 @@ const FaqAccordion = () => {
       <h3 className="py-2 text-brand__font__size__xl font-brand__font__family__fancy">
         FAQ&rsquo;s
       </h3>
-      <div className="w-full bg-[#2F2F2F]">
+      <div className="w-full backdrop-blur-2xl">
         <Accordion preExpanded={[1]}>
           {accordionData.map((item) => (
             <AccordionItem uuid={item.uuid} key={item.uuid}>

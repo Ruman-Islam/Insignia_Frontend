@@ -18,3 +18,25 @@ body {
   -moz-box-shadow: inset 1px 0px 28px -16px rgba(0, 0, 0, 1);
   box-shadow: inset 1px 0px 28px -16px rgba(0, 0, 0, 1);
 }
+
+/* For Webkit browsers (e.g., Chrome, Safari) */
+.custom__scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom__scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.custom__scrollbar::-webkit-scrollbar-thumb {
+  background-color: #007186;
+}
+
+.custom__scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #08787f;
+}
+
+.custom__scrollbar::-webkit-scrollbar-track,
+.custom__scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}

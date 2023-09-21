@@ -220,6 +220,67 @@ export const accordionData = [
   },
 ];
 
+export const packagesData = [
+  {
+    country: "Bangladesh",
+    imageUrl:
+      "../../../../assets/images/banner/packages__thumbnails/thumb__2.jpg",
+    title: "Experience the great holiday at Bangladesh",
+    description:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
+    price: 750,
+    reviewCount: 27,
+    rating: 5,
+    color: "bg-[#618264]",
+  },
+  {
+    country: "India",
+    imageUrl: "",
+    title: "Experience the great holiday at India",
+    description:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
+    price: 750,
+    reviewCount: 21,
+    rating: 3.7,
+    color: "bg-[#007186]",
+  },
+  {
+    country: "Nepal",
+    imageUrl: "",
+    title: "Experience the great holiday at Nepal",
+    description:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
+    price: 750,
+    reviewCount: 16,
+    rating: 4,
+    color: "bg-[#EF6262]",
+  },
+  {
+    country: "Foreigner",
+    imageUrl: "",
+    title: "Experience the great holiday at Nepal",
+    description:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
+    price: 750,
+    reviewCount: 22,
+    rating: 5,
+    color: "bg-[#3085C3]",
+  },
+];
+
+export const photoGalleryData = [
+  "https://i.pinimg.com/564x/52/e3/11/52e31118968bfeb65d94e7edce065e0f.jpg",
+  "https://i.pinimg.com/564x/b9/e2/f5/b9e2f5c253c15baeda689f066a47e447.jpg",
+  "https://i.pinimg.com/564x/d4/54/90/d454902bb59ca8893c5f656df2f4d1ff.jpg",
+  "https://i.pinimg.com/564x/96/fb/98/96fb985f226aa9f57ee4d3ab2eca83b9.jpg",
+  "https://i.pinimg.com/564x/f1/4f/bb/f14fbb159ef217f50863080f0f5c6385.jpg",
+  "https://i.pinimg.com/564x/a7/34/62/a7346242ed2525d77e29fa3929acdc06.jpg",
+  "https://i.pinimg.com/564x/9d/1d/00/9d1d00433f07fdaa940571eba9f7495d.jpg",
+  "https://i.pinimg.com/564x/f6/13/5b/f6135b4298b30467fbdcc570b15b6639.jpg",
+  "https://i.pinimg.com/564x/58/78/28/587828671b5419db6ae52b53dc345b2a.jpg",
+  "https://i.pinimg.com/564x/39/7e/48/397e487100f54df67d224f8ed454ff34.jpg",
+];
+
 export const popularDesignationCarouselResponsive = {
   desktop: {
     breakpoint: {
@@ -253,7 +314,7 @@ export const faqCarouselResponsive = {
       max: 3000,
       min: 1024,
     },
-    items: 1,
+    items: 3,
     partialVisibilityGutter: 10,
   },
   tablet: {
@@ -261,7 +322,7 @@ export const faqCarouselResponsive = {
       max: 1024,
       min: 464,
     },
-    items: 1,
+    items: 2,
     partialVisibilityGutter: 10,
   },
   mobile: {
