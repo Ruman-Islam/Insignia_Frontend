@@ -12,14 +12,10 @@ import thumb__4 from "../../assets/images/banner/packages__thumbnails/thumb__4.j
 const thumbs = [thumb__1, thumb__2, thumb__3, thumb__4];
 
 const PGCard = ({ index, data }) => {
-  const { country, title, description, color, reviewCount, rating, price } =
-    data;
+  const { country, title, description, color, rating, price } = data;
 
   return (
-    <div className="w-full h-full md:max-h-[500px] mb-5">
-      <h3 className="text-brand__font__size__lg font-brand__font__bold pl-2 pb-2">
-        {country}
-      </h3>
+    <div className="w-full h-full">
       <div className="flex flex-col md:flex-row justify-between h-full shadow-lg rounded-3xl">
         <div className="flex-1 relative">
           <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full card__inner__shadow rounded-t-3xl md:rounded-t-none md:rounded-tl-3xl md:rounded-bl-3xl"></div>
@@ -28,7 +24,7 @@ const PGCard = ({ index, data }) => {
             src={thumbs[index]}
           />
         </div>
-        <div className="flex-1 border p-5 bg-brand__white">
+        <div className="flex-1 border p-5 bg-brand__ash">
           <h3 className="text-brand__font__size__md font-brand__font__bold font-brand__font__family__fancy leading-tight mb-3">
             {title}
           </h3>
@@ -37,7 +33,7 @@ const PGCard = ({ index, data }) => {
           </p>
 
           <Link
-            className={`block w-fit ml-auto text-center py-2 px-4 rounded ${color} hover:bg-brand__cyan duration-300 text-white`}
+            className={`block w-fit ml-auto text-center py-2 px-4 rounded ${color} hover:bg-brand__light__cyan duration-300 text-white`}
             to="/"
           >
             Explore
@@ -47,7 +43,7 @@ const PGCard = ({ index, data }) => {
           className={`flex-1 ${color} rounded-b-3xl md:rounded-b-none md:rounded-tr-3xl md:rounded-br-3xl text-white flex flex-col items-center justify-center gap-3 py-5`}
         >
           <h3 className="text-brand__font__size__lg font-brand__font__semibold">
-            {reviewCount} reviews
+            {country}
           </h3>
           <Rating
             className="text-brand__font__size__md"

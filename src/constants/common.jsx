@@ -152,39 +152,44 @@ export const videoGalleryData = [
 
 export const reviewData = [
   {
-    text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland. Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing.",
+    text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland. Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland. Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing.",
     name: "Ruman Islam",
     imageUrl:
       "https://lh3.googleusercontent.com/a/ACg8ocKP_eXDBCSyvD8i7ZW9R74S1yUkeFq4y1O_wxLTJfl-Z6I=s96-c-rg-br100",
-    profession: "Full Stack",
+    rating: 5,
+    time: "11 days ago",
   },
   {
     text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland",
     name: "Ruman Islam",
     imageUrl:
       "https://lh3.googleusercontent.com/a/ACg8ocKP_eXDBCSyvD8i7ZW9R74S1yUkeFq4y1O_wxLTJfl-Z6I=s96-c-rg-br100",
-    profession: "Full Stack",
+    rating: 5,
+    time: "11 days ago",
   },
   {
     text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland",
     name: "Ruman Islam",
     imageUrl:
       "https://lh3.googleusercontent.com/a/ACg8ocKP_eXDBCSyvD8i7ZW9R74S1yUkeFq4y1O_wxLTJfl-Z6I=s96-c-rg-br100",
-    profession: "Full Stack",
+    rating: 5,
+    time: "11 days ago",
   },
   {
     text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland",
     name: "Ruman Islam",
     imageUrl:
       "https://lh3.googleusercontent.com/a/ACg8ocKP_eXDBCSyvD8i7ZW9R74S1yUkeFq4y1O_wxLTJfl-Z6I=s96-c-rg-br100",
-    profession: "Full Stack",
+    rating: 5,
+    time: "11 days ago",
   },
   {
     text: "Synth chartreuse iPhone lomo cray raw denim brunch everyday carry neutra before they sold out fixie microdosing. Tacos pinterest fanny pack venmo, post-ironic heirloom try-hard pabst authentic iceland",
     name: "Ruman Islam",
     imageUrl:
       "https://lh3.googleusercontent.com/a/ACg8ocKP_eXDBCSyvD8i7ZW9R74S1yUkeFq4y1O_wxLTJfl-Z6I=s96-c-rg-br100",
-    profession: "Full Stack",
+    rating: 5,
+    time: "11 days ago",
   },
 ];
 
@@ -230,7 +235,6 @@ export const packagesData = [
     description:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
     price: 750,
-    reviewCount: 27,
     rating: 5,
     color: "bg-[#618264]",
   },
@@ -241,7 +245,6 @@ export const packagesData = [
     description:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
     price: 750,
-    reviewCount: 21,
     rating: 3.7,
     color: "bg-[#007186]",
   },
@@ -252,7 +255,6 @@ export const packagesData = [
     description:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
     price: 750,
-    reviewCount: 16,
     rating: 4,
     color: "bg-[#EF6262]",
   },
@@ -263,7 +265,6 @@ export const packagesData = [
     description:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor.",
     price: 750,
-    reviewCount: 22,
     rating: 5,
     color: "bg-[#3085C3]",
   },
@@ -280,6 +281,33 @@ export const photoGalleryData = [
   "https://i.pinimg.com/564x/f6/13/5b/f6135b4298b30467fbdcc570b15b6639.jpg",
   "https://i.pinimg.com/564x/58/78/28/587828671b5419db6ae52b53dc345b2a.jpg",
   "https://i.pinimg.com/564x/39/7e/48/397e487100f54df67d224f8ed454ff34.jpg",
+];
+
+export const footerServices = [
+  {
+    title: "About Us",
+    route: "/",
+  },
+  {
+    title: "Listing",
+    route: "/",
+  },
+  {
+    title: "How it Works",
+    route: "/",
+  },
+  {
+    title: "Our Services",
+    route: "/",
+  },
+  {
+    title: "Our Blog",
+    route: "/",
+  },
+  {
+    title: "Contact Us",
+    route: "/",
+  },
 ];
 
 export const popularDesignationCarouselResponsive = {
@@ -310,21 +338,26 @@ export const popularDesignationCarouselResponsive = {
 };
 
 export const faqCarouselResponsive = {
-  desktop: {
+  superLargeDesktop: {
     breakpoint: {
       max: 3000,
+      min: 1280,
+    },
+    items: 4,
+  },
+  desktop: {
+    breakpoint: {
+      max: 1280,
       min: 1024,
     },
     items: 3,
-    partialVisibilityGutter: 10,
   },
   tablet: {
     breakpoint: {
       max: 1024,
       min: 464,
     },
-    items: 2,
-    partialVisibilityGutter: 10,
+    items: 3,
   },
   mobile: {
     breakpoint: {
@@ -332,6 +365,5 @@ export const faqCarouselResponsive = {
       min: 0,
     },
     items: 1,
-    partialVisibilityGutter: 10,
   },
 };

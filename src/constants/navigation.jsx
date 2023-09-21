@@ -1,7 +1,7 @@
 export const navItems = [
   { title: "home", route: "/" },
-  { title: "packages", route: "/" },
-  { title: "gallery", route: "/" },
+  { title: "packages", route: "/#package-section" },
+  { title: "gallery", route: "/#photo-gallery" },
   { title: "about us", route: "/" },
   { title: "contact us", route: "/" },
 ];

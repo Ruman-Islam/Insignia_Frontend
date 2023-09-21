@@ -5,10 +5,10 @@ const VideoGallery = () => {
   const [currentVideo, setCurrentVideo] = useState(videoGalleryData[0]);
 
   return (
-    <section className="py-10 lg:py-24">
+    <section className="py-10 lg:py-24 shadow-lg">
       <div className="w-full">
         <div className="max-w-screen-xl mx-auto p-content__padding flex flex-col md:flex-row gap-2 py-2">
-          <div className="w-full h-full">
+          <div className="w-full h-full ">
             <iframe
               className="rounded-3xl aspect-video w-full h-full"
               src={`${currentVideo}?controls=0&rel=0`}

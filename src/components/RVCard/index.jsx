@@ -1,29 +1,31 @@
 /* eslint-disable react/prop-types */
-import { BsQuote } from "react-icons/bs";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import Rating from "react-rating";
 
 const RVCard = ({ data }) => {
-  const { text, name, profession } = data;
-  
+  const { text, name, rating, time } = data;
+
   return (
-    <div className="p-4 w-full max-h-[450px] h-full">
-      <div className="h-full flex flex-col justify-between bg-white p-6 rounded-xl">
-        <div>
-          <BsQuote className="text-4xl text-gray-400" />
-
-          <p className="leading-normal mb-6 text-brand__font__size__base font-brand__font__family__fancy">
-            {text?.length > 420 ? text?.slice(0, 420) + "..." : text}
-          </p>
-        </div>
-
-        <div className="flex items-center border-t pt-2">
+    <div className="h-[420px] border bg-brand__ash rounded">
+      <div className="h-full flex flex-col">
+        <div className="flex items-center border-b px-6 py-2">
           <span className="flex-grow flex flex-col">
-            <span className="title-font font-brand__font__bold text-gray-900">
+            <span className="font-brand__font__bold text-brand__font__size__md">
               {name}
             </span>
-            <span className="text-gray-500 text-brand__font__size__sm font-brand__font__bold">
-              {profession}
-            </span>
+            <Rating
+              className="text-brand__font__size__sm text-brand__orange"
+              readonly
+              initialRating={rating}
+              emptySymbol={<AiOutlineStar />}
+              fullSymbol={<AiFillStar />}
+            />
+            <span className="text-brand__font__size__xs">{time}</span>
           </span>
+        </div>
+
+        <div className="px-6 my-4 h-full overflow-y-auto custom__scrollbar">
+          <p className="leading-normal text-brand__font__size__sm">{text}</p>
         </div>
       </div>
     </div>

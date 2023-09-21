@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import { navItems } from "../../constants/navigation";
 import { BsChevronDown } from "react-icons/bs";
 import Dropdown from "./Dropdown";
+import { HashLink } from 'react-router-hash-link';
 
 const PcNavigation = () => {
   return (
@@ -12,12 +12,12 @@ const PcNavigation = () => {
             className="group flex items-center hover:bg-bg__gray rounded-full duration-500 relative"
             key={title}
           >
-            <Link
+            <HashLink
               className="block rounded-full mx-1 uppercase py-3 xl:py-3 px-4 text-brand__font__size__sm"
               to={route}
             >
               {title}
-            </Link>
+            </HashLink>
             {title.includes("packages") && (
               <>
                 <BsChevronDown

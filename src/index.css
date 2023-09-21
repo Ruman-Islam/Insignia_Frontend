@@ -25,15 +25,15 @@ body {
 }
 
 .custom__scrollbar::-webkit-scrollbar-track {
-  background-color: #f1f1f1;
+  background-color: #ededed;
 }
 
 .custom__scrollbar::-webkit-scrollbar-thumb {
-  background-color: #007186;
+  background-color: #c5c5c5;
 }
 
 .custom__scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #08787f;
+  background-color: #3937374d;
 }
 
 .custom__scrollbar::-webkit-scrollbar-track,

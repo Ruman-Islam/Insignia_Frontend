@@ -6,22 +6,14 @@ import { AiOutlineCopyrightCircle, AiOutlineMobile } from "react-icons/ai";
 import Image from "../UI/Image";
 import { Link } from "react-router-dom";
 import { bannerSocialIcons } from "../../constants/bannerSocialIcons";
+import { footerServices } from "../../constants/common";
 
 const Footer = () => {
-  const backgroundImage =
-    "https://i.ibb.co/tZ3PZQN/d38ce83998db2197dd851ab6ddec4244-Expires-1693785600-Signature-g-Mi5-Tsdd-WQi-Qid-TB8-L7-KEKk99-Gmn3y.jpg";
-
+  const year = new Date().getFullYear();
   return (
-    <section
-      className="bg-cover bg-center relative lg:p-16"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-      }}
-    >
-      <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black opacity-10"></div>
-
+    <section className="relative border-t bg-[#F6FAFB]">
       <div className="backdrop-blur-lg max-w-screen-xl p-content__padding mx-auto relative border border-brand__gray__border lg:rounded-xl">
-        <div className="hidden md:flex items-center justify-between text-white py-8 lg:rounded-xl">
+        <div className="hidden md:flex items-center justify-between py-8 lg:rounded-xl">
           <div>
             <p className="lg:text-lg lg:font-semibold">
               Prepare yourself to be a part of exploration of
@@ -32,7 +24,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="text-white flex flex-col md:flex-row justify-center items-center md:items-start gap-x-5">
+        <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-x-5">
           <div className="flex-1 flex flex-col md:flex-row justify-center items-center md:items-start gap-x-5">
             <div className="flex-1">
               <Image alt="logo" src={Logo} />
@@ -57,42 +49,28 @@ const Footer = () => {
 
             <div className="flex-1 lg:ml-10 py-5 md:p-0">
               <p className="text-2xl font-brand__font__bold">Services</p>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                About Us
-              </Link>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                Listing
-              </Link>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                How it Works
-              </Link>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                Our Services
-              </Link>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                Our Blog
-              </Link>
-              <Link
-                className="block py-0.5 hover:text-brand__cyan duration-300"
-                to="/"
-              >
-                Contact Us
-              </Link>
+              {footerServices.map((item, index) => (
+                <Link
+                  key={index}
+                  className="block py-0.5 hover:underline duration-300"
+                  to={item.route}
+                >
+                  {item.title}
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex-1 lg:ml-10 py-5 md:p-0">
+              <p className="text-2xl font-brand__font__bold">Useful Links</p>
+              {footerServices.map((item, index) => (
+                <Link
+                  key={index}
+                  className="block py-0.5 hover:underline duration-300"
+                  to={item.route}
+                >
+                  {item.title}
+                </Link>
+              ))}
             </div>
 
             <div className="flex-1 flex flex-col items-center md:items-start pb-5 md:p-0">
@@ -112,7 +90,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="max-w-[300px]">
+          {/* <div className="max-w-[300px]">
             <p className="text-2xl text-center md:text-start">Gallery</p>
             <div className="grid gap-2 grid-cols-2">
               <img
@@ -132,13 +110,24 @@ const Footer = () => {
                 src="https://i.ibb.co/YcWjYMH/bddbeda0393be4214a8758332ab6b088.jpg"
               />
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="border-b w-full mx-auto my-5"></div>
-        <p className="uppercase mr-auto mb-5 text-white inline-flex items-center gap-x-2">
-          <AiOutlineCopyrightCircle /> 2023 all rights reserved
-        </p>
+        <div className="flex flex-col md:flex-row justify-between mb-5">
+          <p className="uppercase flex items-center gap-x-2">
+            <AiOutlineCopyrightCircle /> {year} all rights reserved
+          </p>
+          <p className="uppercase flex items-center gap-x-2">
+            developed by{" "}
+            <Link
+              className="hover:underline duration-300 text-brand__light__cyan font-brand__font__bold"
+              to="/"
+            >
+              Pingdash Technology
+            </Link>
+          </p>
+        </div>
       </div>
     </section>
   );

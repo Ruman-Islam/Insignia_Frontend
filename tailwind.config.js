@@ -34,8 +34,10 @@ export default {
         brand__white: "#FAF7F5",
         brand__cyan: "#007186",
         brand__light__cyan: "#08787F",
+        brand__orange: "#E9701B",
         brand__warm__white: "#FFFAED",
         brand__sky__blue: "#D1E4F5",
+        brand__ash: "#FAFAFA",
         bg__gray: "rgba(255, 255, 255, 0.3)",
         brand__bg__hover: "#EEEEEE",
         brand__gray__border: "#ffffff4d",
@@ -68,7 +70,10 @@ export default {
           "url('../src/assets/images/background/foreigner__bg.jpg')",
         popular__destination__background:
           "url('../src/assets/images/background/13237371_BG-6.jpg')",
-        faq__background: "url('../src/assets/images/background/faq__bg.webp')",
+        faq__background:
+          "url('../src/assets/images/background/ask__qus__bg.jpeg')",
+        testimonial__background:
+          "url('../src/assets/images/background/testimonial__bg.png')",
       },
     },
   },
