@@ -198,7 +198,7 @@ export const accordionData = [
     uuid: 1,
     heading: "What harsh truths do you prefer to ignore?",
     content:
-      "In pariatur excepteur ut do aliquip qui mollit aliqua exercitation excepteur consequat reprehenderit nostrud laborum voluptate veniam non dolore dolore aliqua incididunt amet nisi minim cillum elit.",
+      "In pariatur excepteur ut do aliquip qui mollit aliqua exercitation excepteur consequat reprehenderit nostrud laborum voluptate veniam non dolore dolore aliqua incididunt amet nisi minim cillum elit. In pariatur excepteur ut do aliquip qui mollit aliqua exercitation excepteur consequat reprehenderit nostrud laborum voluptate veniam non dolore dolore aliqua incididunt amet nisi minim cillum elit.",
   },
   {
     uuid: 2,
@@ -220,6 +220,12 @@ export const accordionData = [
   },
   {
     uuid: 5,
+    heading: "Is the meaning of life the same for animals and humans?",
+    content:
+      "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor veniam sint incididunt esse duis duis dolore sunt aute incididunt amet quis.",
+  },
+  {
+    uuid: 6,
     heading: "Is the meaning of life the same for animals and humans?",
     content:
       "Ex culpa eu veniam ea quis velit exercitation reprehenderit reprehenderit dolore pariatur incididunt occaecat ut irure ut sed dolor veniam sint incididunt esse duis duis dolore sunt aute incididunt amet quis.",
@@ -281,6 +287,8 @@ export const photoGalleryData = [
   "https://i.pinimg.com/564x/f6/13/5b/f6135b4298b30467fbdcc570b15b6639.jpg",
   "https://i.pinimg.com/564x/58/78/28/587828671b5419db6ae52b53dc345b2a.jpg",
   "https://i.pinimg.com/564x/39/7e/48/397e487100f54df67d224f8ed454ff34.jpg",
+  "https://i.pinimg.com/564x/f2/9b/f8/f29bf88fc80bd4b2e07cbcfaf72bb1fe.jpg",
+  "https://i.pinimg.com/564x/de/fd/dc/defddc07a88466e8506878477996a4f9.jpg",
 ];
 
 export const footerServices = [
@@ -358,6 +366,37 @@ export const faqCarouselResponsive = {
       min: 464,
     },
     items: 3,
+  },
+  mobile: {
+    breakpoint: {
+      max: 464,
+      min: 0,
+    },
+    items: 1,
+  },
+};
+
+export const faqCarouselResponsiveForPackageDetail = {
+  superLargeDesktop: {
+    breakpoint: {
+      max: 3000,
+      min: 1280,
+    },
+    items: 1,
+  },
+  desktop: {
+    breakpoint: {
+      max: 1280,
+      min: 1024,
+    },
+    items: 1,
+  },
+  tablet: {
+    breakpoint: {
+      max: 1024,
+      min: 464,
+    },
+    items: 1,
   },
   mobile: {
     breakpoint: {

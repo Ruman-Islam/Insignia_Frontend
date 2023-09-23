@@ -6,7 +6,7 @@ import UseNavbar from "../../../../hooks/UseNavbar";
 const Foreigner = () => {
   const { navbar } = UseNavbar();
   return (
-    <section className="relative w-full">
+    <section className="relative w-full bg-brand__ash__light">
       <div>
         <div
           className={`text-center absolute duration-300 ${
@@ -33,7 +33,7 @@ const Foreigner = () => {
             </div>
           </div>
 
-          <div className="shadow-inner w-full py-10 mt-5 border-t">
+          <div className="shadow-inner w-full py-10 mt-5 bg-white">
             <div className="p-content__padding max-w-screen-xl mx-auto flex flex-col gap-4 md:gap-0 md:flex-row justify-between">
               <div className="flex-1">
                 <h3 className="text-3xl md:leading-relaxed font-brand__font__family__fancy">

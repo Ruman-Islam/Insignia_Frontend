@@ -6,8 +6,8 @@ import { BsCardText } from "react-icons/bs";
 
 const AskQuestion = () => {
   return (
-    <div className="max-w-[500px] w-full px-5 py-8 border border-brand__gray__border backdrop-blur-2xl rounded">
-      <div className="text-white mb-4">
+    <div className="lg:max-w-[500px] w-full px-5 py-6 backdrop-blur-md rounded-xl border border-brand__gray__border">
+      <div className="mb-4 text-white">
         <h3 className="text-brand__font__size__xl leading-tight">
           Any Question?
         </h3>
@@ -47,7 +47,7 @@ const AskQuestion = () => {
           <Input
             type="submit"
             value="Submit"
-            className="w-full rounded bg-brand__cyan text-white p-2 cursor-pointer hover:bg-brand__light__cyan duration-300 text-brand__font__size__md"
+            className="w-full rounded bg-[#E9701B] text-white p-2 cursor-pointer hover:bg-brand__cyan duration-300 text-brand__font__size__md"
           />
         </div>
       </form>

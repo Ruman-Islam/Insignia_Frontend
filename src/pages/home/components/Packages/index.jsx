@@ -3,7 +3,7 @@ import PackagesSection from "./PackagesSection";
 
 const Packages = () => {
   return (
-    <section className="mt-10 lg:mt-16">
+    <section>
       <div className="max-w-screen-xl mx-auto p-content__padding">
         <div className="py-5 lg:pt-10 w-full mb-4">
           <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">

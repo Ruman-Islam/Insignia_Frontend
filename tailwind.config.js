@@ -37,10 +37,13 @@ export default {
         brand__orange: "#E9701B",
         brand__warm__white: "#FFFAED",
         brand__sky__blue: "#D1E4F5",
+        brand__navy__blue: "#1C3C6B",
         brand__ash: "#FAFAFA",
+        brand__ash__light: "#EBF0F4",
         bg__gray: "rgba(255, 255, 255, 0.3)",
         brand__bg__hover: "#EEEEEE",
         brand__gray__border: "#ffffff4d",
+        brand__detail__text: "rgb(75 85 99)",
       },
       padding: {
         content__padding: "0 10px",
@@ -58,9 +61,24 @@ export default {
             transform: "scale(1.5)",
           },
         },
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        shimmer: {
+          "100%": {
+            transform: "translateX(100%)",
+          },
+        },
       },
       animation: {
         zoom__in: "zoomIn 15s linear 1",
+        fade__in: "fadeIn 0.35s ease-in 1",
+        shimmer: "shimmer 1s ease-in infinite",
       },
       backgroundImage: {
         not__found: "url('../src/assets/svg/image-error-404.f7a6f4a6.svg')",
@@ -70,10 +88,13 @@ export default {
           "url('../src/assets/images/background/foreigner__bg.jpg')",
         popular__destination__background:
           "url('../src/assets/images/background/13237371_BG-6.jpg')",
-        faq__background:
-          "url('../src/assets/images/background/ask__qus__bg.jpeg')",
+        faq__background: "url('../src/assets/images/background/faq__bg.webp')",
         testimonial__background:
           "url('../src/assets/images/background/testimonial__bg.png')",
+        photo__gallery__background:
+          "url('../src/assets/images/background/photo__gallery.jpeg')",
+        ask__qus__background:
+          "url('../src/assets/images/background/ask__qus__bg.jpeg')",
       },
     },
   },

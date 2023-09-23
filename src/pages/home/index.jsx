@@ -78,18 +78,18 @@ const HomeScreen = () => {
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <Packages />
+        <Faq />
       </Suspense>
-      {/* <Packages /> */}
+      {/* <Faq /> */}
 
       <Suspense
         fallback={
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <Testimonial />
+        <Packages />
       </Suspense>
-      {/* <Testimonial /> */}
+      {/* <Packages /> */}
 
       <Suspense
         fallback={
@@ -105,9 +105,9 @@ const HomeScreen = () => {
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <Faq />
+        <Testimonial />
       </Suspense>
-      {/* <Faq /> */}
+      {/* <Testimonial /> */}
     </>
   );
 };

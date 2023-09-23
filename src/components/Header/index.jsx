@@ -25,8 +25,10 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full h-20 md:h-24 lg:h-28 absolute top-0 left-0 right-0 flex justify-between items-center duration-300 font-brand__font_family__regular ${
-        isHomePage ? "bg-transparent" : "bg-brand__cyan"
+      className={`w-full h-20 md:h-24 flex justify-between items-center duration-300 font-brand__font_family__regular ${
+        isHomePage
+          ? "bg-transparent absolute top-0 left-0 right-0 lg:h-28"
+          : "bg-brand__light__cyan lg:h-20 shadow-md sticky top-0 z-50"
       }`}
     >
       <div className="max-w-screen-xl m-auto w-full z-50 text-brand__white p-content__padding">

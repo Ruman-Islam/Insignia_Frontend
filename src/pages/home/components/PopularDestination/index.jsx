@@ -12,7 +12,7 @@ import PDCard from "../../../../components/PDCard";
 
 const PopularDestination = () => {
   return (
-    <section className="pt-5">
+    <section className="pt-5 bg-gradient-to-b from-white from-10%  to-brand__ash__light to-90%">
       <div className="max-w-screen-xl mx-auto p-content__padding">
         <div className="md:py-10 w-full mb-4">
           <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight border-b border-brand__cyan pr-3 w-fit">

@@ -6,6 +6,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #ebf0f4;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
 
 /* For Webkit browsers (e.g., Chrome, Safari) */
 .custom__scrollbar::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 .custom__scrollbar::-webkit-scrollbar-track {
