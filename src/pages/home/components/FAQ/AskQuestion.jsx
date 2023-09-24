@@ -47,7 +47,7 @@ const AskQuestion = () => {
           <Input
             type="submit"
             value="Submit"
-            className="w-full rounded bg-[#E9701B] text-white p-2 cursor-pointer hover:bg-brand__cyan duration-300 text-brand__font__size__md"
+            className="w-full rounded bg-brand__orange text-white p-2 cursor-pointer hover:bg-brand__cyan duration-300 text-brand__font__size__md"
           />
         </div>
       </form>

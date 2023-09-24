@@ -4,13 +4,15 @@ import { BsGlobe } from "react-icons/bs";
 const Overview = ({ packageDetail }) => {
   return (
     <div id="overview">
-      <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
-        <BsGlobe size={20} />
-        <span className="text-brand__font__size__md">Overview</span>
-      </h6>
+      <div className="p-4 w-full sticky top-[129px] bg-white">
+        <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
+          <BsGlobe size={20} />
+          <span className="text-brand__font__size__md">Overview</span>
+        </h6>
+      </div>
 
-      <div className="pl-6">
-        <div className="mt-5 mb-8">
+      <div className="pl-10 w-full">
+        <div className="mb-8">
           <p className="text-brand__font__size__sm text-brand__detail__text">
             {packageDetail?.overview?.description}
           </p>

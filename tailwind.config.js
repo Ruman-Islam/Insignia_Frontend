@@ -95,6 +95,8 @@ export default {
           "url('../src/assets/images/background/photo__gallery.jpeg')",
         ask__qus__background:
           "url('../src/assets/images/background/ask__qus__bg.jpeg')",
+        footer__background:
+          "url('../src/assets/images/background/footer__bg.jpg')",
       },
     },
   },

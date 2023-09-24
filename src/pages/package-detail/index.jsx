@@ -26,7 +26,7 @@ const PackageDetailScreen = () => {
   return (
     <section>
       <div className="max-w-screen-xl mx-auto p-content__padding">
-        <Head previews={packageDetail?.previews} />
+        <Head packageDetail={packageDetail} />
         <Body packageDetail={packageDetail} id={id} />
       </div>
     </section>

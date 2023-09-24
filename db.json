@@ -3,6 +3,8 @@
         "id": "1",
         "title": "Parasailing at FunFest Beach",
         "category": "regular",
+        "startingPrice": 2000,
+        "discountPrice": 1900,
         "location": {
             "name": "cox's bazar",
             "country": "bangladesh",

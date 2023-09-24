@@ -7,13 +7,18 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import { PhotoProvider, PhotoSlider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
+import { useState } from "react";
+import { MdOutlinePhotoLibrary } from "react-icons/md";
 
-const Head = ({ previews }) => {
+const Head = ({ packageDetail }) => {
+  const [visible, setVisible] = useState(false);
+
   return (
     <div className="w-full h-[435px] flex flex-col md:flex-row gap-1 bg-white mt-10">
       <Carousel
-        additionalTransfrom={0}
-        className="w-full h-[435px] flex-1 rounded"
+        className="w-full h-[435px] flex-1"
         arrows
         infinite
         autoPlay
@@ -30,20 +35,68 @@ const Head = ({ previews }) => {
         }
         responsive={faqCarouselResponsiveForPackageDetail}
       >
-        {previews?.map((item, index) => (
+        {packageDetail?.previews?.map((item, index) => (
           <div className="h-full w-full" key={index}>
             <Image src={item} className="h-full w-full object-contain" />
           </div>
         ))}
       </Carousel>
 
-      <div className="flex md:flex-col gap-1">
-        {previews?.slice(0, 4).map((item, index) => (
-          <div className="h-[100px] w-[100px] flex-1" key={index}>
-            <Image src={item} className="h-full w-full object-cover" />
+      <PhotoProvider
+        speed={() => 800}
+        easing={(type) =>
+          type === 2
+            ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
+            : "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        }
+      >
+        <div className="flex md:flex-col justify-between gap-3">
+          {packageDetail?.previews.map((item, index) => (
+            <PhotoView rotate={() => 350} key={index} src={item}>
+              {index < 3 ? (
+                <div
+                  className="h-[100px] w-[100px] flex-1 md:flex-none cursor-pointer"
+                  key={index}
+                >
+                  <Image src={item} className="h-full w-full object-cover" />
+                </div>
+              ) : undefined}
+            </PhotoView>
+          ))}
+          <div
+            className="h-[100px] w-[100px] cursor-pointer flex-1"
+            onClick={() => setVisible(true)}
+          >
+            <div className="w-full h-full relative">
+              <div className="absolute top-0 left-0 bottom-0 right-0 bg-black bg-opacity-70 text-white w-full h-full flex flex-col justify-center items-center">
+                +{packageDetail?.previews.length - 3}{" "}
+                <MdOutlinePhotoLibrary size={18} />
+              </div>
+
+              <Image
+                src={packageDetail?.previews[3]}
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      </PhotoProvider>
+
+      <PhotoSlider
+        overlay
+        speed={() => 800}
+        easing={(type) =>
+          type === 2
+            ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
+            : "cubic-bezier(0.34, 1.56, 0.64, 1)"
+        }
+        images={packageDetail?.previews.map((item) => ({
+          src: item,
+          key: item,
+        }))}
+        visible={visible}
+        onClose={() => setVisible(false)}
+      />
     </div>
   );
 };

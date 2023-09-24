@@ -1,7 +1,7 @@
 import { navItems } from "../../constants/navigation";
 import { BsChevronDown } from "react-icons/bs";
 import Dropdown from "./Dropdown";
-import { HashLink } from 'react-router-hash-link';
+import { HashLink } from "react-router-hash-link";
 
 const PcNavigation = () => {
   return (

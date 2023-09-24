@@ -11,8 +11,9 @@ import { footerServices } from "../../constants/common";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <section className="relative bg-brand__light__cyan text-brand__white pb-5 ">
-      <div className="backdrop-blur-lg max-w-screen-xl p-content__padding mx-auto relative">
+    <section className="relative bg-footer__background bg-cover bg-center text-brand__white py-5">
+      <div className="absolute top-0 left-0 right-0 bottom-0 backdrop-blur-md bg-black bg-opacity-30"></div>
+      <div className="max-w-screen-xl p-content__padding mx-auto relative">
         <div className="hidden md:flex items-center justify-between py-8 lg:rounded-xl">
           <div>
             <p className="lg:text-lg lg:font-semibold">
@@ -52,7 +53,7 @@ const Footer = () => {
               {footerServices.map((item, index) => (
                 <Link
                   key={index}
-                  className="block w-fit py-0.5 hover:underline duration-300"
+                  className="block w-fit py-0.5 hover:underline duration-300 mx-auto md:mx-0"
                   to={item.route}
                 >
                   {item.title}
@@ -65,7 +66,7 @@ const Footer = () => {
               {footerServices.map((item, index) => (
                 <Link
                   key={index}
-                  className="block w-fit py-0.5 hover:underline duration-300"
+                  className="block w-fit py-0.5 hover:underline duration-300 mx-auto md:mx-0"
                   to={item.route}
                 >
                   {item.title}
