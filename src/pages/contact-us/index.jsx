@@ -8,16 +8,17 @@ const ContactUsScreen = () => {
   return (
     <section className="lg:h-[92vh] flex flex-col justify-center">
       <div className="max-w-screen-xl w-full mx-auto p-content__padding flex flex-col justify-center items-center">
-        <div className="w-full h-[400px] border">
+        <div className="w-full h-[400px] border group relative rounded-tl-md rounded-tr-md">
+          <div className="absolute group-hover:bg-opacity-0 duration-300 top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-50 group-hover:invisible rounded-tl-md rounded-tr-md"></div>
           <iframe
-            className="w-full h-full"
+            className="w-full h-full rounded-tl-md rounded-tr-md"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.041193892314!2d90.39749967600932!3d23.78154738757875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c769c6633a2f%3A0xbb3979a7e02a8c90!2sBrain%20Station%2023!5e0!3m2!1sen!2sbd!4v1695626580145!5m2!1sen!2sbd"
             allowfullscreen=""
             loading="lazy"
           />
         </div>
 
-        <div className="bg-white w-full flex flex-col md:flex-row gap-5  justify-between items-center lg:h-[40vh]">
+        <div className="bg-white w-full flex flex-col md:flex-row gap-5  justify-between items-center lg:h-[40vh] rounded-bl-md rounded-br-md shadow-md">
           <div className="flex-1">
             <div className="max-w-[500px] mx-auto p-content__padding">
               <div>
@@ -42,7 +43,7 @@ const ContactUsScreen = () => {
           </div>
 
           <div className="flex-1 relative w-full">
-            <div className="max-w-[450px] w-full mx-auto px-5 pt-10 pb-2 bg-brand__ash border lg:absolute left-0 right-0 -bottom-44 shadow-lg">
+            <div className="max-w-[450px] w-full mx-auto px-5 pt-10 pb-2 bg-brand__ash border lg:absolute left-0 right-0 -bottom-44">
               <div className="mb-4">
                 <h3 className="text-brand__font__size__lg leading-tight">
                   Contact form

@@ -61,7 +61,7 @@ const Testimonial = () => {
               </h4>
               <Link
                 className="block bg-brand__orange w-fit py-1.5 px-3 rounded mt-3"
-                to="/"
+                to="/contact-us"
               >
                 Contact Us
               </Link>
