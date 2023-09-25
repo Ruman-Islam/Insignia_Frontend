@@ -1,3 +1,4 @@
+import ContactUsScreen from "../pages/contact-us";
 import HomeScreen from "../pages/home";
 import PackageDetailScreen from "../pages/package-detail";
 import SignInScreen from "../pages/sign-in";
@@ -9,6 +10,11 @@ export const publicRoutes = [
     path: "/package-detail/:id",
     name: "package-detail",
     Component: PackageDetailScreen,
+  },
+  {
+    path: "/contact-us",
+    name: "contact-us",
+    Component: ContactUsScreen,
   },
   { path: "/sign-in", name: "sign-in", Component: SignInScreen },
   { path: "/sign-up", name: "sign-up", Component: SignUpScreen },

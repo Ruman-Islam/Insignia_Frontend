@@ -3,7 +3,7 @@ export const navItems = [
   { title: "packages", route: "/#package-section" },
   { title: "gallery", route: "/#photo-gallery" },
   { title: "about us", route: "/" },
-  { title: "contact us", route: "/" },
+  { title: "contact us", route: "/contact-us" },
 ];
 
 export const dropdownNavItems = [
