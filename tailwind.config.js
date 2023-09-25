@@ -38,6 +38,7 @@ export default {
         brand__warm__white: "#FFFAED",
         brand__sky__blue: "#D1E4F5",
         brand__navy__blue: "#1C3C6B",
+        brand__dangerous: "#FF0000",
         brand__ash: "#FAFAFA",
         brand__ash__light: "#EBF0F4",
         bg__gray: "rgba(255, 255, 255, 0.3)",

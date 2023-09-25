@@ -7,3 +7,9 @@ export const hashLinks = [
   { title: "Options", link: "#options" },
   { title: "Policy", link: "#policy" },
 ];
+
+export const options = [
+  { option: "regular" },
+  { option: "premium" },
+  { option: "delux" },
+];

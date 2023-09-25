@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
-
 import Loader from "../../components/common/Loader";
-import Head from "./components/Head";
+// import Head from "./components/Head";
 import Body from "./components/Body/index";
+import { Helmet } from "react-helmet";
+const Head = lazy(() => import("./components/Head"));
 
 const PackageDetailScreen = () => {
   const { id } = useParams();
@@ -25,8 +26,16 @@ const PackageDetailScreen = () => {
 
   return (
     <section>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Insignia</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="max-w-screen-xl mx-auto p-content__padding">
-        <Head packageDetail={packageDetail} />
+        <Suspense>
+          <Head packageDetail={packageDetail} />
+        </Suspense>
+
         <Body packageDetail={packageDetail} id={id} />
       </div>
     </section>

@@ -27,7 +27,7 @@ const InclusionExclusion = ({ packageDetail }) => {
           <div className="mt-3">
             {packageDetail?.exclusion.map((item, index) => (
               <p key={index} className="flex items-center gap-x-2">
-                <RxCross2 size={12} className="text-red-600" />
+                <RxCross2 size={12} className="text-brand__dangerous" />
                 <span>{item}</span>
               </p>
             ))}

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { HashLink } from "react-router-hash-link";
-import { hashLinks } from "../../constants";
 import Overview from "./Overview";
 import Location from "./Location";
 import Timing from "./Timing";
@@ -10,6 +9,7 @@ import Options from "./Options";
 import Policy from "./Policy";
 import { useLocation } from "react-router-dom";
 import BookingCard from "./BookingCard";
+import { hashLinks } from "../../../../constants/packageDetails";
 
 // It uses to take the scroll to specific height
 const scrollWithOffset = (el, offset) => {
@@ -26,8 +26,8 @@ const Body = ({ packageDetail, id }) => {
 
   return (
     <section>
-      <div className="my-5 bg-white rounded-md">
-        <div className="border-b p-4 flex flex-wrap gap-x-5 font-brand__font__bold sticky top-[80px] z-10 bg-white text-brand__navy__blue text-brand__font__size__sm lg:text-brand__font__size__base">
+      <div className="my-5 pb-5 bg-white rounded-md">
+        <div className="border-b p-4 flex flex-wrap gap-x-5 font-brand__font__bold sticky top-[80px] z-[1] bg-white text-brand__navy__blue text-brand__font__size__sm lg:text-brand__font__size__base rounded-tl-md rounded-tr-md">
           {hashLinks.map(({ title, link }) => (
             <HashLink
               smooth
@@ -45,8 +45,8 @@ const Body = ({ packageDetail, id }) => {
           ))}
         </div>
 
-        <div className="flex flex-col lg:flex-row justify-between gap-x-5">
-          <div className="basis-[70%] w-full pr-3">
+        <div className="flex flex-col lg:flex-row justify-between gap-x-3">
+          <div className="basis-[70%] pr-2 lg:pr-0">
             <Overview packageDetail={packageDetail} />
 
             <Location packageDetail={packageDetail} />
@@ -62,7 +62,7 @@ const Body = ({ packageDetail, id }) => {
             <Policy packageDetail={packageDetail} />
           </div>
 
-          <div className="basis-[30%] w-full my-2">
+          <div className="basis-[30%] mt-3">
             <BookingCard packageDetail={packageDetail} />
           </div>
         </div>
