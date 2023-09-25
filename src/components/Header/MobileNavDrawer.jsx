@@ -17,7 +17,7 @@ const MobileNavDrawer = ({ isNavbarOpen, toggleNavbar }) => {
       overlayOpacity={0.5}
       lockBackgroundScroll
       size={250}
-      className="block md:hidden"
+      className="block lg:hidden"
     >
       <div className="bg-brand__cyan backdrop-filter backdrop-blur-lg h-full text-brand__white">
         <Logo className="mt-0 px-4 py-4 border-b border-gray-400" />

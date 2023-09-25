@@ -9,7 +9,7 @@ const AboutUsScreen = () => {
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
 
-      <section className="py-10">
+      <section className="py-5 md:py-10">
         <div className="max-w-screen-xl w-full mx-auto p-content__padding ">
           <div className="w-full h-[350px] flex justify-center items-center bg-about__us__background bg-center bg-cover rounded-tl-md rounded-tr-md relative">
             <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30 "></div>
@@ -17,7 +17,7 @@ const AboutUsScreen = () => {
               About Us
             </h6>
           </div>
-          <div className="bg-white text-brand__font__size__sm text-gray-500 leading-relaxed p-10">
+          <div className="bg-white text-brand__font__size__sm text-gray-500 leading-relaxed p-5 md:p-10">
             <p>
               We respect your privacy and recognize the need to protect the
               personally identifiable information (any information by which you

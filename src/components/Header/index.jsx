@@ -1,27 +1,24 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
 import MobileNavDrawer from "./MobileNavDrawer";
-import Modal from "./Modal";
+// import Modal from "./Modal";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const isHomePage = location.pathname === "/"; // is using for keep header background color to brand color except home page.
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleNavbar = () => {
     setIsNavbarOpen((prevState) => !prevState);
   };
-  const toggleModal = () => {
-    setIsModalOpen((prevState) => !prevState);
-  };
 
-  useEffect(() => {
-    setIsNavbarOpen(false);
-  }, []);
+  // const toggleModal = () => {
+  //   setIsModalOpen((prevState) => !prevState);
+  // };
 
   return (
     <header
@@ -37,15 +34,17 @@ const Header = () => {
           <PcNavigation />
           <ToggleButton
             toggleNavbar={toggleNavbar}
-            toggleModal={toggleModal}
-            isModalOpen={isModalOpen}
+            // toggleModal={toggleModal}
+            // isModalOpen={isModalOpen}
           />
         </div>
         <MobileNavDrawer
           isNavbarOpen={isNavbarOpen}
           toggleNavbar={toggleNavbar}
         />
-        <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+
+        {/* We are not using this modal right now */}
+        {/* <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} /> */}
       </div>
     </header>
   );

@@ -5,6 +5,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import Button from "../../../../components/UI/Button";
 
 const BannerBackground = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -50,12 +51,12 @@ const BannerBackground = () => {
       })}
 
       <div className="absolute z-10 bottom-0 left-0 right-0 mx-auto flex h-fit w-fit gap-x-5 mb-5">
-        <div className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
+        <Button className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
           <BsFillArrowLeftCircleFill onClick={prevSlide} />
-        </div>
-        <div className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
+        </Button>
+        <Button className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
           <BsFillArrowRightCircleFill onClick={nextSlide} />
-        </div>
+        </Button>
       </div>
     </div>
   );

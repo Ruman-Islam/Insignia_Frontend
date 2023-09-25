@@ -39,7 +39,7 @@ const Footer = () => {
                 {bannerSocialIcons.map(({ Icon, url }) => (
                   <Link
                     key={url}
-                    className="hover:text-black duration-300"
+                    className="hover:text-brand__light__cyan duration-300"
                     to={url}
                   >
                     <Icon size={30} />
