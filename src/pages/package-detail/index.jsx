@@ -25,20 +25,22 @@ const PackageDetailScreen = () => {
   }
 
   return (
-    <section>
+    <>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Insignia - {packageDetail?.title}</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <div className="max-w-screen-xl mx-auto p-content__padding">
-        <Suspense>
-          <Head packageDetail={packageDetail} />
-        </Suspense>
+      <section>
+        <div className="max-w-screen-xl mx-auto p-content__padding">
+          <Suspense>
+            <Head packageDetail={packageDetail} />
+          </Suspense>
 
-        <Body packageDetail={packageDetail} id={id} />
-      </div>
-    </section>
+          <Body packageDetail={packageDetail} id={id} />
+        </div>
+      </section>
+    </>
   );
 };
 

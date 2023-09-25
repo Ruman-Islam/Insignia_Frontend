@@ -98,6 +98,8 @@ export default {
           "url('../src/assets/images/background/ask__qus__bg.jpeg')",
         footer__background:
           "url('../src/assets/images/background/footer__bg.jpg')",
+        about__us__background:
+          "url('../src/assets/images/background/about__us__bg.jpg')",
       },
     },
   },

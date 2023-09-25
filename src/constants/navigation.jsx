@@ -2,7 +2,7 @@ export const navItems = [
   { title: "home", route: "/" },
   { title: "packages", route: "/#package-section" },
   { title: "gallery", route: "/#photo-gallery" },
-  { title: "about us", route: "/" },
+  { title: "about us", route: "/about-us" },
   { title: "contact us", route: "/contact-us" },
 ];
 
