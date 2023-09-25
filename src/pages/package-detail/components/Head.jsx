@@ -11,6 +11,7 @@ import { PhotoProvider, PhotoSlider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { useState } from "react";
 import { MdOutlinePhotoLibrary } from "react-icons/md";
+import Button from "../../../components/UI/Button";
 
 const Head = ({ packageDetail }) => {
   const [visible, setVisible] = useState(false);
@@ -24,14 +25,14 @@ const Head = ({ packageDetail }) => {
         autoPlay
         autoPlaySpeed={5000}
         customLeftArrow={
-          <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute cursor-pointer">
+          <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute cursor-pointer">
             <BsFillArrowLeftCircleFill />
-          </div>
+          </Button>
         }
         customRightArrow={
-          <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute right-0 cursor-pointer">
+          <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute right-0 cursor-pointer">
             <BsFillArrowRightCircleFill />
-          </div>
+          </Button>
         }
         responsive={faqCarouselResponsiveForPackageDetail}
       >

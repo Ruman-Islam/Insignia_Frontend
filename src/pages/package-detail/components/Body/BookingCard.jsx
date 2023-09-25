@@ -157,7 +157,7 @@ const BookingCard = ({ packageDetail }) => {
 
       <div>
         <HashLink
-          className="block bg-brand__orange hover:shadow-lg  hover:shadow-brand__orange duration-300 text-center p-2 rounded-md text-white font-brand__font__semibold"
+          className="block bg-brand__orange hover:shadow-lg  hover:bg-brand__light__cyan duration-300 text-center p-2 rounded-md text-white font-brand__font__semibold"
           to="/"
         >
           Continue

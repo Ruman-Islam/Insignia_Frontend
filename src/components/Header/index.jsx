@@ -1,20 +1,18 @@
-import { useState } from "react";
+
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
-import MobileNavDrawer from "./MobileNavDrawer";
-// import Modal from "./Modal";
+// import MobileNavDrawer from "./MobileNavDrawer";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/"; // is using for keep header background color to brand color except home page.
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
-  const toggleNavbar = () => {
-    setIsNavbarOpen((prevState) => !prevState);
-  };
+  // const toggleNavbar = () => {
+  //   setIsNavbarOpen((prevState) => !prevState);
+  // };
 
   // const toggleModal = () => {
   //   setIsModalOpen((prevState) => !prevState);
@@ -30,18 +28,20 @@ const Header = () => {
     >
       <div className="max-w-screen-xl m-auto w-full z-50 text-brand__white p-content__padding">
         <div className="flex justify-between items-center">
-          <Logo className="mt-2" />
+          <Logo />
           <PcNavigation />
           <ToggleButton
-            toggleNavbar={toggleNavbar}
+            // toggleNavbar={toggleNavbar}
             // toggleModal={toggleModal}
             // isModalOpen={isModalOpen}
           />
         </div>
-        <MobileNavDrawer
+
+        {/* We are not using navigation drawer anymore, using menu functionality */}
+        {/* <MobileNavDrawer
           isNavbarOpen={isNavbarOpen}
           toggleNavbar={toggleNavbar}
-        />
+        /> */}
 
         {/* We are not using this modal right now */}
         {/* <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} /> */}
