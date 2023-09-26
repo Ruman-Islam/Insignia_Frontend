@@ -100,6 +100,10 @@ export default {
           "url('../src/assets/images/background/footer__bg.jpg')",
         about__us__background:
           "url('../src/assets/images/background/about__us__bg.jpg')",
+        sign__in__form__background:
+          "url('../src/assets/images/background/sign__in__form__bg.jpg')",
+        sign__up__form__background:
+          "url('../src/assets/images/background/sign__up__form__bg.jpg')",
       },
     },
   },

@@ -13,7 +13,7 @@ const ContactUsScreen = () => {
         <title>Insignia - Contact Us</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <section className="lg:h-[91vh] flex flex-col justify-center">
+      <section className="h-full flex flex-col justify-center py-10">
         <div className="max-w-screen-xl w-full mx-auto p-content__padding flex flex-col justify-center items-center">
           <div className="w-full h-[400px] border group relative rounded-tl-md rounded-tr-md">
             <div className="absolute group-hover:bg-opacity-0 duration-300 top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-50 group-hover:invisible rounded-tl-md rounded-tr-md"></div>
@@ -25,7 +25,7 @@ const ContactUsScreen = () => {
             />
           </div>
 
-          <div className="bg-white w-full flex flex-col md:flex-row gap-5  justify-between items-center lg:h-[40vh] rounded-bl-md rounded-br-md shadow-md">
+          <div className="bg-white w-full flex flex-col md:flex-row gap-5 justify-between items-center py-10 rounded-bl-md rounded-br-md shadow-md">
             <div className="flex-1">
               <div className="max-w-[500px] mx-auto p-content__padding">
                 <div>
@@ -50,7 +50,7 @@ const ContactUsScreen = () => {
             </div>
 
             <div className="flex-1 relative w-full">
-              <div className="max-w-[450px] w-full mx-auto px-5 pt-10 pb-2 bg-brand__ash border lg:absolute left-0 right-0 -bottom-44 rounded-md">
+              <div className="max-w-[450px] w-full mx-auto px-5 pt-10 pb-2 bg-brand__ash border rounded-md">
                 <div className="mb-4">
                   <h3 className="text-brand__font__size__lg leading-tight">
                     Contact form
@@ -59,7 +59,7 @@ const ContactUsScreen = () => {
 
                 <div>
                   <form>
-                    <div className="font-brand__font__semibold text-brand__font__size__sm">
+                    <div className="font-brand__font__semibold text-brand__font__size__sm pb-2">
                       <div className="relative text-gray-600">
                         <Input
                           type="text"

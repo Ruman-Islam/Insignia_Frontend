@@ -15,7 +15,7 @@ const PcNavigation = () => {
             key={title}
           >
             <HashLink
-              className="block rounded-full mx-1 uppercase py-3 xl:py-3 px-4 text-brand__font__size__sm"
+              className="block rounded-full mx-1 capitalize py-3 xl:py-3 px-4 text-brand__font__size__sm"
               to={route}
             >
               {title}

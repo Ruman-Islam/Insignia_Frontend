@@ -11,6 +11,8 @@ const Input = (props) => {
       style={props?.style}
       value={props?.value}
       placeholder={props?.placeholder}
+      autoComplete="off"
+      autoCapitalize="off"
     >
       {props?.children}
     </input>
@@ -28,6 +30,8 @@ const Input = (props) => {
         style={props?.style}
         disabled={props?.disabled}
         placeholder={props?.placeholder}
+        autoComplete="off"
+        autoCapitalize="off"
       >
         {props?.children}
       </input>

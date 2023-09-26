@@ -4,10 +4,12 @@ import Search from "../../../../components/Search";
 
 const Banner = () => {
   return (
-    <section className="h-[100vh] relative overflow-hidden">
-      <BannerBackground />
+    <section className="h-[100vh]">
+      <div className="h-full relative overflow-hidden">
+        <BannerBackground />
+      </div>
 
-      <div className="flex flex-col-reverse md:flex-col items-center justify-center p-content__padding max-w-screen-xl absolute top-0 bottom-0 left-0 right-0 m-auto h-full">
+      <div className="flex flex-col-reverse md:flex-col items-center justify-center p-content__padding max-w-screen-xl absolute top-0 bottom-0 left-0 right-0 m-auto h-full ">
         <BannerContent />
 
         <div className="w-full flex flex-col justify-end items-end">

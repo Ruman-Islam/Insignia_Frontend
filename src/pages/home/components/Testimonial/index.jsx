@@ -51,7 +51,7 @@ const Testimonial = () => {
 
         <div className="mt-20 h-[180px] bg-ask__qus__background bg-center bg-cover flex rounded-xl w-full shadow-2xl">
           <div className="basis-[40%]"></div>
-          <div className="basis-[60%] bg-[#1D1C55] flex flex-col justify-center items-center text-white rounded">
+          <div className="basis-[60%] bg-[#1D1C55] flex flex-col justify-center items-center text-white rounded-xl">
             <div>
               <h4 className="text-brand__font__size__md font-brand__font__semibold">
                 Still have a question that needs a
