@@ -12,7 +12,7 @@ import thumb__4 from "../../assets/images/banner/packages__thumbnails/thumb__4.j
 const thumbs = [thumb__1, thumb__2, thumb__3, thumb__4];
 
 const PGCard = ({ index, data }) => {
-  const { country, title, description, color, rating, price } = data;
+  const { country, title, description, color, rating, price, url } = data;
 
   return (
     <div className="w-full h-full">
@@ -34,7 +34,7 @@ const PGCard = ({ index, data }) => {
 
           <Link
             className={`block w-fit ml-auto text-center py-2 px-4 rounded ${color} hover:bg-brand__light__cyan duration-300 text-white`}
-            to="/"
+            to={url}
           >
             Explore
           </Link>

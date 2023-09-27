@@ -14,10 +14,10 @@ export const navItems = [
 ];
 
 export const dropdownNavItems = [
-  { title: "foreigner", route: "/" },
-  { title: "bangladesh", route: "/" },
-  { title: "india", route: "/" },
-  { title: "nepal", route: "/" },
+  { title: "bangladesh", route: "/tour-list?country=bangladesh" },
+  { title: "india", route: "/tour-list?country=india" },
+  { title: "nepal", route: "/tour-list?country=nepal" },
+  { title: "foreigner", route: "/tour-list?country=foreigner" },
 ];
 
 export const userMenuDropdownLinks = [

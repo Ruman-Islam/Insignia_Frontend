@@ -25,12 +25,12 @@ const Head = ({ packageDetail }) => {
         autoPlay
         autoPlaySpeed={5000}
         customLeftArrow={
-          <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute cursor-pointer">
+          <Button className="bg-black border border-brand__gray__border text-white left-5 opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute cursor-pointer">
             <BsFillArrowLeftCircleFill />
           </Button>
         }
         customRightArrow={
-          <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute right-0 cursor-pointer">
+          <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-2xl absolute right-5 cursor-pointer">
             <BsFillArrowRightCircleFill />
           </Button>
         }

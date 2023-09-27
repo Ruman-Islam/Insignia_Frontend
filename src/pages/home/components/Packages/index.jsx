@@ -17,10 +17,7 @@ const Packages = () => {
           </h3>
         </div>
 
-        <div
-          id="package-section"
-          className="border-2 border-gray-200 rounded-3xl w-full flex flex-col justify-center items-center bg-white shadow-2xl"
-        >
+        <div className="border-2 border-gray-200 rounded-3xl w-full flex flex-col justify-center items-center bg-white shadow-2xl">
           <div className="w-full">
             <Banner />
 

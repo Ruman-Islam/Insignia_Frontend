@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { GrSearch } from "react-icons/gr";
 import { GrLocation } from "react-icons/gr";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
@@ -13,19 +14,19 @@ const theme = {
     outline: "0",
     padding: "0 6px",
     fontSize: "16px",
-    backgroundColor: "#FAF7F5",
+    backgroundColor: "white",
   },
   suggestionsContainerOpen: {
     position: "absolute",
     top: "48px",
     left: "0",
-    zIndex: "999",
     right: "0",
     maxHeight: "250px",
     overflowY: "auto",
-    backgroundColor: "#FAF7F5",
+    backgroundColor: "white",
     borderRadius: "12px",
     padding: "20px 0",
+    boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
   },
   suggestion: {
     cursor: "pointer",
@@ -37,7 +38,7 @@ const theme = {
   },
 };
 
-const Search = () => {
+const Search = ({ firstDivStyles, secondDivStyles }) => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -108,8 +109,10 @@ const Search = () => {
   };
 
   return (
-    <div className="max-w-[600px] ml-auto w-full relative mb-6 md:mb-0">
-      <div className="relative w-full rounded-full border border-brand__cyan bg-brand__white flex items-center justify-center">
+    <div className={`${firstDivStyles} mr-auto w-full relative`}>
+      <div
+        className={`${secondDivStyles} relative rounded-full w-full border border-brand__cyan bg-white flex items-center justify-center`}
+      >
         <div className="p-3 border-r">
           {loading ? (
             <AiOutlineLoading3Quarters className="animate-spin" size={22} />
@@ -129,7 +132,7 @@ const Search = () => {
           />
         </div>
         <div>
-          <Button className="bg-brand__cyan hover:bg-brand__light__cyan duration-300 rounded-full py-2 px-4 mr-0.5 text-brand__white">
+          <Button className="bg-brand__cyan hover:bg-brand__light__cyan duration-300 rounded-full py-2.5 px-5 mr-0.5 text-brand__white">
             Search
           </Button>
         </div>

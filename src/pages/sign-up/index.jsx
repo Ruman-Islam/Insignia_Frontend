@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import { FcGoogle } from "react-icons/fc";
 import { GoPeople } from "react-icons/go";
+import { CiMail } from "react-icons/ci";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
 import Input from "../../components/UI/Input";
 
@@ -57,7 +58,7 @@ const SignUpScreen = () => {
                         />
                       </div>
                       <div>
-                        <GoPeople size={22} />
+                        <CiMail size={22} />
                       </div>
                     </div>
 

@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import { bannerImages } from "../../../../constants/common";
 import Image from "../../../../components/UI/Image";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillArrowRightCircleFill,
-} from "react-icons/bs";
 import Button from "../../../../components/UI/Button";
 
 const BannerBackground = () => {
@@ -18,10 +14,14 @@ const BannerBackground = () => {
     );
   };
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) =>
-      prev === 0 ? bannerImages.length - 1 : prev - 1
-    );
+  // const prevSlide = () => {
+  //   setCurrentSlide((prev) =>
+  //     prev === 0 ? bannerImages.length - 1 : prev - 1
+  //   );
+  // };
+
+  const goToSlide = (slideIndex) => {
+    setCurrentSlide(slideIndex);
   };
 
   useEffect(() => {
@@ -50,13 +50,18 @@ const BannerBackground = () => {
         );
       })}
 
-      <div className="absolute z-10 bottom-0 left-0 right-0 mx-auto flex h-fit w-fit gap-x-5 mb-5">
-        <Button className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
-          <BsFillArrowLeftCircleFill onClick={prevSlide} />
-        </Button>
-        <Button className="text-white opacity-70 hover:opacity-100 duration-300 rounded-full text-4xl cursor-pointer">
-          <BsFillArrowRightCircleFill onClick={nextSlide} />
-        </Button>
+      <div className="flex gap-x-2 absolute z-10 bottom-10 left-0 right-0 mx-auto w-fit">
+        {bannerImages.map((slide, slideIndex) => (
+          <Button
+            onClick={() => goToSlide(slideIndex)}
+            key={slideIndex}
+            className={`${
+              currentSlide === slideIndex
+                ? "bg-brand__cyan border-none"
+                : "bg-transparent"
+            } w-full md:w-[150px] p-1.5 md:p-0.5 border border-brand__gray__border rounded-xl duration-300`}
+          />
+        ))}
       </div>
     </div>
   );

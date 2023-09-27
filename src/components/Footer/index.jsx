@@ -125,7 +125,7 @@ const Footer = () => {
               className="hover:underline duration-300  font-brand__font__bold"
               to="/"
             >
-              Pingdash Technology
+              Tech-Hunt Technology
             </Link>
           </p>
         </div>

@@ -170,7 +170,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
 
                 {/* This is submenu. It will visible after clicking packages link*/}
                 {submenuVisible && (
-                  <div className="absolute top-20 left-0 w-full bg-white shadow-lg rounded-bl-md rounded-br-md px-2 py-1">
+                  <div className="absolute top-20 left-0 w-full bg-white shadow-lg rounded-bl-md rounded-br-md py-1">
                     {dropdownNavItems.map(({ title, route }) => (
                       <Menu.Item key={title}>
                         {({ active }) => (
@@ -180,7 +180,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                               active
                                 ? "bg-brand__light__cyan text-white"
                                 : "text-gray-900"
-                            } group flex w-full items-center rounded-md px-2 py-2 text-sm capitalize`}
+                            } group flex w-full items-center px-4 py-2 text-sm capitalize`}
                           >
                             {title}
                           </HashLink>
