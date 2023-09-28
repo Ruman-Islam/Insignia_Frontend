@@ -92,7 +92,7 @@ const SignUpScreen = () => {
             </div>
             <div className="basis-[60%] rounded-2xl bg-sign__up__form__background bg-center bg-cover relative h-full flex flex-col justify-center items-center">
               <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-60 rounded-2xl"></div>
-              <div className="relative text-white text-brand__font__size__lg uppercase text-center font-brand__font__family__fancy">
+              <div className="relative text-white text-brand__font__size__sm md:text-brand__font__size__lg uppercase text-center font-brand__font__family__fancy">
                 <p>
                   “Traveling – it leaves you speechless,
                   <br /> then turns you into <br /> a storyteller.”

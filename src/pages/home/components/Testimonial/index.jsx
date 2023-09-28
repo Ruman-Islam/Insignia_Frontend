@@ -10,6 +10,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import RVCard from "../../../../components/RVCard";
 import { Link } from "react-router-dom";
+import Button from "../../../../components/UI/Button";
 
 const Testimonial = () => {
   return (
@@ -33,14 +34,14 @@ const Testimonial = () => {
           autoPlay
           autoPlaySpeed={5000}
           customLeftArrow={
-            <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute cursor-pointer">
+            <Button className="bg-black hover:bg-white border border-brand__gray__border text-white hover:text-black opacity-80 hover:opacity-100 duration-300 rounded-full text-4xl absolute left-0 cursor-pointer">
               <BsFillArrowLeftCircleFill />
-            </div>
+            </Button>
           }
           customRightArrow={
-            <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute right-0 cursor-pointer">
+            <Button className="bg-black hover:bg-white border border-brand__gray__border text-white hover:text-black opacity-80 hover:opacity-100 duration-300 rounded-full text-4xl absolute right-0 cursor-pointer">
               <BsFillArrowRightCircleFill />
-            </div>
+            </Button>
           }
           responsive={faqCarouselResponsive}
         >

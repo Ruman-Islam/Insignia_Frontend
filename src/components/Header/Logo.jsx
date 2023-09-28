@@ -10,7 +10,7 @@ const Logo = ({ className }) => {
         <Image
           src={brand___logo}
           alt="Insigina"
-          className="w-[90px] md:w-[100px] xl:w-[120px] h-[45px] md:h-[50px] xl:h-[60px]"
+          className="w-[90px] md:w-[100px] xl:w-[130px] h-[45px] md:h-[50px] xl:h-[70px]"
         />
       </Link>
     </div>

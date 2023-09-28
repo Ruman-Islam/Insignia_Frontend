@@ -75,11 +75,25 @@ export default {
             transform: "translateX(100%)",
           },
         },
+        arrowScrollDown: {
+          "0%": {
+            opacity: "0",
+            transform: "translateY(-60px)",
+          },
+          "30%": {
+            opacity: "1",
+          },
+          "100%": {
+            opacity: "0",
+            transform: "translateY(60px)",
+          },
+        },
       },
       animation: {
         zoom__in: "zoomIn 15s linear 1",
         fade__in: "fadeIn 0.35s ease-in 1",
         shimmer: "shimmer 1s ease-in infinite",
+        arrow__scroll__down: "arrowScrollDown 2s infinite",
       },
       backgroundImage: {
         not__found: "url('../src/assets/svg/image-error-404.f7a6f4a6.svg')",
@@ -104,6 +118,8 @@ export default {
           "url('../src/assets/images/background/sign__in__form__bg.jpg')",
         sign__up__form__background:
           "url('../src/assets/images/background/sign__up__form__bg.jpg')",
+        pg__card__background:
+          "url('../src/assets/images/background/pg__card__bg.png')",
       },
     },
   },

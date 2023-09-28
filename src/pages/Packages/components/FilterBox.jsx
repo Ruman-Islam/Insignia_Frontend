@@ -24,8 +24,7 @@ const FilterBox = ({ value, handleSlider }) => {
             step={10}
             defaultValue={value}
             onInput={handleSlider}
-            className="h-1"
-            id="range-slider-ab"
+            className="h-1 range-slider-ab"
           />
         </div>
         <div className="w-full flex justify-between py-2 text-brand__font__size__sm text-brand__navy__blue">

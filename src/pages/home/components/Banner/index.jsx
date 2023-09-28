@@ -10,14 +10,13 @@ const Banner = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center p-content__padding max-w-screen-xl absolute top-0 bottom-0 left-0 right-0 m-auto">
-        <div className="w-full flex flex-col justify-center items-start">
+        <div className="w-full flex flex-col justify-center items-start mb-5">
           <h1 className="text-brand__font__size__lg text-brand__white p-content__padding font-brand__font__family__fancy italic text-center">
             Where to?
           </h1>
           <Search firstDivStyles="max-w-[600px]" />
         </div>
 
-        <br />
         <BannerContent />
         
         <div className="h-[200px] w-full absolute bottom-10 left-0 right-0 hidden md:flex justify-center md:justify-end p-content__padding">

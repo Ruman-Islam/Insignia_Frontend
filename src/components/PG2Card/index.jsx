@@ -7,13 +7,16 @@ const PG2Card = ({ data }) => {
   const { thumbnail, title, location, startingPrice, timing, id } = data;
   return (
     <HashLink to={`/package-detail/${id}`} className="block" key={id}>
-      <div className="flex flex-col md:flex-row justify-between h-full lg:h-[250px] bg-white rounded-md border mb-2">
+      <div className="flex flex-col md:flex-row justify-between h-full lg:h-[250px] bg-white rounded-md mb-4 border">
         <div className="basis-[30%] w-full h-full p-4">
-          <Image src={thumbnail} className="w-full h-full object-cover" />
+          <Image
+            src={thumbnail}
+            className="w-full h-full object-cover rounded-md"
+          />
         </div>
 
-        <div className="basis-[70%] p-5 flex flex-col md:flex-row gap-5 justify-between text-brand__navy__blue">
-          <div className="text-brand__font__size__sm leading-relaxed">
+        <div className="basis-[70%] flex flex-col md:flex-row gap-5 justify-between text-brand__navy__blue">
+          <div className="text-brand__font__size__sm leading-relaxed p-4 basis-[75%]">
             <h2 className="text-brand__font__size__md font-brand__font__semibold capitalize">
               {title}
             </h2>
@@ -61,15 +64,20 @@ const PG2Card = ({ data }) => {
             </div>
           </div>
 
-          <div className="text-right h-full flex flex-col justify-end">
-            <h6 className="text-brand__font__size__xs">Starting From</h6>
-            <h6>
-              BDT{" "}
-              <span className="font-brand__font__bold text-brand__font__size__lg">
-                {startingPrice}
-              </span>
-            </h6>
-            <h6>Per Person</h6>
+          <div className="text-right h-full flex flex-col justify-end basis-[35%] text-white rounded-md bg-pg__card__background bg-cover bg-left bg-no-repeat py-3">
+            <div
+              className="flex flex-col justify-center items-center h-full
+            "
+            >
+              <h6 className="text-brand__font__size__xs">Starting From</h6>
+              <h6>
+                BDT{" "}
+                <span className="font-brand__font__bold text-brand__font__size__lg">
+                  {startingPrice}
+                </span>
+              </h6>
+              <h6>Per Person</h6>
+            </div>
           </div>
         </div>
       </div>

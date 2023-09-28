@@ -9,6 +9,7 @@ import {
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import PDCard from "../../../../components/PDCard";
+import Button from "../../../../components/UI/Button";
 
 const PopularDestination = () => {
   return (
@@ -32,14 +33,14 @@ const PopularDestination = () => {
           slidesToSlide={1}
           autoPlaySpeed={5000}
           customLeftArrow={
-            <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute cursor-pointer">
+            <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute cursor-pointer">
               <BsFillArrowLeftCircleFill />
-            </div>
+            </Button>
           }
           customRightArrow={
-            <div className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute right-0 cursor-pointer">
+            <Button className="bg-black border border-brand__gray__border text-white opacity-80 hover:opacity-100 duration-200 rounded-full text-4xl absolute right-0 cursor-pointer">
               <BsFillArrowRightCircleFill />
-            </div>
+            </Button>
           }
           responsive={popularDesignationCarouselResponsive}
         >
