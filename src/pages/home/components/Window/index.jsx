@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { windowImages } from "../../../../constants/common";
 import Button from "../../../../components/UI/Button";
-import { BsChevronCompactDown } from "react-icons/bs";
-import Styles from "./Style.module.css";
 
 const Window = () => {
   const [backgroundImage, setBackgroundImage] = useState(
@@ -38,20 +36,7 @@ const Window = () => {
                 ></div>
               </div>
 
-              <div className="h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 duration-300 flex flex-col justify-center items-center">
-                <BsChevronCompactDown
-                  className={`${Styles.arrow} invisible lg:group-hover:visible`}
-                  size={60}
-                />
-                <BsChevronCompactDown
-                  className={`${Styles.arrow} invisible lg:group-hover:visible`}
-                  size={60}
-                />
-                <BsChevronCompactDown
-                  className={`${Styles.arrow} invisible lg:group-hover:visible`}
-                  size={60}
-                />
-              </div>
+              <div className="h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 duration-300 flex flex-col justify-center items-center"></div>
 
               <div className="absolute -bottom-20 group-hover:bottom-0 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 w-full mx-auto h-20 flex flex-col items-center justify-center">
                 <Button className="uppercase">View More</Button>
