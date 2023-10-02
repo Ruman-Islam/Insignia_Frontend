@@ -1,15 +1,23 @@
 /* eslint-disable react/prop-types */
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import Rating from "react-rating";
+import Image from "../UI/Image";
+import defaultProImg from "../../assets/images/profile/profile.png";
 
 const RVCard = ({ data }) => {
-  const { text, name, rating, time } = data;
+  const { text, name, rating } = data;
 
   return (
     <div className="h-[420px] border bg-brand__ash rounded">
       <div className="h-full flex flex-col">
-        <div className="flex items-center border-b px-6 py-2">
-          <span className="flex-grow flex flex-col">
+        <div className="flex items-center border-b">
+          <div className="flex-grow flex flex-col items-center  bg-brand__cyan text-white py-2">
+            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center">
+              <Image
+                src={defaultProImg}
+                className="w-full h-full object-cover rounded-full"
+              />
+            </div>
             <span className="font-brand__font__bold text-brand__font__size__md">
               {name}
             </span>
@@ -20,11 +28,10 @@ const RVCard = ({ data }) => {
               emptySymbol={<AiOutlineStar />}
               fullSymbol={<AiFillStar />}
             />
-            <span className="text-brand__font__size__xs">{time}</span>
-          </span>
+          </div>
         </div>
 
-        <div className="px-6 my-4 h-full overflow-y-auto custom__scrollbar">
+        <div className="px-6 py-3 my-4 h-full overflow-y-auto custom__scrollbar">
           <p className="leading-normal text-brand__font__size__sm">{text}</p>
         </div>
       </div>

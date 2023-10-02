@@ -15,12 +15,12 @@ import Button from "../../../../components/UI/Button";
 const Testimonial = () => {
   return (
     <section className="pt-10 lg:pb-20 my-10">
-      <div className="max-w-screen-xl w-full mx-auto p-content__padding">
-        <div className="pb-10 px-5 w-full bg-testimonial__background bg-center bg-cover">
-          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight bg-brand__ash__light w-fit ms-auto">
+      <div className="max-w-screen-xl w-full mx-auto p-content__padding bg-testimonial__background bg-center bg-cover">
+        <div className="pb-10 px-5 w-full text-center">
+          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight bg-brand__ash__light ms-auto">
             What Travelers says
           </h2>
-          <h3 className="text-brand__font__size__md w-fit ms-auto bg-brand__ash__light">
+          <h3 className="text-brand__font__size__md ms-auto bg-brand__ash__light">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
             cupiditate iure!
           </h3>
