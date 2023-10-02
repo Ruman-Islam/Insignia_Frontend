@@ -1,3 +1,4 @@
+import { PhotoProvider, PhotoView } from "react-photo-view";
 import Image from "../../../../components/UI/Image";
 import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 import { photoGalleryData } from "../../../../constants/common";
@@ -21,20 +22,32 @@ const PhotoGallery = () => {
           id="photo-gallery"
           className="p-4 border rounded-xl shadow-md bg-white"
         >
-          <div className="columns-1 gap-5 lg:gap-3 md:columns-2 lg:columns-3 xl:columns-5 [&>img:not(:first-child)]:mt-5 lg:[&>img:not(:first-child)]:mt-3">
-            {photoGalleryData.map((item, i) => (
-              <Image
-                key={i}
-                alt="gallery"
-                className="w-full object-cover h-full object-center block rounded-lg"
-                src={item}
-              />
-            ))}
-          </div>
+          <PhotoProvider
+            speed={() => 800}
+            easing={(type) =>
+              type === 2
+                ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
+                : "cubic-bezier(0.34, 1.56, 0.64, 1)"
+            }
+          >
+            <div className="columns-1 gap-5 lg:gap-3 md:columns-2 lg:columns-3 xl:columns-5 [&>img:not(:first-child)]:mt-5 lg:[&>img:not(:first-child)]:mt-3">
+              {photoGalleryData?.slice(0, 12).map((item, i) => (
+                <PhotoView rotate={() => 350} key={i} src={item}>
+                  <div className="w-full h-full object-cover object-center block rounded-lg mb-3 cursor-pointer">
+                    <Image
+                      alt="gallery"
+                      className="w-full h-full object-cover object-center block rounded-lg"
+                      src={item}
+                    />
+                  </div>
+                </PhotoView>
+              ))}
+            </div>
+          </PhotoProvider>
         </div>
         <div className="mt-6 mb-5 w-fit mx-auto">
           <ViewMoreBtn
-            route="/tour-list"
+            route="/gallery"
             className="text-white border hover:bg-brand__cyan hover:text-white hover:border-brand__cyan"
           >
             <span>view more</span>

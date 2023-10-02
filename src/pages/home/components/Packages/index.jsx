@@ -1,3 +1,4 @@
+import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 import Banner from "./Banner";
 import PackagesSection from "./PackagesSection";
 
@@ -17,11 +18,20 @@ const Packages = () => {
           </h3>
         </div>
 
-        <div className="border-2 border-gray-200 rounded-3xl w-full flex flex-col justify-center items-center bg-white shadow-2xl">
+        <div className="rounded-3xl w-full flex flex-col justify-center items-center bg-white shadow-2xl mb-10">
           <div className="w-full">
             <Banner />
 
             <PackagesSection />
+          </div>
+
+          <div className="w-full flex justify-center my-5">
+            <ViewMoreBtn
+              route="/tour-list"
+              className="text-brand__cyan border-brand__cyan hover:bg-brand__cyan hover:text-white"
+            >
+              <span>view more</span>
+            </ViewMoreBtn>
           </div>
         </div>
       </div>

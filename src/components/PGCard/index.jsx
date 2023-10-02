@@ -11,7 +11,7 @@ const PGCard = ({ index, data }) => {
 
   return (
     <div className="w-full h-full md:h-[250px]">
-      <div className="flex flex-col md:flex-row justify-between h-full shadow-lg rounded-2xl">
+      <div className="flex flex-col md:flex-row justify-between h-full shadow rounded-2xl">
         <div className="flex-1 relative">
           <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full card__inner__shadow rounded-t-2xl md:rounded-t-none md:rounded-tl-2xl md:rounded-bl-2xl"></div>
           <Image

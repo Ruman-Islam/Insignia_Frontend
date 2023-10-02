@@ -108,6 +108,8 @@ export default {
           "url('../src/assets/images/background/testimonial__bg.png')",
         photo__gallery__background:
           "url('../src/assets/images/background/photo__gallery.jpeg')",
+        photo__gallery__background2:
+          "url('../src/assets/images/background/photo__gallery__bg.webp')",
         ask__qus__background:
           "url('../src/assets/images/background/ask__qus__bg.jpeg')",
         footer__background:

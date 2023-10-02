@@ -1,6 +1,7 @@
 import PackagesListScreen from "../pages/Packages";
 import AboutUsScreen from "../pages/about-us";
 import ContactUsScreen from "../pages/contact-us";
+import GalleryScreen from "../pages/gallery";
 import HomeScreen from "../pages/home";
 import PackageDetailScreen from "../pages/package-detail";
 import SignInScreen from "../pages/sign-in";
@@ -25,8 +26,13 @@ export const publicRoutes = [
   },
   {
     path: "/tour-list",
-    name: "about-us",
+    name: "tour-list",
     Component: PackagesListScreen,
+  },
+  {
+    path: "/gallery",
+    name: "gallery",
+    Component: GalleryScreen,
   },
   { path: "/sign-in", name: "sign-in", Component: SignInScreen },
   { path: "/sign-up", name: "sign-up", Component: SignUpScreen },

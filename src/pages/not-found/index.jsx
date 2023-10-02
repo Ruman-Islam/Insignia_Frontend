@@ -5,9 +5,7 @@ const NotFoundScreen = () => {
     <div className="w-full min-h-screen bg-not__found bg-center bg-cover bg-no-repeat flex flex-col justify-center items-center">
       <div className="max-w-screen-xl m-auto w-full min-h-screen flex flex-col justify-center p-content__padding">
         <div>
-          <h2 className="text-8xl font-extrabold text-brand__cyan">
-            404
-          </h2>
+          <h2 className="text-8xl font-extrabold text-brand__cyan">404</h2>
           <p className="font-bold">Page not found</p>
           <p className="text-sm max-w-[350px] w-full mt-2">
             Sorry, the content that you are looking for doesn&rsquo;t exist.

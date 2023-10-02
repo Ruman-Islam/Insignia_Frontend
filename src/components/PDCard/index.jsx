@@ -8,7 +8,7 @@ const PDCard = ({ data }) => {
       className={`max-w-[300px] h-[450px] rounded-2xl overflow-hidden m-2 relative card__inner__shadow bg-center bg-cover bg-no-repeat cursor-pointer`}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="max-w-[250px] w-full mx-auto flex justify-between items-center p-2 text-white absolute left-0 right-0 bottom-5 backdrop-blur-3xl border border-brand__gray__border rounded-xl">
+      <div className="max-w-[250px] w-full mx-auto flex justify-between items-center p-1.5 text-white absolute left-0 right-0 bottom-5 backdrop-blur-3xl border border-brand__gray__border rounded-xl">
         <div className="flex flex-col justify-between items-start">
           <div className="flex items-center gap-x-1 mb-1">
             <Image className="w-7 h-7 rounded-full" src={imageUrl} alt="Flag" />{" "}
