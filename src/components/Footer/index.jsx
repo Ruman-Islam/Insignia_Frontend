@@ -1,5 +1,5 @@
 // import Button from "../UI/Button";
-import Logo from "../../assets/images/brand/brand_logo.png";
+import insignia__logo from "../../assets/images/brand/Insignia__logo (2).png";
 import { BsEnvelope } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiOutlineCopyrightCircle, AiOutlineMobile } from "react-icons/ai";
@@ -7,6 +7,7 @@ import Image from "../UI/Image";
 import { Link } from "react-router-dom";
 import { bannerSocialIcons } from "../../constants/bannerSocialIcons";
 import { footerServices } from "../../constants/common";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -16,25 +17,37 @@ const Footer = () => {
       <div className="max-w-screen-xl p-content__padding mx-auto relative">
         <div className="hidden md:flex items-center justify-between py-8 lg:rounded-xl">
           <div>
-            <p className="lg:text-lg lg:font-semibold">
-              Prepare yourself to be a part of exploration of
-            </p>
-            <p className="lg:text-4xl font-bold font-brand__font__family__fancy">
-              The Beauty of World
-            </p>
+            <HashLink to={"/#"}>
+              <Image
+                src={insignia__logo}
+                alt="Insigina__logo"
+                className="w-[80px] md:w-[100px] xl:w-[130px]"
+              />
+            </HashLink>
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-x-5">
-          <div className="flex-1 flex flex-col md:flex-row justify-center items-center md:items-start gap-x-5">
+          <div className="flex-1 flex flex-col md:flex-row justify-center items-center gap-x-5">
             <div className="flex-1">
-              <Image alt="logo" src={Logo} />
-              <p className="hidden lg:block text-brand__font__size__sm">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-                molestiae odit sit ipsum quo, magnam voluptas cum ut recusandae
-                nobis, minima illo inventore repellendus magni culpa sunt
-                excepturi veniam ad.
-              </p>
+              <div className="block md:hidden w-fit mx-auto">
+                <HashLink to={"/#"}>
+                  <Image
+                    src={insignia__logo}
+                    alt="Insigina__logo"
+                    className="w-[80px] md:w-[100px] xl:w-[130px]"
+                  />
+                </HashLink>
+              </div>
+              <div className="hidden md:block">
+                <p className="lg:text-lg lg:font-semibold">
+                  Prepare yourself to be a part of exploration of
+                </p>
+                <p className="lg:text-4xl font-bold font-brand__font__family__fancy">
+                  The Beauty of World
+                </p>
+              </div>
+
               <div className="mt-5 md:mt-10 inline-flex gap-x-5">
                 {bannerSocialIcons.map(({ Icon, url }) => (
                   <Link

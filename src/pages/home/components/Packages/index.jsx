@@ -5,11 +5,11 @@ const Packages = () => {
   return (
     <section>
       <div className="max-w-screen-xl mx-auto p-content__padding">
-        <div className="py-5 lg:pt-10 w-full mb-4">
-          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight">
+        <div className="py-7 md:py-14 w-full text-center">
+          <h2 className="text-brand__font__size__xl font-brand__font__bold font-brand__font__family__fancy leading-tight border-b border-brand__cyan pr-3">
             Checkout Our Packages
           </h2>
-          <h3 className="text-brand__font__size__base mt-2">
+          <h3 className="mt-2">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
             <br />
             cupiditate architecto perferendis officia voluptas, dicta corrupti

@@ -1,6 +1,6 @@
-import { HashLink } from "react-router-hash-link";
 import PGCard from "../../../../components/PGCard";
 import { mockData } from "../../../../constants/common";
+import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 
 const PackagesSection = () => {
   return (
@@ -14,12 +14,12 @@ const PackagesSection = () => {
         ))}
       </div>
       <div className="w-full flex justify-center mt-8">
-        <HashLink
-          to="/tour-list"
-          className="block py-2 px-5 rounded-3xl bg-brand__cyan hover:bg-brand__light__cyan duration-300 text-brand__white font-font__semibold"
+        <ViewMoreBtn
+          route="/tour-list"
+          className="text-brand__cyan border-brand__cyan hover:bg-brand__cyan hover:text-white"
         >
-          View More
-        </HashLink>
+          <span>view more</span>
+        </ViewMoreBtn>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
@@ -31,9 +30,9 @@ const Header = () => {
           <Logo />
           <PcNavigation />
           <ToggleButton
-            // toggleNavbar={toggleNavbar}
-            // toggleModal={toggleModal}
-            // isModalOpen={isModalOpen}
+          // toggleNavbar={toggleNavbar}
+          // toggleModal={toggleModal}
+          // isModalOpen={isModalOpen}
           />
         </div>
 

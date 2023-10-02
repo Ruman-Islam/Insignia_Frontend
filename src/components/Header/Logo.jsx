@@ -1,19 +1,17 @@
 /* eslint-disable react/prop-types */
-import { Link } from "react-router-dom";
-import brand___logo from "../../assets/images/brand/brand_logo.png";
+import insignia__logo from "../../assets/images/brand/Insignia__logo.png";
 import Image from "../UI/Image";
+import { HashLink } from "react-router-hash-link";
 
-const Logo = ({ className }) => {
+const Logo = () => {
   return (
-    <div className={className}>
-      <Link to={"/"}>
-        <Image
-          src={brand___logo}
-          alt="Insigina"
-          className="w-[90px] md:w-[100px] xl:w-[130px] h-[45px] md:h-[50px] xl:h-[70px]"
-        />
-      </Link>
-    </div>
+    <HashLink className="block" to={"/#"}>
+      <Image
+        src={insignia__logo}
+        alt="Insigina__logo"
+        className="w-[80px] md:w-[100px] xl:w-[130px]"
+      />
+    </HashLink>
   );
 };
 

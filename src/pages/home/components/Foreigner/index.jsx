@@ -1,7 +1,7 @@
-import FPCard from "../../../../components/FPCard";
-import Button from "../../../../components/UI/Button";
 import { foreignerPackages } from "../../../../constants/common";
+import FPCard from "../../../../components/FPCard";
 import UseNavbar from "../../../../hooks/UseNavbar";
+import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 
 const Foreigner = () => {
   const { navbar } = UseNavbar();
@@ -26,10 +26,13 @@ const Foreigner = () => {
               ))}
             </div>
 
-            <div className="w-full flex justify-end py-4">
-              <Button className="py-2 px-5 rounded-full bg-brand__cyan hover:bg-brand__light__cyan duration-300 text-brand__white font-font__semibold">
-                View More
-              </Button>
+            <div className="w-full flex justify-end mt-4">
+              <ViewMoreBtn
+                route="/tour-list"
+                className="text-brand__cyan border-brand__cyan hover:bg-brand__cyan hover:text-white"
+              >
+                <span>view more</span>
+              </ViewMoreBtn>
             </div>
           </div>
 
@@ -43,16 +46,19 @@ const Foreigner = () => {
                 </h3>
               </div>
 
-              <div className="basis-2/5 flex flex-col items-end">
+              <div className="basis-2/5 flex flex-col justify-between items-end">
                 <p className="text-justify">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
                   consequuntur velit eius accusantium in, minima sapiente
                   impedit obcaecati maxime modi provident numquam!
                 </p>
                 <div>
-                  <Button className="py-2 px-4 rounded-full hover:bg-brand__light__cyan bg-black text-white mt-4 duration-300 font-font__bold">
-                    See Our Packages
-                  </Button>
+                  <ViewMoreBtn
+                    route="/tour-list"
+                    className="bg-black text-white hover:bg-transparent hover:border-brand__cyan hover:text-brand__cyan"
+                  >
+                    <span>See Our Packages</span>
+                  </ViewMoreBtn>
                 </div>
               </div>
             </div>

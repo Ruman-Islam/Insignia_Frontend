@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { windowImages } from "../../../../constants/common";
-import Button from "../../../../components/UI/Button";
+import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 
 const Window = () => {
   const [backgroundImage, setBackgroundImage] = useState(
@@ -38,8 +38,13 @@ const Window = () => {
 
               <div className="h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 duration-300 flex flex-col justify-center items-center"></div>
 
-              <div className="absolute -bottom-20 group-hover:bottom-0 opacity-0 group-hover:opacity-100 duration-300 left-0 right-0 w-full mx-auto h-20 flex flex-col items-center justify-center">
-                <Button className="uppercase">View More</Button>
+              <div className="absolute -bottom-20 group-hover:bottom-0 duration-300 left-0 right-0 w-full mx-auto h-20 flex flex-col items-center justify-center">
+                <ViewMoreBtn
+                  route="/tour-list"
+                  className="text-white border-brand__gray__border backdrop-blur-sm"
+                >
+                  <span>view more</span>
+                </ViewMoreBtn>
               </div>
             </div>
           );
