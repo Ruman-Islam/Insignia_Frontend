@@ -48,7 +48,7 @@ const PhotoGallery = () => {
         <div className="mt-6 mb-5 w-fit mx-auto">
           <ViewMoreBtn
             route="/gallery"
-            className="text-white border hover:bg-brand__cyan hover:text-white hover:border-brand__cyan"
+            className="text-white border hover:bg-secondary hover:text-white hover:border-secondary"
           >
             <span>view more</span>
           </ViewMoreBtn>

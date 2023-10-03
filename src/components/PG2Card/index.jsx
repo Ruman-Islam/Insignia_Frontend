@@ -68,7 +68,7 @@ const PG2Card = ({ data }) => {
             </div>
             <HashLink
               to={`/package-detail/${id}`}
-              className={`block w-fit mx-auto text-center py-1 px-4 rounded bg-white text-brand__cyan font-brand__font__semibold`}
+              className={`block w-fit mx-auto text-center py-1 px-4 rounded bg-white text-primary font-brand__font__semibold`}
             >
               Explore
             </HashLink>

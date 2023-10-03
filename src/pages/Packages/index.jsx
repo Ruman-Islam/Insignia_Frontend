@@ -84,7 +84,7 @@ const PackagesListScreen = () => {
         </div>
       </section>
 
-      <>
+      <div className="h-full">
         <Button
           onClick={() => toggleResponsiveFilterBox(!isFilterOpen)}
           className="flex w-fit lg:hidden items-center gap-x-3 fixed z-[2] bottom-5 left-0 right-5 ms-auto justify-center rounded-md bg-brand__orange text-white py-2 px-4"
@@ -99,11 +99,12 @@ const PackagesListScreen = () => {
           duration={300}
           overlayOpacity={0.5}
           lockBackgroundScroll
+          size={350}
           className="block lg:hidden rounded-tl-xl rounded-tr-xl"
         >
           <FilterBox value={value} handleSlider={handleSlider} />
         </Drawer>
-      </>
+      </div>
     </>
   );
 };

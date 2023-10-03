@@ -11,7 +11,7 @@ const RVCard = ({ data }) => {
     <div className="h-[420px] border bg-brand__ash rounded">
       <div className="h-full flex flex-col">
         <div className="flex items-center border-b">
-          <div className="flex-grow flex flex-col items-center  bg-brand__cyan text-white py-2">
+          <div className="flex-grow flex flex-col items-center  bg-primary text-white py-2">
             <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center">
               <Image
                 src={defaultProImg}

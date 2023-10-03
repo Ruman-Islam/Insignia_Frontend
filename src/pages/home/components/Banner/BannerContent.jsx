@@ -22,7 +22,7 @@ const BannerContent = () => {
             {bannerSocialIcons.map(({ Icon, url }) => (
               <Link
                 key={url}
-                className="hover:text-brand__cyan duration-300"
+                className="hover:text-secondary duration-300"
                 to={url}
               >
                 <Icon size={30} />

@@ -73,7 +73,7 @@ const BookingCard = ({ packageDetail }) => {
         </div>
         <div className="flex justify-end gap-x-3 w-full h-full text-white">
           <Button
-            className="bg-green-500 rounded-full"
+            className="bg-brand__success rounded-full"
             onClick={handleAddTraveler}
           >
             <AiOutlinePlusCircle size={25} />
@@ -157,7 +157,7 @@ const BookingCard = ({ packageDetail }) => {
 
       <div>
         <HashLink
-          className="block bg-brand__orange hover:shadow-lg  hover:bg-brand__light__cyan duration-300 text-center p-2 rounded-md text-white font-brand__font__semibold"
+          className="block bg-brand__orange hover:shadow-lg  hover:bg-primary duration-300 text-center p-2 rounded-md text-white font-brand__font__semibold"
           to="/"
         >
           Continue

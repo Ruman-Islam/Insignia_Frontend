@@ -27,7 +27,7 @@ const Body = ({ packageDetail, id }) => {
   return (
     <section>
       <div className="my-5 pb-5 bg-white rounded-md">
-        <div className="border-b p-4 flex flex-wrap gap-x-5 font-brand__font__bold sticky top-[80px] z-[1] bg-white text-brand__navy__blue text-brand__font__size__sm lg:text-brand__font__size__base rounded-tl-md rounded-tr-md">
+        <div className="border-b p-4 flex flex-wrap gap-x-5 font-brand__font__bold sticky top-[80px] md:top-[90px] z-[1] bg-white text-brand__navy__blue text-brand__font__size__sm lg:text-brand__font__size__base rounded-tl-md rounded-tr-md">
           {hashLinks.map(({ title, link }) => (
             <HashLink
               smooth
@@ -38,7 +38,7 @@ const Body = ({ packageDetail, id }) => {
                   ? "before:border-b before:w-full"
                   : "before:w-0 before:hover:border-b before:hover:w-full before:duration-300"
               }`}
-              scroll={(el) => scrollWithOffset(el, 125)}
+              scroll={(el) => scrollWithOffset(el, 135)}
             >
               {title}
             </HashLink>

@@ -2,20 +2,34 @@ import { navItems } from "../../constants/navigation";
 import { BsChevronDown } from "react-icons/bs";
 import Dropdown from "./Dropdown";
 import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 // import { Menu, Transition } from "@headlessui/react";
 // import { Fragment, useEffect, useRef, useState } from "react";
 
 const PcNavigation = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
   return (
-    <div className="border hidden lg:block border-brand__gray__border rounded-full backdrop-filter backdrop-blur-lg font-brand__font__semibold shadow-md">
-      <ul className="flex items-center px-1 lg:px-2 xl:px-4 py-0.5 xl:py-1 duration-200">
+    <div
+      className={`border hidden lg:block  rounded-full backdrop-filter backdrop-blur-lg font-brand__font__semibold ${
+        isHomePage
+          ? "text-white border-brand__gray__border"
+          : "text-primary border-primary"
+      }`}
+    >
+      <ul className="flex items-center px-1 lg:px-2 xl:px-4 py-0.5 xl:py-1 duration-300">
         {navItems.map(({ title, route }) => (
           <li
-            className="group flex items-center hover:bg-bg__gray rounded-full duration-500 relative"
+            className={`group flex items-center rounded-full duration-300 relative ${
+              isHomePage
+                ? "hover:bg-bg__gray"
+                : "hover:bg-primary hover:text-white"
+            }`}
             key={title}
           >
             <HashLink
-              className="block rounded-full mx-1 capitalize py-3 xl:py-3 px-4 text-brand__font__size__sm"
+              className="block rounded-full mx-1 capitalize py-3 xl:py-3 px-4 text-brand__font__size__sm xl:text-brand__font__size__base"
               to={route}
             >
               {title}

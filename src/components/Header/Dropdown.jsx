@@ -10,7 +10,7 @@ const Dropdown = () => {
           <Link
             key={title}
             to={route}
-            className="block px-4 py-2 hover:bg-brand__light__cyan hover:text-white duration-300 capitalize text-sm"
+            className="block px-4 py-2 hover:bg-primary hover:text-white duration-300 capitalize text-sm"
           >
             {title}
           </Link>

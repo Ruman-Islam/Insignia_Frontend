@@ -111,13 +111,16 @@ const Search = ({ firstDivStyles, secondDivStyles }) => {
   return (
     <div className={`${firstDivStyles} mr-auto w-full relative`}>
       <div
-        className={`${secondDivStyles} relative rounded-full w-full border border-brand__cyan bg-white flex items-center justify-center`}
+        className={`${secondDivStyles} relative rounded-full w-full border border-primary bg-white flex items-center justify-center`}
       >
         <div className="p-3 border-r">
           {loading ? (
-            <AiOutlineLoading3Quarters className="animate-spin" size={22} />
+            <AiOutlineLoading3Quarters
+              size={22}
+              className="animate-spin text-primary"
+            />
           ) : (
-            <GrSearch size={22} />
+            <GrSearch size={22} className="text-primary" />
           )}
         </div>
         <div className="w-full">
@@ -132,7 +135,7 @@ const Search = ({ firstDivStyles, secondDivStyles }) => {
           />
         </div>
         <div>
-          <Button className="bg-brand__cyan hover:bg-brand__light__cyan duration-300 rounded-full py-2.5 px-5 mr-0.5 text-brand__white">
+          <Button className="bg-primary hover:bg-secondary duration-300 rounded-full py-2.5 px-5 mr-0.5 text-brand__white">
             Search
           </Button>
         </div>

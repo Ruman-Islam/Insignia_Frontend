@@ -5,7 +5,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 const Location = ({ packageDetail }) => {
   return (
     <div id="location">
-      <div className="w-full sticky top-[129px] bg-white p-4 border-t mt-5">
+      <div className="w-full sticky top-[175px] md:top-[140px] bg-white p-4 border-t mt-5">
         <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
           <HiOutlineLocationMarker size={20} />
           <span className="text-brand__font__size__md">Location</span>

@@ -52,14 +52,11 @@ const BannerBackground = () => {
 
       <div className="flex gap-x-2 absolute z-10 bottom-10 left-0 right-0 mx-auto w-fit">
         {bannerImages.map((slide, slideIndex) => (
-          <Button
-            key={slideIndex}
-            onClick={() => goToSlide(slideIndex)}
-          >
+          <Button key={slideIndex} onClick={() => goToSlide(slideIndex)}>
             <span
               className={`${
                 currentSlide === slideIndex
-                  ? "bg-brand__cyan border-none"
+                  ? "bg-primary border-primary"
                   : "bg-transparent"
               } inline-block w-full md:w-[150px] p-1.5 md:p-0.5 border border-brand__gray__border rounded-xl duration-300`}
             />

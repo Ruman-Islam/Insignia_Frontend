@@ -1,5 +1,5 @@
 // import Button from "../UI/Button";
-import insignia__logo from "../../assets/images/brand/Insignia__logo (2).png";
+import insignia__logo from "../../assets/images/brand/Insignia__logo.png";
 import { BsEnvelope } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { AiOutlineCopyrightCircle, AiOutlineMobile } from "react-icons/ai";
@@ -52,7 +52,7 @@ const Footer = () => {
                 {bannerSocialIcons.map(({ Icon, url }) => (
                   <Link
                     key={url}
-                    className="hover:text-brand__light__cyan duration-300"
+                    className="hover:text-secondary duration-300"
                     to={url}
                   >
                     <Icon size={30} />

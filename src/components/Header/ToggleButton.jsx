@@ -10,8 +10,11 @@ import {
   userMenuDropdownLinks,
 } from "../../constants/navigation";
 import { HashLink } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 
 const ToggleButton = (/* { toggleNavbar } */) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
   const isLoggedIn = false;
   const [submenuVisible, setSubmenuVisible] = useState(false);
   // const [enabled, setEnabled] = useState(false);
@@ -53,7 +56,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                         title.includes("Sign out") ? (
                           <Button
                             onClick={() => console.log("sign in button")}
-                            className="text-gray-900 flex w-full items-center  px-2 py-2 text-sm capitalize border-t hover:bg-brand__light__cyan hover:text-white"
+                            className="text-gray-900 flex w-full items-center  px-2 py-2 text-sm capitalize border-t hover:bg-primary hover:text-white"
                           >
                             <Icon className="mr-2 h-5 w-5" aria-hidden="true" />
                             {title}
@@ -62,9 +65,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                           <HashLink
                             to={route}
                             className={`${
-                              active
-                                ? "bg-brand__light__cyan text-white"
-                                : "text-gray-900"
+                              active ? "bg-primary text-white" : "text-gray-900"
                             } group flex w-full items-center px-2 py-2 text-sm capitalize`}
                           >
                             <Icon className="mr-2 h-5 w-5" aria-hidden="true" />
@@ -80,29 +81,33 @@ const ToggleButton = (/* { toggleNavbar } */) => {
           </div>
         ) : (
           <div className="flex gap-x-2 items-center font-brand__font__semibold text-brand__font__size__sm">
-            {/* <div className="flex items-center gap-x-2">
-              <span>Foreigner</span>
-              <Switch
-                checked={enabled}
-                onChange={setEnabled}
-                className={`${enabled ? "bg-brand__orange" : "bg-brand__orange"}
+            {/* <Switch
+              checked={enabled}
+              onChange={setEnabled}
+              className={`${enabled ? "bg-primary" : "bg-secondary"}
           relative inline-flex h-[24px] w-[48px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`${enabled ? "translate-x-6" : "translate-x-0"}
+            >
+              <span
+                aria-hidden="true"
+                className={`${enabled ? "translate-x-6" : "translate-x-0"}
             pointer-events-none inline-block h-[20px] w-[20px] transform rounded-full bg-white shadow-lg ring-0 transition duration-200 ease-in-out`}
-                />
-              </Switch>
-            </div> */}
+              />
+            </Switch> */}
+
             <HashLink
-              className="block border border-brand__gray__border hover:bg-bg__gray duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md backdrop-blur-lg"
+              className={`block border duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md backdrop-blur-lg ${
+                isHomePage
+                  ? "text-white border-brand__gray__border hover:bg-bg__gray"
+                  : "text-primary border-primary hover:bg-secondary hover:text-white hover:border-secondary"
+              }`}
               to="/sign-in"
             >
               Login
             </HashLink>
             <HashLink
-              className="block border border-brand__gray__border bg-brand__cyan hover:bg-bg__gray duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md"
+              className={`block border border-brand__gray__border bg-primary  duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md ${
+                isHomePage ? "hover:bg-bg__gray" : "hover:bg-secondary"
+              }`}
               to="/sign-up"
             >
               Sign up
@@ -112,7 +117,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
 
         <Button className="block lg:hidden relative">
           <Menu as="div">
-            <Menu.Button className="mt-1">
+            <Menu.Button className="mt-1 text-primary">
               <CgMenuRight size={35} />
             </Menu.Button>
 

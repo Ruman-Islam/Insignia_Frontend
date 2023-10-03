@@ -12,7 +12,7 @@ const Window = () => {
   };
 
   return (
-    <section className="w-full h-screen relative">
+    <section className="w-full h-[90vh] relative">
       <div
         className={`bg-cover bg-center bg-no-repeat w-full h-full transition-all`}
         style={{
@@ -36,7 +36,7 @@ const Window = () => {
                 ></div>
               </div>
 
-              <div className="h-full bg-black bg-opacity-0 group-hover:bg-opacity-20 duration-300 flex flex-col justify-center items-center"></div>
+              <div className="h-full bg-black bg-opacity-0 group-hover:bg-opacity-10 duration-300 flex flex-col justify-center items-center"></div>
 
               <div className="absolute -bottom-20 group-hover:bottom-0 duration-300 left-0 right-0 w-full mx-auto h-20 flex flex-col items-center justify-center">
                 <ViewMoreBtn

@@ -4,7 +4,7 @@ import { BsGlobe } from "react-icons/bs";
 const Overview = ({ packageDetail }) => {
   return (
     <div id="overview">
-      <div className="p-4 w-full sticky top-[129px] bg-white">
+      <div className="p-4 w-full sticky top-[175px] md:top-[140px] bg-white">
         <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
           <BsGlobe size={20} />
           <span className="text-brand__font__size__md">Overview</span>

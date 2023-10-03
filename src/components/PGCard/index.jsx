@@ -32,7 +32,7 @@ const PGCard = ({ index, data }) => {
             {description.slice(0, 100) + "..."}
           </p>
           <Link
-            className={`block w-fit ml-auto text-center py-2 px-4 rounded ${colors[index]} hover:bg-brand__light__cyan duration-300 text-white`}
+            className={`block w-fit ml-auto text-center py-2 px-4 rounded ${colors[index]} hover:bg-secondary duration-300 text-white`}
             to="/package-detail/1"
           >
             Explore
