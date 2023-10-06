@@ -1,11 +1,78 @@
+import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import { useGoogleLogin } from "@react-oauth/google";
 import { Helmet } from "react-helmet";
-import { FcGoogle } from "react-icons/fc";
-import { BsFacebook } from "react-icons/bs";
-import { AiOutlineEyeInvisible } from "react-icons/ai";
-import { CiMail } from "react-icons/ci";
 import Input from "../../components/UI/Input";
+import Button from "../../components/UI/Button";
+import { HashLink } from "react-router-hash-link";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import axios from "../../api/axios";
+import { FcGoogle } from "react-icons/fc";
+import {
+  AiOutlineEyeInvisible,
+  AiOutlineEye,
+  AiOutlineWarning,
+} from "react-icons/ai";
 
 const SignInScreen = () => {
+  const { setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [isVisible, setIsVisible] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = async (formData) => {
+    try {
+      const { data } = await axios.post(
+        "/auth/login",
+        JSON.stringify(formData),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      // console.log("from login page ", data.data);
+      setAuth(data.data);
+      reset();
+      navigate(from, { replace: true });
+    } catch (error) {
+      // console.log("from login page ", error);
+    }
+  };
+
+  const googleLogin = useGoogleLogin({
+    onSuccess: async ({ code }) => {
+      try {
+        const { data } = await axios.get("/auth/google/login", {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${code}`,
+          },
+          withCredentials: true,
+        });
+
+        // console.log("from login page ", data.data);
+        setAuth(data.data);
+        reset();
+        navigate(from, { replace: true });
+      } catch (error) {
+        // console.log("from login page ", error);
+      }
+    },
+    flow: "auth-code",
+    onError: () => {},
+  });
+
   return (
     <>
       <Helmet>
@@ -29,56 +96,103 @@ const SignInScreen = () => {
             <div className="basis-[40%] w-full h-full flex flex-col justify-center items-center text-white py-5 p-content__padding">
               <div className="lg:max-w-[300px] w-full mx-auto">
                 <div className="w-full">
-                  <div className="flex justify-center items-center gap-x-2 bg-white p-2 w-full rounded-3xl">
+                  <Button
+                    onClick={googleLogin}
+                    className="flex justify-center items-center gap-x-2 bg-white hover:bg-brand__bg__hover p-2 w-full rounded-3xl shadow-lg"
+                  >
                     <FcGoogle size={28} />
                     <span className="font-brand__font__semibold text-black">
                       Login with Google
                     </span>
-                  </div>
-                  <div className="flex justify-center items-center gap-x-2 bg-white p-2 w-full rounded-3xl mt-1">
-                    <BsFacebook size={28} className="text-blue-800" />
-                    <span className="font-brand__font__semibold text-black">
-                      Login with Facebook
-                    </span>
-                  </div>
+                  </Button>
                   <p className="text-center mt-2">or use your email account</p>
                 </div>
                 <br />
                 <br />
                 <div className="relative">
-                  <form autoComplete="off">
-                    <div className="border-b border-brand__gray__border flex items-center justify-between">
-                      <div className="w-full">
-                        <Input
-                          type="text"
-                          placeholder="Email"
-                          name="hidden"
-                          className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none "
-                        />
+                  <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+                    {/* Email validation */}
+                    <div>
+                      <div className="border-b border-brand__gray__border flex items-center justify-between">
+                        <div className="w-full">
+                          <input
+                            type="text"
+                            placeholder="Email"
+                            name="email"
+                            className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
+                            {...register("email", {
+                              required: true,
+                              pattern:
+                                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                            })}
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <CiMail size={22} />
+                      <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
+                        {errors?.email?.type && <AiOutlineWarning size={14} />}
+                        {errors?.email?.type === "required" && (
+                          <small className="py-0.5">Email is required</small>
+                        )}
+                        {errors?.email?.type === "pattern" && (
+                          <small className="py-0.5">Input valid email</small>
+                        )}
                       </div>
                     </div>
 
                     <br />
 
-                    <div className="border-b border-brand__gray__border flex items-center justify-between">
-                      <div className="w-full">
-                        <Input
-                          type="password"
-                          placeholder="Password"
-                          name="hidden"
-                          className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
-                        />
+                    {/* Password validation */}
+                    <div>
+                      <div className="border-b border-brand__gray__border flex items-center justify-between">
+                        <div className="w-full">
+                          <input
+                            type={isVisible ? "text" : "password"}
+                            placeholder="Password"
+                            name="password"
+                            className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
+                            {...register("password", {
+                              required: true,
+                              pattern:
+                                /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z\d]).{6,}$/,
+                            })}
+                          />
+                        </div>
+                        <div className="cursor-pointer">
+                          {isVisible ? (
+                            <AiOutlineEye
+                              onClick={() => setIsVisible(!isVisible)}
+                              size={22}
+                            />
+                          ) : (
+                            <AiOutlineEyeInvisible
+                              onClick={() => setIsVisible(!isVisible)}
+                              size={22}
+                            />
+                          )}
+                        </div>
                       </div>
-                      <div>
-                        <AiOutlineEyeInvisible size={22} />
+                      <div className="bg-brand__orange text-white px-1 flex gap-x-1 w-full">
+                        {errors?.password?.type && (
+                          <AiOutlineWarning size={22} />
+                        )}
+                        {errors?.password?.type === "required" && (
+                          <small className="py-0.5">Password is required</small>
+                        )}
+                        {errors?.password?.type === "pattern" && (
+                          <small className="py-0.5">
+                            Use at least 8 characters one uppercase letter one
+                            lowercase letter one number and one symbol{" "}
+                          </small>
+                        )}
                       </div>
                     </div>
 
-                    <div className="max-w-[150px] w-full mr-auto p-2 mt-8 text-center bg-white text-primary font-brand__font__semibold rounded-3xl">
-                      <Input type="submit" value="Sign in" />
+                    <div>
+                      <Input
+                        type="submit"
+                        value="Sign in"
+                        className="max-w-[150px] w-full mr-auto p-2 mt-8 text-center bg-white border border-brand__gray__border text-primary font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-transparent hover:text-white duration-300 shadow-lg"
+                      />
                     </div>
                   </form>
                   <div className="absolute bottom-[100px] right-0">
@@ -88,7 +202,10 @@ const SignInScreen = () => {
                   </div>
                   <div className="mt-8 text-center">
                     <span>
-                      Don&rsquo;t have an Account? <span>Sign up</span>
+                      Don&rsquo;t have an Account?{" "}
+                      <HashLink className="hover:underline" to="/sign-up">
+                        Sign Up
+                      </HashLink>
                     </span>
                   </div>
                 </div>

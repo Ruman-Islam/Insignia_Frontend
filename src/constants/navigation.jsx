@@ -21,7 +21,7 @@ export const dropdownNavItems = [
 ];
 
 export const userMenuDropdownLinks = [
-  { title: "Profile", route: "/", Icon: CgProfile },
+  { title: "Profile", route: "/profile", Icon: CgProfile },
   { title: "My Booking", route: "/", Icon: BsFillTagsFill },
   { title: "Sign out", route: "/", Icon: CgLogOut },
 ];

@@ -1,21 +1,13 @@
+import useAuth from "../../hooks/useAuth";
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
-// import MobileNavDrawer from "./MobileNavDrawer";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
+  const { auth } = useAuth();
   const location = useLocation();
-  const isHomePage = location.pathname === "/"; // is using for keep header background color to brand color except home page.
-  // const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-
-  // const toggleNavbar = () => {
-  //   setIsNavbarOpen((prevState) => !prevState);
-  // };
-
-  // const toggleModal = () => {
-  //   setIsModalOpen((prevState) => !prevState);
-  // };
+  const isHomePage = location.pathname === "/"; // is using for keep header background 
 
   return (
     <header
@@ -25,25 +17,14 @@ const Header = () => {
           : "bg-white lg:h-24 shadow sticky top-0 z-50"
       }`}
     >
-      <div className="max-w-screen-xl m-auto w-full z-50 text-brand__white p-content__padding">
+      <div className="max-w-screen-xl mx-auto w-full z-50 text-brand__white p-content__padding">
         <div className="flex justify-between items-center">
           <Logo />
           <PcNavigation />
           <ToggleButton
-          // toggleNavbar={toggleNavbar}
-          // toggleModal={toggleModal}
-          // isModalOpen={isModalOpen}
+            user={auth?.user}
           />
         </div>
-
-        {/* We are not using navigation drawer anymore, using menu functionality */}
-        {/* <MobileNavDrawer
-          isNavbarOpen={isNavbarOpen}
-          toggleNavbar={toggleNavbar}
-        /> */}
-
-        {/* We are not using this modal right now */}
-        {/* <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} /> */}
       </div>
     </header>
   );

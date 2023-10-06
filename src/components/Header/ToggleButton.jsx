@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import Button from "../UI/Button";
-import { Menu, Transition /* Switch */ } from "@headlessui/react";
+import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { CgMenuRight } from "react-icons/cg";
 import Image from "../UI/Image";
@@ -11,35 +11,33 @@ import {
 } from "../../constants/navigation";
 import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
+import useLogout from "../../hooks/useLogout";
 
-const ToggleButton = (/* { toggleNavbar } */) => {
+const ToggleButton = ({ user }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
-  const isLoggedIn = false;
   const [submenuVisible, setSubmenuVisible] = useState(false);
-  // const [enabled, setEnabled] = useState(false);
+  const logout = useLogout();
+
+  const signOut = async () => {
+    await logout();
+  };
 
   return (
     <>
-      {/* <Button
-        onClick={toggleModal}
-        className="mt-1.5 hidden md:block relative z-[100]"
-      >
-        <FaBars size={24} />
-      </Button> */}
 
       <div className="flex items-center gap-x-2">
-        {isLoggedIn ? (
+        {user ? (
           <div className="relative">
             <Menu as="div">
-              <div className="w-10 h-10 border rounded-full">
-                <Menu.Button>
+              <Menu.Button>
+                <div className="w-10 h-10 border rounded-full mt-1.5">
                   <Image
-                    className="w-full h-full object-cover"
-                    src="https://ruman-islam.vercel.app/static/media/profileImage.090616de637a7ada2125.png"
+                    className="w-full h-full object-cover rounded-full"
+                    src={user?.photoUrl}
                   />
-                </Menu.Button>
-              </div>
+                </div>
+              </Menu.Button>
               <Transition
                 as={Fragment}
                 enter="transition ease-out duration-100"
@@ -55,8 +53,8 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                       {({ active }) =>
                         title.includes("Sign out") ? (
                           <Button
-                            onClick={() => console.log("sign in button")}
-                            className="text-gray-900 flex w-full items-center  px-2 py-2 text-sm capitalize border-t hover:bg-primary hover:text-white"
+                            onClick={() => signOut()}
+                            className="text-gray-900 flex w-full items-center px-2 py-2 text-sm capitalize border-t hover:bg-primary hover:text-white"
                           >
                             <Icon className="mr-2 h-5 w-5" aria-hidden="true" />
                             {title}
@@ -95,29 +93,31 @@ const ToggleButton = (/* { toggleNavbar } */) => {
             </Switch> */}
 
             <HashLink
-              className={`block border duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md backdrop-blur-lg ${
+              className={`block border duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-lg backdrop-blur-lg ${
                 isHomePage
                   ? "text-white border-brand__gray__border hover:bg-bg__gray"
-                  : "text-primary border-primary hover:bg-secondary hover:text-white hover:border-secondary"
+                  : "text-primary border-primary hover:bg-primary hover:text-white hover:border-secondary"
               }`}
               to="/sign-in"
             >
-              Login
+              Sign In
             </HashLink>
-            <HashLink
+            {/* <HashLink
               className={`block border border-brand__gray__border bg-primary  duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md ${
                 isHomePage ? "hover:bg-bg__gray" : "hover:bg-secondary"
               }`}
               to="/sign-up"
             >
               Sign up
-            </HashLink>
+            </HashLink> */}
           </div>
         )}
 
         <Button className="block lg:hidden relative">
           <Menu as="div">
-            <Menu.Button className="mt-1 text-primary">
+            <Menu.Button
+              className={`mt-2 ${isHomePage ? "text-white" : "text-primary"}`}
+            >
               <CgMenuRight size={35} />
             </Menu.Button>
 
@@ -147,9 +147,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                             }}
                             to={route}
                             className={`${
-                              active
-                                ? "bg-brand__light__cyan text-white"
-                                : "text-gray-900"
+                              active ? "bg-primary text-white" : "text-gray-900"
                             } group flex w-full items-center px-2 py-2 text-brand__font__size__sm capitalize`}
                           >
                             <Icon className="mr-2 h-5 w-5" />
@@ -159,9 +157,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                           <HashLink
                             to={route}
                             className={`${
-                              active
-                                ? "bg-brand__light__cyan text-white"
-                                : "text-gray-900"
+                              active ? "bg-primary text-white" : "text-gray-900"
                             } group flex w-full items-center px-2 py-2 text-brand__font__size__sm capitalize`}
                           >
                             <Icon className="mr-2 h-5 w-5" />
@@ -182,9 +178,7 @@ const ToggleButton = (/* { toggleNavbar } */) => {
                           <HashLink
                             to={route}
                             className={`${
-                              active
-                                ? "bg-brand__light__cyan text-white"
-                                : "text-gray-900"
+                              active ? "bg-primary text-white" : "text-gray-900"
                             } group flex w-full items-center px-4 py-2 text-sm capitalize`}
                           >
                             {title}
