@@ -1,10 +1,9 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams } from "react-router-dom";
 import Loader from "../../components/common/Loader";
-// import Head from "./components/Head";
 import Body from "./components/Body/index";
-import { Helmet } from "react-helmet";
 import { mockData } from "../../constants/common";
+import Layout from "../../components/common/Layout";
 const Head = lazy(() => import("./components/Head"));
 
 const PackageDetailScreen = () => {
@@ -34,12 +33,7 @@ const PackageDetailScreen = () => {
   }
 
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia - {packageDetail?.title}</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+    <Layout title={packageDetail?.title}>
       <section>
         <div className="max-w-screen-xl mx-auto p-content__padding">
           <Suspense>
@@ -49,7 +43,7 @@ const PackageDetailScreen = () => {
           <Body packageDetail={packageDetail} id={id} />
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

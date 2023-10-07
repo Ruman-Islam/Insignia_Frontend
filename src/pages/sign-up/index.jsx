@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineWarning } from "react-icons/ai";
@@ -8,54 +7,103 @@ import Button from "../../components/UI/Button";
 import { useForm } from "react-hook-form";
 import { HashLink } from "react-router-hash-link";
 import { useState } from "react";
-import axios from "axios";
+import axios from "../../api/axios";
+import toast from "react-hot-toast";
+import { TiTick } from "react-icons/ti";
+import { RxCrossCircled } from "react-icons/rx";
+import useAuth from "../../hooks/useAuth";
+import { useLocation, useNavigate } from "react-router-dom";
+import Layout from "../../components/common/Layout";
+import { useEffect } from "react";
 
 const SignUpScreen = () => {
+  const { auth, setAuth } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [isVisible, setIsVisible] = useState(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  const [isVisible, setIsVisible] = useState(false);
 
-  const onSubmit = (data) => {
-    fetch("http://localhost:8080/api/v1/auth/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+  // auth check
+  useEffect(() => {
+    if (auth.user) {
+      navigate(from, { replace: true });
+    }
+  }, [auth.user, from, navigate]);
+
+  const onSubmit = async (formData) => {
+    try {
+      const { data } = await axios.post(
+        "/auth/register",
+        JSON.stringify(formData),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+
+      toast(data.message, {
+        icon: <TiTick className="text-brand__success" size={20} />,
+      });
+      setAuth(data.data);
+      reset();
+      navigate(from, { replace: true });
+    } catch ({
+      response: {
+        data: { errorMessages },
       },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+    }) {
+      toast(errorMessages[0]?.message, {
+        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+      });
+    }
   };
 
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      const res = await axios.get(
-        "http://localhost:8080/api/v1/auth/google/login",
-        {
+      try {
+        const { data } = await axios.get("/auth/google/login", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${code}`,
           },
-        }
-      );
+          withCredentials: true,
+        });
 
-      console.log(res);
+        toast(data.message, {
+          icon: <TiTick className="text-brand__success" size={25} />,
+        });
+        setAuth(data.data);
+        reset();
+        navigate(from, { replace: true });
+      } catch ({
+        response: {
+          data: { message },
+        },
+      }) {
+        toast(message, {
+          icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+        });
+      }
     },
     flow: "auth-code",
-    onError: () => {},
+    onError: () => {
+      toast("Something went wrong!", {
+        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+      });
+    },
   });
 
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia - Sign up</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
-
+    <Layout title="Register">
       <section className="h-full lg:h-[92vh] flex flex-col items-center justify-center bg-sign__up__form__background bg-center bg-cover relative py-5">
         <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-60 backdrop-blur-md"></div>
         <div className="max-w-screen-xl w-full mx-auto p-content__padding h-full lg:h-[600px] relative">
@@ -97,7 +145,7 @@ const SignUpScreen = () => {
                       </div>
                       <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
                         {errors?.userName?.type && (
-                          <AiOutlineWarning size={14} />
+                          <AiOutlineWarning size={15} />
                         )}
                         {errors?.userName?.type === "required" && (
                           <small className="py-0.5">Name is required</small>
@@ -135,7 +183,7 @@ const SignUpScreen = () => {
                         </div>
                       </div>
                       <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
-                        {errors?.email?.type && <AiOutlineWarning size={14} />}
+                        {errors?.email?.type && <AiOutlineWarning size={15} />}
                         {errors?.email?.type === "required" && (
                           <small className="py-0.5">Email is required</small>
                         )}
@@ -157,9 +205,8 @@ const SignUpScreen = () => {
                             name="password"
                             className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
                             {...register("password", {
-                              required: true,
                               pattern:
-                                /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z\d]).{6,}$/,
+                                /^(?=.*[A-Za-z0-9])(?=.*[^A-Za-z0-9]).{8,}$/,
                             })}
                           />
                         </div>
@@ -179,15 +226,17 @@ const SignUpScreen = () => {
                       </div>
                       <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
                         {errors?.password?.type && (
-                          <AiOutlineWarning size={14} />
+                          <AiOutlineWarning size={15} />
                         )}
                         {errors?.password?.type === "required" && (
                           <small className="py-0.5">Password is required</small>
                         )}
                         {errors?.password?.type === "pattern" && (
                           <small className="py-0.5">
-                            Use at least 8 characters one uppercase letter one
-                            lowercase letter one number and one symbol{" "}
+                            <span className="block">At least 8 characters</span>
+                            <span className="block">
+                              Contains a special character
+                            </span>
                           </small>
                         )}
                       </div>
@@ -224,7 +273,7 @@ const SignUpScreen = () => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

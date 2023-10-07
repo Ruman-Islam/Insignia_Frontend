@@ -3,16 +3,11 @@ import { TfiEmail } from "react-icons/tfi";
 import { BsCardText } from "react-icons/bs";
 import Input from "../../components/UI/Input";
 import TextArea from "../../components/UI/TextArea";
-import { Helmet } from "react-helmet";
+import Layout from "../../components/common/Layout";
 
 const ContactUsScreen = () => {
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia - Contact Us</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+    <Layout title="Contact us">
       <section className="h-full flex flex-col justify-center py-10">
         <div className="max-w-screen-xl w-full mx-auto p-content__padding flex flex-col justify-center items-center">
           <div className="w-full h-[400px] border group relative rounded-tl-md rounded-tr-md">
@@ -109,7 +104,7 @@ const ContactUsScreen = () => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

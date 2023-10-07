@@ -24,6 +24,7 @@
     "react-facebook-login": "^4.1.1",
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.47.0",
+    "react-hot-toast": "^2.4.1",
     "react-icons": "^4.11.0",
     "react-modern-drawer": "^1.2.2",
     "react-multi-carousel": "^2.8.4",
@@ -31,7 +32,8 @@
     "react-range-slider-input": "^3.0.7",
     "react-rating": "^2.0.5",
     "react-router-dom": "6.2.2",
-    "react-router-hash-link": "^2.4.3"
+    "react-router-hash-link": "^2.4.3",
+    "vite-plugin-rewrite-all": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

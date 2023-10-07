@@ -1,22 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { useGoogleLogin } from "@react-oauth/google";
-import { Helmet } from "react-helmet";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate, useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import axios from "../../api/axios";
 import { FcGoogle } from "react-icons/fc";
+import { TiTick } from "react-icons/ti";
 import {
   AiOutlineEyeInvisible,
   AiOutlineEye,
   AiOutlineWarning,
 } from "react-icons/ai";
+import { RxCrossCircled } from "react-icons/rx";
+import Layout from "../../components/common/Layout";
 
 const SignInScreen = () => {
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -28,6 +31,13 @@ const SignInScreen = () => {
     reset,
     formState: { errors },
   } = useForm();
+
+  // auth check
+  useEffect(() => {
+    if (auth.user) {
+      navigate(from, { replace: true });
+    }
+  }, [auth.user, from, navigate]);
 
   const onSubmit = async (formData) => {
     try {
@@ -41,12 +51,21 @@ const SignInScreen = () => {
           withCredentials: true,
         }
       );
-      // console.log("from login page ", data.data);
+
+      toast(data.message, {
+        icon: <TiTick className="text-brand__success" size={25} />,
+      });
       setAuth(data.data);
       reset();
       navigate(from, { replace: true });
-    } catch (error) {
-      // console.log("from login page ", error);
+    } catch ({
+      response: {
+        data: { errorMessages },
+      },
+    }) {
+      toast(errorMessages[0]?.message, {
+        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+      });
     }
   };
 
@@ -61,25 +80,32 @@ const SignInScreen = () => {
           withCredentials: true,
         });
 
-        // console.log("from login page ", data.data);
+        toast(data.message, {
+          icon: <TiTick className="text-brand__success" size={25} />,
+        });
         setAuth(data.data);
         reset();
         navigate(from, { replace: true });
-      } catch (error) {
-        // console.log("from login page ", error);
+      } catch ({
+        response: {
+          data: { message },
+        },
+      }) {
+        toast(message, {
+          icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+        });
       }
     },
     flow: "auth-code",
-    onError: () => {},
+    onError: () => {
+      toast("Something went wrong!", {
+        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
+      });
+    },
   });
 
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia - Login</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
+    <Layout title="Login">
       <section className="h-full lg:h-[92vh] flex flex-col items-center justify-center relative bg-sign__in__form__background bg-center bg-cover py-5">
         <div className="absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-black bg-opacity-60 backdrop-blur-md"></div>
         <div className="max-w-screen-xl w-full mx-auto p-content__padding h-[600px] relative">
@@ -152,8 +178,6 @@ const SignInScreen = () => {
                             className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
                             {...register("password", {
                               required: true,
-                              pattern:
-                                /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^a-zA-Z\d]).{6,}$/,
                             })}
                           />
                         </div>
@@ -171,18 +195,12 @@ const SignInScreen = () => {
                           )}
                         </div>
                       </div>
-                      <div className="bg-brand__orange text-white px-1 flex gap-x-1 w-full">
+                      <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
                         {errors?.password?.type && (
-                          <AiOutlineWarning size={22} />
+                          <AiOutlineWarning size={15} />
                         )}
                         {errors?.password?.type === "required" && (
                           <small className="py-0.5">Password is required</small>
-                        )}
-                        {errors?.password?.type === "pattern" && (
-                          <small className="py-0.5">
-                            Use at least 8 characters one uppercase letter one
-                            lowercase letter one number and one symbol{" "}
-                          </small>
                         )}
                       </div>
                     </div>
@@ -196,9 +214,12 @@ const SignInScreen = () => {
                     </div>
                   </form>
                   <div className="absolute bottom-[100px] right-0">
-                    <span className="text-brand__font__size__xs">
-                      Forgot your password?
-                    </span>
+                    <HashLink
+                      to="/forget-password"
+                      className="text-brand__font__size__xs hover:underline"
+                    >
+                      Forgot password?
+                    </HashLink>
                   </div>
                   <div className="mt-8 text-center">
                     <span>
@@ -214,7 +235,7 @@ const SignInScreen = () => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

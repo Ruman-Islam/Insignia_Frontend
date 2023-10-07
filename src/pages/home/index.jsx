@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
-import { Helmet } from "react-helmet";
 import Spinner from "../../components/common/Spinner";
 import Banner from "./components/Banner";
+import Layout from "../../components/common/Layout";
 // import Foreigner from "./components/Foreigner";
 // import Window from "./components/Window";
 // import PopularDestination from "./components/PopularDestination";
@@ -25,13 +25,7 @@ const Testimonial = lazy(() => import("./components/Testimonial"));
 
 const HomeScreen = () => {
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
-
+    <Layout title="Home">
       {/* <Suspense fallback={<Spinner />}>
         <Banner />
       </Suspense> */}
@@ -108,7 +102,7 @@ const HomeScreen = () => {
         <Testimonial />
       </Suspense>
       {/* <Testimonial /> */}
-    </>
+    </Layout>
   );
 };
 

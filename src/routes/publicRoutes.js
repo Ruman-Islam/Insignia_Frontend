@@ -1,9 +1,11 @@
 import PackagesListScreen from "../pages/Packages";
 import AboutUsScreen from "../pages/about-us";
 import ContactUsScreen from "../pages/contact-us";
+import ForgetPasswordScreen from "../pages/forget-password";
 import GalleryScreen from "../pages/gallery";
 import HomeScreen from "../pages/home";
 import PackageDetailScreen from "../pages/package-detail";
+import ResetPasswordScreen from "../pages/reset-password";
 import SignInScreen from "../pages/sign-in";
 import SignUpScreen from "../pages/sign-up";
 
@@ -33,6 +35,16 @@ export const publicRoutes = [
     path: "/gallery",
     name: "gallery",
     Component: GalleryScreen,
+  },
+  {
+    path: "/forget-password",
+    name: "forget-password",
+    Component: ForgetPasswordScreen,
+  },
+  {
+    path: "/reset-password/:token",
+    name: "reset-password",
+    Component: ResetPasswordScreen,
   },
   { path: "/sign-in", name: "sign-in", Component: SignInScreen },
   { path: "/sign-up", name: "sign-up", Component: SignUpScreen },

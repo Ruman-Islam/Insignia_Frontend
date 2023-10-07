@@ -1,14 +1,8 @@
-import { Helmet } from "react-helmet";
+import Layout from "../../components/common/Layout";
 
 const AboutUsScreen = () => {
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia - About Us</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
-
+    <Layout title="About us">
       <section className="py-5 md:py-10">
         <div className="max-w-screen-xl w-full mx-auto p-content__padding ">
           <div className="w-full h-[350px] flex justify-center items-center bg-about__us__background bg-center bg-cover rounded-tl-md rounded-tr-md relative">
@@ -91,7 +85,7 @@ const AboutUsScreen = () => {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 };
 

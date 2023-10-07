@@ -1,5 +1,4 @@
 import { useEffect, /* useMemo, */ useState } from "react";
-import { Helmet } from "react-helmet";
 // import { useLocation } from "react-router-dom";
 import "react-range-slider-input/dist/style.css";
 import Loader from "../../components/common/Loader";
@@ -11,6 +10,7 @@ import Drawer from "react-modern-drawer";
 import "react-modern-drawer/dist/index.css";
 import PG2Card from "../../components/PG2Card";
 import { mockData } from "../../constants/common";
+import Layout from "../../components/common/Layout";
 
 // function useQuery() {
 //   const { search } = useLocation();
@@ -51,13 +51,7 @@ const PackagesListScreen = () => {
 
   // console.log(query.get("country"));
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Insignia</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
-
+    <Layout title="Packages">
       <section className="py-10">
         <div className="max-w-screen-xl w-full m-auto p-content__padding">
           <div className="flex justify-between gap-5">
@@ -105,7 +99,7 @@ const PackagesListScreen = () => {
           <FilterBox value={value} handleSlider={handleSlider} />
         </Drawer>
       </div>
-    </>
+    </Layout>
   );
 };
 
