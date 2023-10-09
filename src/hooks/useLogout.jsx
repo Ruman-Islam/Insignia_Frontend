@@ -1,22 +1,24 @@
 import toast from "react-hot-toast";
-import axios from "../api/axios";
-import useAuth from "./useAuth";
+// import axios from "../api/axios";
+import useContextData from "./useContextData";
 import { RxCrossCircled } from "react-icons/rx";
-import { TiTick } from "react-icons/ti";
+// import { TiTick } from "react-icons/ti";
+import Cookies from "js-cookie";
 
 const useLogout = () => {
-  const { setAuth } = useAuth();
+  const { setAuth } = useContextData();
 
   const logout = async () => {
     setAuth({});
     try {
-      const { data } = await axios.get("/auth/logout", {
-        withCredentials: true,
-      });
+      // const { data } = await axios.get("/auth/logout", {
+      //   withCredentials: true,
+      // });
 
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={25} />,
-      });
+      // toast(data.message, {
+      //   icon: <TiTick className="text-brand__success" size={25} />,
+      // });
+      Cookies.remove("rT");
     } catch ({
       response: {
         data: { errorMessages },

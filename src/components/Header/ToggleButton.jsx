@@ -109,6 +109,7 @@ const ToggleButton = ({ user }) => {
             >
               Sign In
             </HashLink>
+
             {/* <HashLink
               className={`block border border-brand__gray__border bg-primary  duration-300 py-1.5 lg:py-2 px-3 lg:px-4 rounded-full shadow-md ${
                 isHomePage ? "hover:bg-bg__gray" : "hover:bg-secondary"

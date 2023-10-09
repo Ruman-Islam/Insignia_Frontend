@@ -9,10 +9,10 @@ import { RxCrossCircled } from "react-icons/rx";
 import Layout from "../../components/common/Layout";
 import Spinner from "../../components/common/Spinner";
 import { useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import useContextData from "../../hooks/useContextData";
 
 const ForgetPasswordScreen = () => {
-  const { auth } = useAuth();
+  const { auth } = useContextData();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -108,7 +108,7 @@ const ForgetPasswordScreen = () => {
 
               <div className="w-full p-2 text-center mt-8 bg-primary border border-brand__gray__border text-white font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-secondary duration-300 shadow-lg flex flex-col items-center justify-center">
                 {isLoading ? (
-                  <Spinner />
+                  <Spinner styles="w-6 h-6 border-white" />
                 ) : (
                   <Input
                     type="submit"

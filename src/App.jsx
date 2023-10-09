@@ -21,10 +21,10 @@ function App() {
       />
 
       <Routes>
-        {publicRoutes.map(({ path, name, Component }) => (
-          <Route key={name} path={path} element={<Component />} />
-        ))}
         <Route element={<PersistLogin />}>
+          {publicRoutes.map(({ path, name, Component }) => (
+            <Route key={name} path={path} element={<Component />} />
+          ))}
           <Route element={<RequireAuth />}>
             <Route path="/profile" element={<ProfileScreen />}>
               {privateRoutes.map(({ path, name, Component }) => (
@@ -37,8 +37,8 @@ function App() {
               ))}
             </Route>
           </Route>
+          <Route path="*" element={<NotFoundScreen />} />
         </Route>
-        <Route path="*" element={<NotFoundScreen />} />
       </Routes>
     </>
   );

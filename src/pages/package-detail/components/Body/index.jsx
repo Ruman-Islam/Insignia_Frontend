@@ -10,19 +10,11 @@ import Policy from "./Policy";
 import { useLocation } from "react-router-dom";
 import BookingCard from "./BookingCard";
 import { hashLinks } from "../../../../constants/packageDetails";
-
-// It uses to take the scroll to specific height
-const scrollWithOffset = (el, offset) => {
-  const elementPosition = el.offsetTop - offset;
-  window.scroll({
-    top: elementPosition,
-    left: 0,
-    behavior: "smooth",
-  });
-};
+import useScrollWithOffset from "../../../../hooks/useScrollWithOffset";
 
 const Body = ({ packageDetail, id }) => {
   const { hash } = useLocation();
+  const scrollWithOffset = useScrollWithOffset();
 
   return (
     <section>

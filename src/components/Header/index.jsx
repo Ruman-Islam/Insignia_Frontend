@@ -1,14 +1,14 @@
-import useAuth from "../../hooks/useAuth";
+import useContextData from "../../hooks/useContextData";
 import Logo from "./Logo";
 import PcNavigation from "./PcNavigation";
 import ToggleButton from "./ToggleButton";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
-  const { auth } = useAuth();
+  const { auth } = useContextData();
   const location = useLocation();
-  const isHomePage = location.pathname === "/"; // is using for keep header background 
-
+  const isHomePage = location.pathname === "/"; // is using for keep header background
+  console.log("from header ..........", auth);
   return (
     <header
       className={`w-full h-20 md:h-24 flex justify-between items-center duration-300 font-brand__font_family__regular ${
@@ -21,9 +21,7 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Logo />
           <PcNavigation />
-          <ToggleButton
-            user={auth?.user}
-          />
+          <ToggleButton user={auth?.user} />
         </div>
       </div>
     </header>

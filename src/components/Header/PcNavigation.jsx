@@ -34,7 +34,7 @@ const PcNavigation = () => {
             </HashLink>
             {title.includes("packages") && (
               <>
-                <BiChevronDown className="absolute right-1" size={14} />
+                <BiChevronDown className="absolute right-0.5" size={18} />
                 <Dropdown />
               </>
             )}

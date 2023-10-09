@@ -1,15 +1,16 @@
 import axios from "../api/axios";
-import useAuth from "./useAuth";
+import useContextData from "./useContextData";
+import Cookies from "js-cookie";
 
 const useRefreshToken = () => {
-  const { setAuth } = useAuth();
+  const { setAuth } = useContextData();
+  const token = Cookies.get("rT");
 
   const refresh = async () => {
     const {
       data: { data: data },
-    } = await axios.get("/auth/refresh/token", {
-      withCredentials: true,
-    });
+    } = await axios.post("/auth/refresh/token", { token });
+
     setAuth((prev) => {
       return { ...prev, user: data?.user, accessToken: data?.accessToken };
     });

@@ -1,27 +1,29 @@
+import { useState, useEffect } from "react";
 import { useGoogleLogin } from "@react-oauth/google";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineWarning } from "react-icons/ai";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { RxCrossCircled } from "react-icons/rx";
+import { HashLink } from "react-router-hash-link";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
-import { useForm } from "react-hook-form";
-import { HashLink } from "react-router-hash-link";
-import { useState } from "react";
-import axios from "../../api/axios";
 import toast from "react-hot-toast";
-import { TiTick } from "react-icons/ti";
-import { RxCrossCircled } from "react-icons/rx";
-import useAuth from "../../hooks/useAuth";
-import { useLocation, useNavigate } from "react-router-dom";
+import useContextData from "../../hooks/useContextData";
 import Layout from "../../components/common/Layout";
-import { useEffect } from "react";
+import useCustomGoogleLogin from "../../hooks/useCustomGoogleLogin";
+import useLogin from "../../hooks/useLogin";
+import Spinner from "../../components/common/Spinner";
 
 const SignUpScreen = () => {
-  const { auth, setAuth } = useAuth();
+  const { auth, setAuth } = useContextData();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const [isVisible, setIsVisible] = useState(false);
+  const handleGoogleLogin = useCustomGoogleLogin();
+  const { handleLogin, isLoading } = useLogin();
 
   const {
     register,
@@ -38,61 +40,12 @@ const SignUpScreen = () => {
   }, [auth.user, from, navigate]);
 
   const onSubmit = async (formData) => {
-    try {
-      const { data } = await axios.post(
-        "/auth/register",
-        JSON.stringify(formData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={20} />,
-      });
-      setAuth(data.data);
-      reset();
-      navigate(from, { replace: true });
-    } catch ({
-      response: {
-        data: { errorMessages },
-      },
-    }) {
-      toast(errorMessages[0]?.message, {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
-    }
+    handleLogin(formData, setAuth, navigate, from, reset, "/auth/register");
   };
 
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      try {
-        const { data } = await axios.get("/auth/google/login", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${code}`,
-          },
-          withCredentials: true,
-        });
-
-        toast(data.message, {
-          icon: <TiTick className="text-brand__success" size={25} />,
-        });
-        setAuth(data.data);
-        reset();
-        navigate(from, { replace: true });
-      } catch ({
-        response: {
-          data: { message },
-        },
-      }) {
-        toast(message, {
-          icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-        });
-      }
+      handleGoogleLogin(code, setAuth, navigate, from);
     },
     flow: "auth-code",
     onError: () => {
@@ -242,12 +195,16 @@ const SignUpScreen = () => {
                       </div>
                     </div>
 
-                    <div>
-                      <Input
-                        type="submit"
-                        value="Sign up"
-                        className="max-w-[150px] w-full mr-auto p-2 mt-8 text-center bg-white border border-brand__gray__border text-primary font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-transparent hover:text-white duration-300 shadow-lg"
-                      />
+                    <div className="mt-8">
+                      {isLoading ? (
+                        <Spinner styles="w-6 h-6 border-white mt-2" />
+                      ) : (
+                        <Input
+                          type="submit"
+                          value="Sign Up"
+                          className="max-w-[150px] w-full mr-auto p-2  text-center bg-white border border-brand__gray__border text-primary font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-transparent hover:text-white duration-300 shadow-lg"
+                        />
+                      )}
                     </div>
                   </form>
                   <div className="mt-8 text-center">

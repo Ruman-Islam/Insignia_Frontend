@@ -1,24 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import {
   AiOutlineEye,
   AiOutlineEyeInvisible,
   AiOutlineWarning,
 } from "react-icons/ai";
+import { RxCrossCircled } from "react-icons/rx";
+import { TiTick } from "react-icons/ti";
 import Input from "../../components/UI/Input";
 import toast from "react-hot-toast";
-import { TiTick } from "react-icons/ti";
 import axios from "../../api/axios";
-import { RxCrossCircled } from "react-icons/rx";
 import Layout from "../../components/common/Layout";
 import Spinner from "../../components/common/Spinner";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
-import { useEffect } from "react";
+import useContextData from "../../hooks/useContextData";
+import Cookies from "js-cookie";
 
 const ResetPasswordScreen = () => {
   const { token } = useParams();
-  const { auth } = useAuth();
+  const { auth, setAuth } = useContextData();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -53,11 +53,14 @@ const ResetPasswordScreen = () => {
         }
       );
 
-      setIsLoading(false);
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={25} />,
-      });
+      const responseData = data.data;
+      Cookies.set("rT", responseData.refreshToken);
+      delete responseData.refreshToken;
+      setAuth(responseData);
       reset();
+      toast(data.message, {
+        icon: <TiTick className="text-brand__success" size={20} />,
+      });
       navigate(from, { replace: true });
     } catch ({
       response: {
@@ -128,7 +131,7 @@ const ResetPasswordScreen = () => {
 
               <div className="w-full p-2 text-center mt-8 bg-primary border border-brand__gray__border text-white font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-secondary duration-300 shadow-lg flex flex-col items-center justify-center">
                 {isLoading ? (
-                  <Spinner />
+                  <Spinner styles="w-6 h-6 border-white" />
                 ) : (
                   <Input
                     type="submit"

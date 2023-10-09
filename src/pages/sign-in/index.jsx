@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import { useGoogleLogin } from "@react-oauth/google";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
@@ -7,9 +6,7 @@ import { HashLink } from "react-router-hash-link";
 import { useNavigate, useLocation } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
-import axios from "../../api/axios";
 import { FcGoogle } from "react-icons/fc";
-import { TiTick } from "react-icons/ti";
 import {
   AiOutlineEyeInvisible,
   AiOutlineEye,
@@ -17,13 +14,19 @@ import {
 } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import Layout from "../../components/common/Layout";
+import useContextData from "../../hooks/useContextData";
+import useCustomGoogleLogin from "../../hooks/useCustomGoogleLogin";
+import useLogin from "../../hooks/useLogin";
+import Spinner from "../../components/common/Spinner";
 
 const SignInScreen = () => {
-  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  const { handleLogin, isLoading } = useLogin();
+  const { auth, setAuth } = useContextData();
+  const handleGoogleLogin = useCustomGoogleLogin();
   const [isVisible, setIsVisible] = useState(false);
+  const from = location.state?.from?.pathname || "/";
 
   const {
     register,
@@ -40,61 +43,12 @@ const SignInScreen = () => {
   }, [auth.user, from, navigate]);
 
   const onSubmit = async (formData) => {
-    try {
-      const { data } = await axios.post(
-        "/auth/login",
-        JSON.stringify(formData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={25} />,
-      });
-      setAuth(data.data);
-      reset();
-      navigate(from, { replace: true });
-    } catch ({
-      response: {
-        data: { errorMessages },
-      },
-    }) {
-      toast(errorMessages[0]?.message, {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
-    }
+    handleLogin(formData, setAuth, navigate, from, reset, "/auth/login");
   };
 
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      try {
-        const { data } = await axios.get("/auth/google/login", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${code}`,
-          },
-          withCredentials: true,
-        });
-
-        toast(data.message, {
-          icon: <TiTick className="text-brand__success" size={25} />,
-        });
-        setAuth(data.data);
-        reset();
-        navigate(from, { replace: true });
-      } catch ({
-        response: {
-          data: { message },
-        },
-      }) {
-        toast(message, {
-          icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-        });
-      }
+      handleGoogleLogin(code, setAuth, navigate, from);
     },
     flow: "auth-code",
     onError: () => {
@@ -205,12 +159,16 @@ const SignInScreen = () => {
                       </div>
                     </div>
 
-                    <div>
-                      <Input
-                        type="submit"
-                        value="Sign in"
-                        className="max-w-[150px] w-full mr-auto p-2 mt-8 text-center bg-white border border-brand__gray__border text-primary font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-transparent hover:text-white duration-300 shadow-lg"
-                      />
+                    <div className="mt-8">
+                      {isLoading ? (
+                        <Spinner styles="w-6 h-6 border-white mt-2" />
+                      ) : (
+                        <Input
+                          type="submit"
+                          value="Sign In"
+                          className="max-w-[150px] w-full mr-auto p-2  text-center bg-white border border-brand__gray__border text-primary font-brand__font__semibold rounded-3xl cursor-pointer hover:bg-transparent hover:text-white duration-300 shadow-lg"
+                        />
+                      )}
                     </div>
                   </form>
                   <div className="absolute bottom-[100px] right-0">

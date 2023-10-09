@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useRefreshToken from "../../hooks/useRefreshToken";
-import useAuth from "../../hooks/useAuth";
 import Loader from "../common/Loader";
+import useContextData from "../../hooks/useContextData";
 
 const PersistLogin = () => {
   const [isLoading, setIsLoading] = useState(true);
   const refresh = useRefreshToken();
-  const { auth } = useAuth();
+  const { auth } = useContextData();
 
   useEffect(() => {
     // isMounted is using for no memory leak
@@ -17,7 +17,7 @@ const PersistLogin = () => {
       try {
         await refresh();
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       } finally {
         isMounted && setIsLoading(false);
       }
