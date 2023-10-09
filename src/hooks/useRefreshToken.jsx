@@ -1,10 +1,11 @@
 import axios from "../api/axios";
 import useContextData from "./useContextData";
-import Cookies from "js-cookie";
+import useCookie from "./useCookie";
 
 const useRefreshToken = () => {
   const { setAuth } = useContextData();
-  const token = Cookies.get("rT");
+  const { handleGetCookie } = useCookie();
+  const token = handleGetCookie();
 
   const refresh = async () => {
     const {

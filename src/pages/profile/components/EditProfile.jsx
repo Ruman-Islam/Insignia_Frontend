@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
 import { useForm } from "react-hook-form";
-import { RxCrossCircled } from "react-icons/rx";
-import toast from "react-hot-toast";
-import { TiTick } from "react-icons/ti";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import { useNavigate } from "react-router-dom";
 import useContextData from "../../../hooks/useContextData";
@@ -10,80 +7,38 @@ import { useState } from "react";
 import Spinner from "../../../components/common/Spinner";
 import { HashLink } from "react-router-hash-link";
 import useScrollWithOffset from "../../../hooks/useScrollWithOffset";
+import useError from "../../../hooks/useError";
+import useSuccess from "../../../hooks/useSuccess";
 
 const EditProfile = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const { register, handleSubmit, reset } = useForm();
+  const scrollWithOffset = useScrollWithOffset();
   const { auth, setAuth } = useContextData();
   const axiosPrivate = useAxiosPrivate();
-  const scrollWithOffset = useScrollWithOffset();
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
+  const handleError = useError();
+  const handleSuccess = useSuccess();
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (formData) => {
     setIsLoading(true);
-    const {
-      userName,
-      emergencyContact,
-      gender,
-      martialStatus,
-      nationalID,
-      passportExpiryDate,
-      passportNumber,
-      presentAddress,
-      permanentAddress,
-      religion,
-      dateOfBirth,
-    } = formData;
-
-    const updatedData = {
-      userName: userName ? userName : auth?.user?.userName,
-      gender: gender ? gender : auth?.user?.gender,
-      martialStatus: martialStatus ? martialStatus : auth?.user?.martialStatus,
-      presentAddress: presentAddress
-        ? presentAddress
-        : auth?.user?.presentAddress,
-      permanentAddress: permanentAddress
-        ? permanentAddress
-        : auth?.user?.permanentAddress,
-      dateOfBirth: dateOfBirth ? dateOfBirth : auth?.user?.dateOfBirth,
-      passportNumber: passportNumber
-        ? passportNumber
-        : auth?.user?.passportNumber,
-      passportExpiryDate: passportExpiryDate
-        ? passportExpiryDate
-        : auth?.user?.passportExpiryDate,
-      nationalID: nationalID ? nationalID : auth?.user?.nationalID,
-      emergencyContact: emergencyContact
-        ? emergencyContact
-        : auth?.user?.emergencyContact,
-      religion: religion ? religion : auth?.user?.religion,
-    };
     try {
       const { data } = await axiosPrivate.patch(
         "/user/profile/update",
-        JSON.stringify(updatedData)
+        JSON.stringify(formData)
       );
 
       setIsLoading(false);
       setAuth({ ...auth, user: data.data });
       reset();
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={25} />,
-      });
-
+      handleSuccess(data.message);
       navigate("/profile/personal-info#info");
     } catch ({ response }) {
+      const {
+        data: { errorMessages },
+      } = response;
       setIsLoading(false);
-      if (response?.status === 403) {
-        setAuth({});
-      } else {
-        const {
-          data: { errorMessages },
-        } = response;
-        toast(errorMessages[0]?.message, {
-          icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-        });
-      }
+      handleError(response.status, errorMessages[0].message);
     }
   };
 

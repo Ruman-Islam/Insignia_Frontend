@@ -6,24 +6,27 @@ import {
   AiOutlineEyeInvisible,
   AiOutlineWarning,
 } from "react-icons/ai";
-import { RxCrossCircled } from "react-icons/rx";
-import { TiTick } from "react-icons/ti";
 import Input from "../../components/UI/Input";
-import toast from "react-hot-toast";
 import axios from "../../api/axios";
 import Layout from "../../components/common/Layout";
 import Spinner from "../../components/common/Spinner";
 import useContextData from "../../hooks/useContextData";
-import Cookies from "js-cookie";
+import useSuccess from "../../hooks/useSuccess";
+import useError from "../../hooks/useError";
+import useCookie from "../../hooks/useCookie";
 
 const ResetPasswordScreen = () => {
   const { token } = useParams();
   const { auth, setAuth } = useContextData();
   const navigate = useNavigate();
   const location = useLocation();
+  const handleSuccess = useSuccess();
+  const handleError = useError();
+  const { handleSetCookie } = useCookie();
   const from = location.state?.from?.pathname || "/";
   const [isLoading, setIsLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -44,33 +47,22 @@ const ResetPasswordScreen = () => {
       formData.token = token;
       const { data } = await axios.post(
         "/auth/reset/password",
-        JSON.stringify(formData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
+        JSON.stringify(formData)
       );
 
       const responseData = data.data;
-      Cookies.set("rT", responseData.refreshToken);
+      handleSetCookie(responseData.refreshToken);
       delete responseData.refreshToken;
       setAuth(responseData);
       reset();
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={20} />,
-      });
+      handleSuccess(data.message);
       navigate(from, { replace: true });
-    } catch ({
-      response: {
-        data: { errorMessages },
-      },
-    }) {
+    } catch ({ response }) {
       setIsLoading(false);
-      toast(errorMessages[0]?.message, {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
+      const {
+        data: { errorMessages },
+      } = response;
+      handleError(response.status, errorMessages[0].message);
     }
   };
 

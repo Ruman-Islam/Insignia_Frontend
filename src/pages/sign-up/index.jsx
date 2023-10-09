@@ -5,16 +5,15 @@ import { AiOutlineWarning } from "react-icons/ai";
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { RxCrossCircled } from "react-icons/rx";
 import { HashLink } from "react-router-hash-link";
 import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
-import toast from "react-hot-toast";
 import useContextData from "../../hooks/useContextData";
 import Layout from "../../components/common/Layout";
 import useCustomGoogleLogin from "../../hooks/useCustomGoogleLogin";
 import useLogin from "../../hooks/useLogin";
 import Spinner from "../../components/common/Spinner";
+import useError from "../../hooks/useError";
 
 const SignUpScreen = () => {
   const { auth, setAuth } = useContextData();
@@ -23,6 +22,7 @@ const SignUpScreen = () => {
   const from = location.state?.from?.pathname || "/";
   const [isVisible, setIsVisible] = useState(false);
   const handleGoogleLogin = useCustomGoogleLogin();
+  const handleError = useError();
   const { handleLogin, isLoading } = useLogin();
 
   const {
@@ -40,18 +40,23 @@ const SignUpScreen = () => {
   }, [auth.user, from, navigate]);
 
   const onSubmit = async (formData) => {
-    handleLogin(formData, setAuth, navigate, from, reset, "/auth/register");
+    await handleLogin(
+      formData,
+      setAuth,
+      navigate,
+      from,
+      reset,
+      "/auth/register"
+    );
   };
 
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      handleGoogleLogin(code, setAuth, navigate, from);
+      await handleGoogleLogin(code, setAuth, navigate, from);
     },
     flow: "auth-code",
     onError: () => {
-      toast("Something went wrong!", {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
+      handleError(400, "Something went wrong!");
     },
   });
 
@@ -158,6 +163,7 @@ const SignUpScreen = () => {
                             name="password"
                             className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
                             {...register("password", {
+                              required: true,
                               pattern:
                                 /^(?=.*[A-Za-z0-9])(?=.*[^A-Za-z0-9]).{8,}$/,
                             })}

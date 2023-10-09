@@ -2,21 +2,23 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineWarning } from "react-icons/ai";
 import Input from "../../components/UI/Input";
-import toast from "react-hot-toast";
-import { TiTick } from "react-icons/ti";
 import axios from "../../api/axios";
-import { RxCrossCircled } from "react-icons/rx";
 import Layout from "../../components/common/Layout";
 import Spinner from "../../components/common/Spinner";
 import { useLocation, useNavigate } from "react-router-dom";
 import useContextData from "../../hooks/useContextData";
+import useSuccess from "../../hooks/useSuccess";
+import useError from "../../hooks/useError";
 
 const ForgetPasswordScreen = () => {
   const { auth } = useContextData();
   const navigate = useNavigate();
   const location = useLocation();
+  const handleSuccess = useSuccess();
+  const handleError = useError();
   const from = location.state?.from?.pathname || "/";
   const [isLoading, setIsLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -36,30 +38,19 @@ const ForgetPasswordScreen = () => {
     try {
       const { data } = await axios.post(
         "/auth/forgot/password",
-        JSON.stringify(formData),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
+        JSON.stringify(formData)
       );
 
       setIsLoading(false);
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={25} />,
-      });
+      handleSuccess(data.message);
       reset();
       navigate(from, { replace: true });
-    } catch ({
-      response: {
-        data: { errorMessages },
-      },
-    }) {
+    } catch ({ response }) {
       setIsLoading(false);
-      toast(errorMessages[0]?.message, {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
+      const {
+        data: { errorMessages },
+      } = response;
+      handleError(response.status, errorMessages[0].message);
     }
   };
 

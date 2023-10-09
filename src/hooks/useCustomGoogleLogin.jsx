@@ -1,10 +1,13 @@
-import Cookies from "js-cookie";
-import toast from "react-hot-toast";
-import { TiTick } from "react-icons/ti";
 import axios from "../api/axios";
-import { RxCrossCircled } from "react-icons/rx";
+import useSuccess from "./useSuccess";
+import useError from "./useError";
+import useCookie from "./useCookie";
 
 const useCustomGoogleLogin = () => {
+  const handleSuccess = useSuccess();
+  const handleError = useError();
+  const { handleSetCookie } = useCookie();
+
   const handleGoogleLogin = async (code, setAuth, navigate, from) => {
     try {
       const { data } = await axios.get("/auth/google/login", {
@@ -15,21 +18,16 @@ const useCustomGoogleLogin = () => {
       });
 
       const responseData = data.data;
-      Cookies.set("rT", responseData.refreshToken);
+      handleSetCookie(responseData.refreshToken);
       delete responseData.refreshToken;
       setAuth(responseData);
-      toast(data.message, {
-        icon: <TiTick className="text-brand__success" size={20} />,
-      });
+      handleSuccess(data.message);
       navigate(from, { replace: true });
-    } catch ({
-      response: {
-        data: { message },
-      },
-    }) {
-      toast(message, {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
+    } catch ({ response }) {
+      const {
+        data: { errorMessages },
+      } = response;
+      handleError(response.status, errorMessages[0].message);
     }
   };
 

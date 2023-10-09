@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 const PersonalInfo = () => {
   const { auth } = useContextData();
-  const { user } = auth;
   const navigation = useNavigate();
+  const { user } = auth;
 
   return (
     <div id="info">

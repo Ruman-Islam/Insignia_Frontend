@@ -5,9 +5,9 @@ import Loader from "../common/Loader";
 import useContextData from "../../hooks/useContextData";
 
 const PersistLogin = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const refresh = useRefreshToken();
   const { auth } = useContextData();
+  const refresh = useRefreshToken();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // isMounted is using for no memory leak

@@ -8,7 +8,7 @@ const Header = () => {
   const { auth } = useContextData();
   const location = useLocation();
   const isHomePage = location.pathname === "/"; // is using for keep header background
-  console.log("from header ..........", auth);
+
   return (
     <header
       className={`w-full h-20 md:h-24 flex justify-between items-center duration-300 font-brand__font_family__regular ${

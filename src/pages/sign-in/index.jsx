@@ -4,7 +4,6 @@ import Input from "../../components/UI/Input";
 import Button from "../../components/UI/Button";
 import { HashLink } from "react-router-hash-link";
 import { useNavigate, useLocation } from "react-router-dom";
-import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { FcGoogle } from "react-icons/fc";
 import {
@@ -12,16 +11,17 @@ import {
   AiOutlineEye,
   AiOutlineWarning,
 } from "react-icons/ai";
-import { RxCrossCircled } from "react-icons/rx";
 import Layout from "../../components/common/Layout";
 import useContextData from "../../hooks/useContextData";
 import useCustomGoogleLogin from "../../hooks/useCustomGoogleLogin";
 import useLogin from "../../hooks/useLogin";
 import Spinner from "../../components/common/Spinner";
+import useError from "../../hooks/useError";
 
 const SignInScreen = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const handleError = useError();
   const { handleLogin, isLoading } = useLogin();
   const { auth, setAuth } = useContextData();
   const handleGoogleLogin = useCustomGoogleLogin();
@@ -43,18 +43,16 @@ const SignInScreen = () => {
   }, [auth.user, from, navigate]);
 
   const onSubmit = async (formData) => {
-    handleLogin(formData, setAuth, navigate, from, reset, "/auth/login");
+    await handleLogin(formData, setAuth, navigate, from, reset, "/auth/login");
   };
 
   const googleLogin = useGoogleLogin({
     onSuccess: async ({ code }) => {
-      handleGoogleLogin(code, setAuth, navigate, from);
+      await handleGoogleLogin(code, setAuth, navigate, from);
     },
     flow: "auth-code",
     onError: () => {
-      toast("Something went wrong!", {
-        icon: <RxCrossCircled className="text-brand__dangerous" size={20} />,
-      });
+      handleError(400, "Something went wrong!");
     },
   });
 
