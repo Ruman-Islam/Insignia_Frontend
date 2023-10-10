@@ -36,7 +36,11 @@ const ToggleButton = ({ user }) => {
                   <div className="w-10 h-10 border rounded-full">
                     <Image
                       className="w-full h-full object-cover rounded-full"
-                      src={user?.photoUrl ? user?.photoUrl : profile__image}
+                      src={
+                        user?.traveler?.photo?.cloudinaryUrl
+                          ? user?.traveler?.photo?.cloudinaryUrl
+                          : profile__image
+                      }
                     />
                   </div>
                   <BiChevronDown

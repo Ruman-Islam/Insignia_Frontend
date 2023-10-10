@@ -90,30 +90,68 @@ const SignUpScreen = () => {
                         <div className="w-full">
                           <input
                             type="text"
-                            placeholder="Your name"
-                            name="userName"
+                            placeholder="First name"
+                            name="firstName"
                             className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
-                            {...register("userName", {
+                            {...register("firstName", {
                               required: true,
-                              maxLength: 30,
+                              maxLength: 15,
                               pattern: /^[A-Za-z ]+$/i,
                             })}
                           />
                         </div>
                       </div>
                       <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
-                        {errors?.userName?.type && (
+                        {errors?.firstName?.type && (
                           <AiOutlineWarning size={15} />
                         )}
-                        {errors?.userName?.type === "required" && (
+                        {errors?.firstName?.type === "required" && (
                           <small className="py-0.5">Name is required</small>
                         )}
-                        {errors?.userName?.type === "maxLength" && (
+                        {errors?.firstName?.type === "maxLength" && (
                           <small className="py-0.5">
                             Name cannot exceed 30 characters
                           </small>
                         )}
-                        {errors?.userName?.type === "pattern" && (
+                        {errors?.firstName?.type === "pattern" && (
+                          <small className="py-0.5">
+                            Alphabetical characters only
+                          </small>
+                        )}
+                      </div>
+                    </div>
+
+                    <br />
+
+                    <div>
+                      <div className="border-b border-brand__gray__border flex items-center justify-between">
+                        <div className="w-full">
+                          <input
+                            type="text"
+                            placeholder="Last name"
+                            name="lastName"
+                            className="w-full bg-primary py-1.5 pr-1 placeholder:text-white outline-none"
+                            {...register("lastName", {
+                              required: true,
+                              maxLength: 15,
+                              pattern: /^[A-Za-z ]+$/i,
+                            })}
+                          />
+                        </div>
+                      </div>
+                      <div className="bg-brand__orange text-white px-1 flex items-center gap-x-1">
+                        {errors?.lastName?.type && (
+                          <AiOutlineWarning size={15} />
+                        )}
+                        {errors?.lastName?.type === "required" && (
+                          <small className="py-0.5">Name is required</small>
+                        )}
+                        {errors?.lastName?.type === "maxLength" && (
+                          <small className="py-0.5">
+                            Name cannot exceed 30 characters
+                          </small>
+                        )}
+                        {errors?.lastName?.type === "pattern" && (
                           <small className="py-0.5">
                             Alphabetical characters only
                           </small>

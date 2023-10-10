@@ -20,7 +20,9 @@ const useLogin = () => {
   ) => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post(route, JSON.stringify(formData));
+      const { data } = await axios.post(route, formData, {
+        headers: { "Content-Type": "application/json" },
+      });
 
       const responseData = data.data;
       handleSetCookie(responseData.refreshToken);

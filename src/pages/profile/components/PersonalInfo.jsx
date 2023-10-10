@@ -7,6 +7,20 @@ const PersonalInfo = () => {
   const { auth } = useContextData();
   const navigation = useNavigate();
   const { user } = auth;
+  const {
+    firstName,
+    lastName,
+    gender,
+    presentAddress,
+    permanentAddress,
+    martialStatus,
+    dateOfBirth,
+    passportNumber,
+    passportExpiryDate,
+    nationalID,
+    emergencyContact,
+    religion,
+  } = user.traveler;
 
   return (
     <div id="info">
@@ -33,8 +47,9 @@ const PersonalInfo = () => {
           <div className="max-w-[200px] w-full font-brand__font__light text-brand__detail__text">
             <span>Name</span>
           </div>
-          <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.userName ? user?.userName : "N/A"}</span>
+          <div className="flex-1 font-brand__font__semibold flex gap-x-1">
+            <span>{firstName ? firstName : "N/A"}</span>
+            <span>{lastName ? lastName : ""}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -42,7 +57,7 @@ const PersonalInfo = () => {
             <span>Gender</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.gender ? user?.gender : "N/A"}</span>
+            <span>{gender ? gender : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -50,7 +65,7 @@ const PersonalInfo = () => {
             <span>Present Address</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.presentAddress ? user?.presentAddress : "N/A"}</span>
+            <span>{presentAddress ? presentAddress : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -58,9 +73,7 @@ const PersonalInfo = () => {
             <span>Permanent Address</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>
-              {user?.permanentAddress ? user?.permanentAddress : "N/A"}
-            </span>
+            <span>{permanentAddress ? permanentAddress : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -68,7 +81,7 @@ const PersonalInfo = () => {
             <span>Marital Status</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.martialStatus ? user?.martialStatus : "N/A"}</span>
+            <span>{martialStatus ? martialStatus : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -76,7 +89,7 @@ const PersonalInfo = () => {
             <span>Date of Birth</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.dateOfBirth ? user?.dateOfBirth : "N/A"}</span>
+            <span>{dateOfBirth ? dateOfBirth : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -84,7 +97,7 @@ const PersonalInfo = () => {
             <span>Passport Number</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.passportNumber ? user?.passportNumber : "N/A"}</span>
+            <span>{passportNumber ? passportNumber : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -92,9 +105,7 @@ const PersonalInfo = () => {
             <span>Passport Expiry Date</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>
-              {user?.passportExpiryDate ? user?.passportExpiryDate : "N/A"}
-            </span>
+            <span>{passportExpiryDate ? passportExpiryDate : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -102,7 +113,7 @@ const PersonalInfo = () => {
             <span>National ID</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.nationalID ? user?.nationalID : "N/A"}</span>
+            <span>{nationalID ? nationalID : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4 border-b">
@@ -110,9 +121,7 @@ const PersonalInfo = () => {
             <span>Emergency Contact</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>
-              {user?.emergencyContact ? user?.emergencyContact : "N/A"}
-            </span>
+            <span>{emergencyContact ? emergencyContact : "N/A"}</span>
           </div>
         </div>
         <div className="flex py-4">
@@ -120,7 +129,7 @@ const PersonalInfo = () => {
             <span>Religion</span>
           </div>
           <div className="flex-1 font-brand__font__semibold">
-            <span>{user?.religion ? user?.religion : "N/A"}</span>
+            <span>{religion ? religion : "N/A"}</span>
           </div>
         </div>
       </div>

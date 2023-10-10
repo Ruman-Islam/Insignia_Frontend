@@ -45,10 +45,10 @@ const ResetPasswordScreen = () => {
     setIsLoading(true);
     try {
       formData.token = token;
-      const { data } = await axios.post(
-        "/auth/reset/password",
-        JSON.stringify(formData)
-      );
+      const { data } = await axios.post("/auth/reset/password", formData, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
 
       const responseData = data.data;
       handleSetCookie(responseData.refreshToken);

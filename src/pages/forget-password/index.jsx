@@ -36,10 +36,10 @@ const ForgetPasswordScreen = () => {
   const onSubmit = async (formData) => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post(
-        "/auth/forgot/password",
-        JSON.stringify(formData)
-      );
+      const { data } = await axios.post("/auth/forgot/password", formData, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
 
       setIsLoading(false);
       handleSuccess(data.message);

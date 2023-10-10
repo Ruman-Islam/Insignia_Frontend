@@ -31,7 +31,11 @@ const UserSettings = () => {
     try {
       const { data } = await axiosPrivate.post(
         "/auth/change/password",
-        JSON.stringify(formData)
+        formData,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
 
       reset();
@@ -73,7 +77,9 @@ const UserSettings = () => {
           </div>
           <div className="flex-1 font-brand__font__semibold">
             <span>
-              {user?.emergencyContact ? user?.emergencyContact : "N/A"}
+              {user?.traveler?.emergencyContact
+                ? user?.traveler?.emergencyContact
+                : "N/A"}
             </span>
           </div>
         </div>
@@ -197,7 +203,7 @@ const UserSettings = () => {
           </div>
         ) : (
           <div className="flex py-4">
-            <div className="max-w-[200px] w-full font-brand__font__light text-brand__detail__text">
+            <div className="max-w-[170px] md:max-w-[200px] w-full font-brand__font__light text-brand__detail__text">
               <span>Password</span>
             </div>
             <div className="flex-1 font-brand__font__semibold text-primary">
@@ -209,12 +215,6 @@ const UserSettings = () => {
         )}
       </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       <br />
       <br />
       <br />

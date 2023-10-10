@@ -19,17 +19,36 @@ const EditProfile = () => {
   const handleError = useError();
   const handleSuccess = useSuccess();
   const [isLoading, setIsLoading] = useState(false);
+  const { user } = auth;
+  const {
+    firstName,
+    lastName,
+    gender,
+    presentAddress,
+    permanentAddress,
+    martialStatus,
+    dateOfBirth,
+    passportNumber,
+    passportExpiryDate,
+    nationalID,
+    emergencyContact,
+    religion,
+  } = user.traveler;
 
   const onSubmit = async (formData) => {
     setIsLoading(true);
     try {
       const { data } = await axiosPrivate.patch(
         "/user/profile/update",
-        JSON.stringify(formData)
+        formData,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
       );
 
       setIsLoading(false);
-      setAuth({ ...auth, user: data.data });
+      setAuth({ ...auth, user: { traveler: data.data } });
       reset();
       handleSuccess(data.message);
       navigate("/profile/personal-info#info");
@@ -56,22 +75,43 @@ const EditProfile = () => {
               Basic Info
             </h2>
           </div>
-          <div>
-            <label
-              htmlFor="name"
-              className="w-32 text-right text-brand__font__size__sm"
-            >
-              Name
-            </label>
-            <div className="flex-1">
-              <input
-                defaultValue={auth?.user?.userName}
-                type="text"
-                id="name"
-                name="userName"
-                className="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                {...register("userName")}
-              />
+
+          <div className="flex flex-col lg:flex-row justify-between gap-3 my-3">
+            <div className="w-full">
+              <label
+                htmlFor="first-name"
+                className="w-32 text-right text-brand__font__size__sm"
+              >
+                First Name
+              </label>
+              <div className="flex-1">
+                <input
+                  defaultValue={firstName}
+                  type="text"
+                  id="first-name"
+                  name="firstName"
+                  className="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  {...register("firstName")}
+                />
+              </div>
+            </div>
+            <div className="w-full">
+              <label
+                htmlFor="last-name"
+                className="w-32 text-right text-brand__font__size__sm"
+              >
+                Last Name
+              </label>
+              <div className="flex-1">
+                <input
+                  defaultValue={lastName}
+                  type="text"
+                  id="last-name"
+                  name="lastName"
+                  className="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                  {...register("lastName")}
+                />
+              </div>
             </div>
           </div>
 
@@ -85,7 +125,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.dateOfBirth}
+                  defaultValue={dateOfBirth}
                   type="date"
                   id="date"
                   name="dateOfBirth"
@@ -103,7 +143,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.nationalID}
+                  defaultValue={nationalID}
                   type="text"
                   id="nid"
                   name="nationalID"
@@ -124,7 +164,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <select
-                  defaultValue={auth?.user?.gender}
+                  defaultValue={gender}
                   id="gender"
                   name="gender"
                   autoComplete="true"
@@ -146,7 +186,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <select
-                  defaultValue={auth?.user?.martialStatus}
+                  defaultValue={martialStatus}
                   id="martial-status"
                   name="martialStatus"
                   autoComplete="true"
@@ -182,7 +222,7 @@ const EditProfile = () => {
                     Present Address
                   </label>
                   <textarea
-                    defaultValue={auth?.user?.presentAddress}
+                    defaultValue={presentAddress}
                     rows={2}
                     type="text"
                     id="present-address"
@@ -206,7 +246,7 @@ const EditProfile = () => {
                     Permanent Address
                   </label>
                   <textarea
-                    defaultValue={auth?.user?.permanentAddress}
+                    defaultValue={permanentAddress}
                     rows={2}
                     type="text"
                     id="permanent-address"
@@ -239,7 +279,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.passportNumber}
+                  defaultValue={passportNumber}
                   type="text"
                   id="password-number"
                   name="passportNumber"
@@ -257,7 +297,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.passportExpiryDate}
+                  defaultValue={passportExpiryDate}
                   type="date"
                   id="passport-expiry-date"
                   name="passportExpiryDate"
@@ -278,7 +318,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.emergencyContact}
+                  defaultValue={emergencyContact}
                   type="text"
                   id="phone"
                   name="emergencyContact"
@@ -296,7 +336,7 @@ const EditProfile = () => {
               </label>
               <div className="flex-1">
                 <input
-                  defaultValue={auth?.user?.religion}
+                  defaultValue={religion}
                   type="text"
                   id="religion"
                   name="religion"
