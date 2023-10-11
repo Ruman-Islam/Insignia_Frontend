@@ -41,7 +41,7 @@ const BookingCard = ({ packageDetail }) => {
       {/* .........Journey date start......... */}
       <div className="w-full p-2 border rounded-md relative">
         <p className="text-brand__font__size__sm text-gray-600">Journey Date</p>
-        <div className="text-brand__navy__blue">
+        <div className="text-secondary">
           <span className="text-brand__font__size__md font-brand__font__semibold">
             {new Date(startDate).toDateString()}
           </span>
@@ -64,7 +64,7 @@ const BookingCard = ({ packageDetail }) => {
       {/* .........Journey date end......... */}
 
       {/* .........Select traveler start......... */}
-      <div className="w-full outline-none p-2 rounded-md flex justify-between items-center text-brand__navy__blue border">
+      <div className="w-full outline-none p-2 rounded-md flex justify-between items-center text-secondary border">
         <div className="w-full">
           <h3>Total Traveler</h3>
           <span className="font-brand__font__semibold text-brand__font__size__md">
@@ -90,7 +90,7 @@ const BookingCard = ({ packageDetail }) => {
 
       {/* .........Options Start............... */}
       <div className="h-[70px]">
-        <div className="font-brand__font__bold text-brand__navy__blue px-2">
+        <div className="font-brand__font__bold text-secondary px-2">
           <h3>Options</h3>
         </div>
         <div className="w-full relative">
@@ -111,7 +111,7 @@ const BookingCard = ({ packageDetail }) => {
                       className={({ active }) =>
                         `relative cursor-pointer py-2.5 pl-10 pr-4 ${
                           active
-                            ? "bg-brand__ash__light text-brand__navy__blue"
+                            ? "bg-brand__ash__light text-secondary"
                             : "text-gray-600"
                         }`
                       }
@@ -127,7 +127,7 @@ const BookingCard = ({ packageDetail }) => {
                             {option.option}
                           </span>
                           {selected ? (
-                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-brand__navy__blue">
+                            <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-secondary">
                               <BiChevronDown />
                             </span>
                           ) : null}
@@ -143,8 +143,8 @@ const BookingCard = ({ packageDetail }) => {
       </div>
       {/* .........Options end............ */}
 
-      <div className="text-center flex flex-col items-center gap-1 text-brand__navy__blue">
-        <p className="font-brand__font__light">Start from</p>
+      <div className="text-center flex flex-col items-center gap-1 text-secondary">
+        <p className="font-brand__font__bold">Start from</p>
         <p className={` ${packageDetail?.discountPrice && "line-through"}`}>
           BDT {packageDetail?.startingPrice}
         </p>

@@ -56,15 +56,15 @@ input:-webkit-autofill:active {
 
 /* Custom range input slider styles */
 .range-slider-ab .range-slider__range {
-  background: #1c3c6b;
-  padding: 2px;
+  background: #1976d2 !important;
+  height: 8px !important;
 }
 
 .range-slider-ab .range-slider__thumb {
-  width: 15px;
-  height: 15px;
+  width: 20px !important;
+  height: 20px !important;
   border-radius: 100%;
-  background-color: white;
-  border: 2px solid #1c3c6b;
+  background: #1976d2 !important;
+  border: 2px solid #1565c0 !important;
 }
 /* Custom range input slider styles */

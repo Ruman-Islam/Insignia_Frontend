@@ -5,7 +5,7 @@ const Overview = ({ packageDetail }) => {
   return (
     <div id="overview">
       <div className="p-4 w-full sticky top-[175px] md:top-[140px] bg-white">
-        <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
+        <h6 className="flex items-center gap-x-1 text-secondary font-brand__font__bold">
           <BsGlobe size={20} />
           <span className="text-brand__font__size__md">Overview</span>
         </h6>
@@ -27,7 +27,7 @@ const Overview = ({ packageDetail }) => {
               {packageDetail?.overview?.steps.map((item, index) => (
                 <span
                   key={index}
-                  className="text-brand__navy__blue font-brand__font__bold text-brand__font__size__sm"
+                  className="text-secondary font-brand__font__bold text-brand__font__size__sm"
                 >
                   Step {index + 1}: {item}
                 </span>

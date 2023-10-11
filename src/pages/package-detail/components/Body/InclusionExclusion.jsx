@@ -7,7 +7,7 @@ const InclusionExclusion = ({ packageDetail }) => {
     <div id="inclusion">
       <div className="mt-5 border-t py-2">
         <div className="w-full sticky top-[175px] md:top-[140px] bg-white p-4">
-          <h6 className="flex items-center gap-x-1 text-brand__navy__blue font-brand__font__bold">
+          <h6 className="flex items-center gap-x-1 text-secondary font-brand__font__bold">
             <AiOutlineDeploymentUnit size={20} />
             <span className="text-brand__font__size__md">
               Inclusion & Exclusion

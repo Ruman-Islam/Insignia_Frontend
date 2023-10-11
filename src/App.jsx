@@ -13,7 +13,7 @@ function App() {
     <>
       <ScrollToTop />
       <Toaster
-        position="bottom-center"
+        position="top-center"
         toastOptions={{
           duration: 5000,
           className: "font-brand__font__semibold",

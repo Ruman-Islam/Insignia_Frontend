@@ -97,6 +97,7 @@ const UserSettings = () => {
                       type={isCurrentPasswordVisible ? "text" : "password"}
                       id="current-password"
                       name="currentPassword"
+                      placeholder="● ● ● ● ● ●"
                       className="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       {...register("currentPassword", {
                         required: true,
@@ -137,6 +138,7 @@ const UserSettings = () => {
                       type={isNewPasswordVisible ? "text" : "password"}
                       id="new-password"
                       name="newPassword"
+                      placeholder="● ● ● ● ● ●"
                       className="w-full rounded-md appearance-none border border-gray-300 py-2 px-2 bg-white text-gray-700 placeholder-gray-400 shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                       {...register("newPassword", {
                         required: true,

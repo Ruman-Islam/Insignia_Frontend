@@ -1,11 +1,11 @@
+import "./index.css";
 import React from "react";
+import App from "./App.jsx";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { AuthProvider } from "./context/AuthProvider.jsx";
 import { DataProvider } from "./context/DataProvider.jsx";
-import App from "./App.jsx";
-import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

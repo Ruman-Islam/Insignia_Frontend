@@ -3,7 +3,7 @@ import RangeSlider from "react-range-slider-input";
 
 const FilterBox = ({ value, handleSlider }) => {
   return (
-    <div className="text-brand__navy__blue h-full">
+    <div className="text-secondary">
       <div className="text-brand__font__size__base font-brand__font__semibold p-4">
         Destination: 2 places found
       </div>
@@ -32,13 +32,13 @@ const FilterBox = ({ value, handleSlider }) => {
         </div>
 
         <div className="py-2 px-4 border-t">
-          <h2 className="font-brand__font__semibold">Options</h2>
-          <ul className="font-brand__font__light">
+          <h2 className="font-brand__font__bold">Options</h2>
+          <ul>
             <li className="flex items-center gap-x-2 w-fit py-1">
               <input
                 type="checkbox"
                 id="checkbox1"
-                className="peer relative h-4 w-4 shrink-0 appearance-none rounded-sm border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-checkbox__filter__bg after:bg-[length:26px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-brand__navy__blue focus:outline-none"
+                className="peer relative h-4 w-4 shrink-0 appearance-none rounded-sm border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-checkbox__filter__bg after:bg-[length:26px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-secondary focus:outline-none"
               />
               <label htmlFor="checkbox1" className="w-full cursor-pointer">
                 Regular

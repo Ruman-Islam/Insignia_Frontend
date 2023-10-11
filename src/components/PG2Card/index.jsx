@@ -14,7 +14,7 @@ const PG2Card = ({ data }) => {
         />
       </div>
 
-      <div className="basis-[70%] flex flex-col md:flex-row gap-5 justify-between text-brand__navy__blue">
+      <div className="basis-[70%] flex flex-col md:flex-row gap-5 justify-between text-secondary">
         <div className="text-brand__font__size__sm leading-relaxed p-4 basis-[75%]">
           <h2 className="text-brand__font__size__md font-brand__font__semibold capitalize">
             {title}
@@ -42,11 +42,19 @@ const PG2Card = ({ data }) => {
           </h3>
           <div className="mt-3">
             <h6>Tags:</h6>
-            <div className="flex flex-wrap gap-3 text-brand__font__size__xs">
-              <div className="py-1 px-1.5 bg-[#EBF0F4] rounded">Adventure</div>
-              <div className="py-1 px-1.5 bg-[#EBF0F4] rounded">Adventure</div>
-              <div className="py-1 px-1.5 bg-[#EBF0F4] rounded">Adventure</div>
-              <div className="py-1 px-1.5 bg-[#EBF0F4] rounded">Adventure</div>
+            <div className="flex flex-wrap gap-1 text-brand__font__size__xs">
+              <div className="py-1 px-2 font-brand__font__bold bg-[#EBF0F4] rounded">
+                Adventure
+              </div>
+              <div className="py-1 px-2 font-brand__font__bold bg-[#EBF0F4] rounded">
+                Adventure
+              </div>
+              <div className="py-1 px-2 font-brand__font__bold bg-[#EBF0F4] rounded">
+                Adventure
+              </div>
+              <div className="py-1 px-2 font-brand__font__bold bg-[#EBF0F4] rounded">
+                Adventure
+              </div>
             </div>
           </div>
         </div>

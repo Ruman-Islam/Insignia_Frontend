@@ -31,8 +31,8 @@ export default {
         "2xl": "1536px",
       },
       colors: {
-        primary: "#0080E0",
-        secondary: "#00A6F0",
+        primary: "#1976D2",
+        secondary: "#1565c0",
         brand__white: "#FAF7F5",
         brand__cyan: "#007186",
         brand__light__cyan: "#08787F",
@@ -120,9 +120,9 @@ export default {
         about__us__background:
           "url('../src/assets/images/background/about__us__bg.jpg')",
         sign__in__form__background:
-          "url('../src/assets/images/background/sign__in__form__bg.jpg')",
-        sign__up__form__background:
           "url('../src/assets/images/background/sign__up__form__bg.jpg')",
+        sign__up__form__background:
+          "url('../src/assets/images/background/sign__in__form__bg.jpg')",
         pg__card__background:
           "url('../src/assets/images/background/pg__card__bg2.png')",
         checkbox__filter__bg:
