@@ -15,9 +15,7 @@ const Sidebar = () => {
   const scrollWithOffset = useScrollWithOffset();
   const axiosPrivate = useAxiosPrivate();
   const handleError = useError();
-  const [image, setImage] = useState(
-    auth?.user?.traveler?.photo?.cloudinaryUrl
-  );
+  const [image, setImage] = useState(auth?.user?.photo?.cloudinaryUrl);
 
   const onLoadImage = (callBack, reader) => {
     reader.onload = () => {
@@ -47,7 +45,7 @@ const Sidebar = () => {
         }
       );
 
-      setAuth({ ...auth, user: { traveler: data.data } });
+      setAuth({ ...auth, user: data.data });
     } catch ({ response }) {
       const {
         data: { errorMessages },

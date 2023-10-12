@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Layout from "../../components/common/Layout";
 import Sidebar from "./components/Sidebar";
+
 const ProfileScreen = () => {
   return (
     <Layout title="Profile">

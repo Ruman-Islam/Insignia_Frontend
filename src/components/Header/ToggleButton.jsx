@@ -37,8 +37,8 @@ const ToggleButton = ({ user }) => {
                     <Image
                       className="w-full h-full object-cover rounded-full"
                       src={
-                        user?.traveler?.photo?.cloudinaryUrl
-                          ? user?.traveler?.photo?.cloudinaryUrl
+                        user?.photo?.cloudinaryUrl
+                          ? user?.photo?.cloudinaryUrl
                           : profile__image
                       }
                     />

@@ -20,7 +20,7 @@ const PersonalInfo = () => {
     nationalID,
     emergencyContact,
     religion,
-  } = user.traveler;
+  } = user;
 
   return (
     <div id="info">

@@ -33,7 +33,7 @@ const EditProfile = () => {
     nationalID,
     emergencyContact,
     religion,
-  } = user.traveler;
+  } = user;
 
   const onSubmit = async (formData) => {
     setIsLoading(true);
@@ -48,7 +48,7 @@ const EditProfile = () => {
       );
 
       setIsLoading(false);
-      setAuth({ ...auth, user: { traveler: data.data } });
+      setAuth({ ...auth, user: data.data });
       reset();
       handleSuccess(data.message);
       navigate("/profile/personal-info#info");
