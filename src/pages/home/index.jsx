@@ -1,7 +1,9 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import Spinner from "../../components/common/Spinner";
 import Banner from "./components/Banner";
 import Layout from "../../components/common/Layout";
+import axios from "../../api/axios";
+import useContextData from "../../hooks/useContextData";
 // import Foreigner from "./components/Foreigner";
 // import Window from "./components/Window";
 // import PopularDestination from "./components/PopularDestination";
@@ -24,6 +26,22 @@ const PhotoGallery = lazy(() => import("./components/PhotoGallery"));
 const Testimonial = lazy(() => import("./components/Testimonial"));
 
 const HomeScreen = () => {
+  const { setSystemData } = useContextData();
+
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/common/get/system-config");
+
+        setSystemData({ ...data.data });
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, [setSystemData]);
+
   return (
     <Layout title="Home">
       {/* <Suspense fallback={<Spinner />}>

@@ -79,26 +79,18 @@ export const foreignerPackages = [
   },
 ];
 
-export const windowImages = [
+export const windowImagesTexts = [
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
-    imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__foreignerBD_plaioq.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>INDIA</span>",
-    imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304951/pexels-maahid-photos-3881104_shbpgi.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>NEPAL</span>",
-    imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__nepal_jtuwqb.jpg",
   },
   {
     text: "<span class='text-sm mb-2 font-font__bold'>FOREIGNERS</span><span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
-    imageUrl:
-      "https://res.cloudinary.com/dqlxcdlce/image/upload/v1695304574/window__banner__bangladesh_efkkk0.jpg",
   },
 ];
 

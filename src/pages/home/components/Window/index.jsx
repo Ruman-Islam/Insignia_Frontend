@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { windowImages } from "../../../../constants/common";
 import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
+import useContextData from "../../../../hooks/useContextData";
+import { windowImagesTexts } from "../../../../constants/common";
 
 const Window = () => {
-  const [backgroundImage, setBackgroundImage] = useState(
-    windowImages[0]?.imageUrl
-  );
+  const { systemData } = useContextData();
+  const windowImages = [
+    systemData?.window1?.cloudinaryUrl,
+    systemData?.window2?.cloudinaryUrl,
+    systemData?.window3?.cloudinaryUrl,
+    systemData?.window4?.cloudinaryUrl,
+  ];
+  const [backgroundImage, setBackgroundImage] = useState(windowImages[0]);
 
   const changeBackGround = (item) => {
-    setBackgroundImage(item?.imageUrl);
+    setBackgroundImage(item);
   };
 
   return (
@@ -32,7 +38,9 @@ const Window = () => {
               <div className="flex flex-col items-center justify-center px-5 py-10 before:duration-300 relative before:absolute before:top-0 before:left-0 before:bg-black before:w-full before:h-0 group-hover:before:h-full">
                 <div
                   className="relative z-10 text-xl flex flex-col items-center justify-center"
-                  dangerouslySetInnerHTML={{ __html: item.text }}
+                  dangerouslySetInnerHTML={{
+                    __html: windowImagesTexts[index]?.text,
+                  }}
                 ></div>
               </div>
 

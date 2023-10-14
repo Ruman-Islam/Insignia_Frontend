@@ -19,7 +19,7 @@ const Banner = () => {
 
         <BannerContent />
 
-        <div className="h-[200px] w-full absolute bottom-10 left-0 right-0 hidden md:flex justify-center md:justify-end p-content__padding">
+        {/* <div className="h-[200px] w-full absolute bottom-10 left-0 right-0 hidden md:flex justify-center md:justify-end p-content__padding">
           <div className="w-[350px] h-[95px] border-b-2   border-brand__gray__border text-white flex justify-end items-end gap-x-6 py-4 px-2">
             <div className="w-fit h-fit text-brand__font__size__lg font-brand__font__bold flex flex-col">
               <span>2.2 M+</span>
@@ -34,7 +34,7 @@ const Banner = () => {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

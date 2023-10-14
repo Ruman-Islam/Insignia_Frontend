@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
-import { bannerImages } from "../../../../constants/common";
 import Image from "../../../../components/UI/Image";
 import Button from "../../../../components/UI/Button";
+import useContextData from "../../../../hooks/useContextData";
 
 const BannerBackground = () => {
+  const { systemData } = useContextData();
+  const bannerImages = [
+    systemData?.banner1?.cloudinaryUrl,
+    systemData?.banner2?.cloudinaryUrl,
+    systemData?.banner3?.cloudinaryUrl,
+  ];
   const [currentSlide, setCurrentSlide] = useState(0);
   const [autoPlay] = useState(true);
   let timeOut = null;
