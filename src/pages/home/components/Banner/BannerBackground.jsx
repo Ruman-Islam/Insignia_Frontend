@@ -16,7 +16,7 @@ const BannerBackground = () => {
 
   const nextSlide = () => {
     setCurrentSlide((prev) =>
-      prev === bannerImages.length - 1 ? 0 : prev + 1
+      prev === bannerImages?.length - 1 ? 0 : prev + 1
     );
   };
 
@@ -43,7 +43,7 @@ const BannerBackground = () => {
 
   return (
     <div className="h-full">
-      {bannerImages.map((image, index) => {
+      {bannerImages?.map((image, index) => {
         return (
           <div
             key={index}
@@ -57,7 +57,7 @@ const BannerBackground = () => {
       })}
 
       <div className="flex gap-x-2 absolute z-10 bottom-10 left-0 right-0 mx-auto w-fit">
-        {bannerImages.map((slide, slideIndex) => (
+        {bannerImages?.map((slide, slideIndex) => (
           <Button key={slideIndex} onClick={() => goToSlide(slideIndex)}>
             <span
               className={`${

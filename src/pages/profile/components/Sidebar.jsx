@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BiEdit } from "react-icons/bi";
 import { AiFillSetting } from "react-icons/ai";
+import { MdRateReview } from "react-icons/md";
 import Image from "../../../components/UI/Image";
 import { HashLink } from "react-router-hash-link";
 import useContextData from "../../../hooks/useContextData";
@@ -93,6 +94,13 @@ const Sidebar = () => {
         >
           <BsFillBookmarkFill size={22} />
           <span>My Bookings</span>
+        </HashLink>
+        <HashLink
+          className="flex items-center gap-x-2 hover:text-primary duration-200 w-fit"
+          to="/profile/review"
+        >
+          <MdRateReview size={22} />
+          <span>Review</span>
         </HashLink>
         <HashLink
           className="flex items-center gap-x-2 hover:text-primary duration-200 w-fit"

@@ -33,7 +33,7 @@ const Window = () => {
               className={`relative overflow-hidden flex-1 flex flex-col h-full group text-brand__white ${
                 index !== 3 ? "border-r" : "border-r-0"
               } border-brand__gray__border`}
-              key={item.text}
+              key={item?.text}
             >
               <div className="flex flex-col items-center justify-center px-5 py-10 before:duration-300 relative before:absolute before:top-0 before:left-0 before:bg-black before:w-full before:h-0 group-hover:before:h-full">
                 <div

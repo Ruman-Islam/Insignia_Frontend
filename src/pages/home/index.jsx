@@ -33,7 +33,7 @@ const HomeScreen = () => {
       try {
         const { data } = await axios.get("/common/get/system-config");
 
-        setSystemData({ ...data.data });
+        setSystemData({ ...data?.data });
       } catch ({ response }) {
         // console.log(response);
       }
