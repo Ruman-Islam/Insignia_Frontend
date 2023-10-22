@@ -1,17 +1,33 @@
-import { useState } from "react";
-import { videoGalleryData } from "../../../../constants/common";
+import { useEffect, useState } from "react";
+import axios from "../../../../api/axios";
 
 const VideoGallery = () => {
-  const [currentVideo, setCurrentVideo] = useState(videoGalleryData[0]);
+  const [videos, setVideos] = useState([]);
+  const [currentVideo, setCurrentVideo] = useState({});
 
-  return (
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/video?isSelected=true");
+
+        setCurrentVideo(data?.data[0]);
+        setVideos(data?.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, []);
+
+  return videos.length ? (
     <section className="py-10 lg:py-24 border-b-2">
       <div className="w-full">
         <div className="max-w-screen-xl mx-auto p-content__padding flex flex-col md:flex-row gap-2 py-2">
           <div className="w-full h-full ">
             <iframe
               className="rounded-3xl aspect-video w-full h-full"
-              src={`${currentVideo}?controls=0&rel=0`}
+              src={`${currentVideo?.youtubeUrl}?controls=0&rel=0`}
               allow="autoplay"
               allowFullScreen
             ></iframe>
@@ -24,7 +40,7 @@ const VideoGallery = () => {
               </h3>
             </div>
             <div className="flex flex-row md:flex-col gap-2 h-full md:max-h-[230px] lg:max-h-[390px] xl:max-h-[515px] overflow-y-auto p-content__padding custom__scrollbar">
-              {videoGalleryData.map((item, index) => {
+              {videos.map((item, index) => {
                 return (
                   <div
                     onClick={() => setCurrentVideo(item)}
@@ -33,7 +49,7 @@ const VideoGallery = () => {
                   >
                     <iframe
                       className="rounded-xl aspect-video w-full h-full"
-                      src={`${item}?controls=0&rel=0`}
+                      src={`${item?.youtubeUrl}?controls=0&rel=0`}
                       allowFullScreen
                     ></iframe>
                   </div>
@@ -69,6 +85,11 @@ const VideoGallery = () => {
         </div>
       </div> */}
     </section>
+  ) : (
+    <>
+      <br />
+      <br />
+    </>
   );
 };
 

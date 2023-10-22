@@ -5,30 +5,47 @@ import {
   AccordionItemHeading,
   AccordionItemPanel,
 } from "react-accessible-accordion";
-// import "react-accessible-accordion/dist/fancy-example.css";
-import { accordionData } from "../../../../constants/common";
 import styles from "./Styles.module.css";
+import { useEffect } from "react";
+import axios from "../../../../api/axios";
+import { useState } from "react";
 
 const FaqAccordion = () => {
+  const [selectedFaq, setSelectedFaq] = useState([]);
+
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/faq?isSelected=true");
+
+        setSelectedFaq(data?.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, []);
+
   return (
     <div className="w-full">
       <Accordion
         className="border border-brand__gray__border rounded-xl p-6 backdrop-blur-xl"
         preExpanded={[1]}
       >
-        {accordionData?.slice(0, 6).map((item, index) => (
-          <AccordionItem uuid={item.uuid} key={item.uuid}>
+        {selectedFaq?.slice(0, 6).map((item, index) => (
+          <AccordionItem uuid={index + 1} key={item?.id}>
             <AccordionItemHeading
               className={`text-white ${
                 index !== 5 && "border-b"
-              } border-brand__gray__border py-3 text-brand__font__size__md font-brand__font__semibold`}
+              } border-brand__gray__border py-3 text-brand__font__size__base font-brand__font__semibold`}
             >
               <AccordionItemButton className={styles.accordion__button}>
-                {item.heading}
+                {item?.title}
               </AccordionItemButton>
             </AccordionItemHeading>
-            <AccordionItemPanel className="text-white py-3 pl-5 animate-fade__in">
-              {item.content.slice(0, 250)}
+            <AccordionItemPanel className="text-white py-3 pl-5 animate-fade__in text-brand__font__size__sm">
+              {item?.answer.slice(0, 250)}
             </AccordionItemPanel>
           </AccordionItem>
         ))}

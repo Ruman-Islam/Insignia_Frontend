@@ -1,10 +1,27 @@
+import { useState, useEffect } from "react";
 import Image from "../../components/UI/Image";
 import Layout from "../../components/common/Layout";
-import { photoGalleryData } from "../../constants/common";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
+import axios from "../../api/axios";
 
 const GalleryScreen = () => {
+  const [selectedPhotos, setSelectedPhotos] = useState([]);
+
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/photo");
+
+        setSelectedPhotos(data?.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, []);
+
   return (
     <Layout title="Gallery">
       <section className="bg-photo__gallery__background2 bg-fixed bg-cover bg-center relative py-10">
@@ -17,7 +34,7 @@ const GalleryScreen = () => {
           </div>
 
           <PhotoProvider
-            speed={() => 800}
+            speed={() => 400}
             easing={(type) =>
               type === 2
                 ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
@@ -25,13 +42,17 @@ const GalleryScreen = () => {
             }
           >
             <div className="columns-1 gap-5 lg:gap-3 md:columns-2 lg:columns-3 xl:columns-5 [&>img:not(:first-child)]:mt-5 lg:[&>img:not(:first-child)]:mt-3">
-              {photoGalleryData.map((item, i) => (
-                <PhotoView rotate={() => 350} key={i} src={item}>
+              {selectedPhotos.map((item, i) => (
+                <PhotoView
+                  rotate={() => 350}
+                  key={i}
+                  src={item?.photo?.cloudinaryUrl}
+                >
                   <div className="w-full h-full object-cover object-center block rounded-lg mb-3 cursor-pointer">
                     <Image
                       alt="gallery"
                       className="w-full h-full object-cover object-center block rounded-lg"
-                      src={item}
+                      src={item?.photo?.cloudinaryUrl}
                     />
                   </div>
                 </PhotoView>

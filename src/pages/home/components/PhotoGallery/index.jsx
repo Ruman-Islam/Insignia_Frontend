@@ -1,9 +1,26 @@
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Image from "../../../../components/UI/Image";
 import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
-import { photoGalleryData } from "../../../../constants/common";
+import { useEffect, useState } from "react";
+import axios from "../../../../api/axios";
 
 const PhotoGallery = () => {
+  const [selectedPhotos, setSelectedPhotos] = useState([]);
+
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/photo?isSelected=true");
+
+        setSelectedPhotos(data?.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, []);
+
   return (
     <section className="pb-2 bg-photo__gallery__background bg-center bg-cover bg-fixed relative">
       <div className="absolute top-0 left-0 right-0 bottom-0  backdrop-blur-sm"></div>
@@ -31,13 +48,17 @@ const PhotoGallery = () => {
             }
           >
             <div className="columns-1 gap-5 lg:gap-3 md:columns-2 lg:columns-3 xl:columns-5 [&>img:not(:first-child)]:mt-5 lg:[&>img:not(:first-child)]:mt-3">
-              {photoGalleryData?.slice(0, 12).map((item, i) => (
-                <PhotoView rotate={() => 350} key={i} src={item}>
+              {selectedPhotos?.slice(0, 12).map((item, i) => (
+                <PhotoView
+                  rotate={() => 350}
+                  key={i}
+                  src={item?.photo?.cloudinaryUrl}
+                >
                   <div className="w-full h-full object-cover object-center block rounded-lg mb-3 cursor-pointer">
                     <Image
                       alt="gallery"
                       className="w-full h-full object-cover object-center block rounded-lg"
-                      src={item}
+                      src={item?.photo?.cloudinaryUrl}
                     />
                   </div>
                 </PhotoView>

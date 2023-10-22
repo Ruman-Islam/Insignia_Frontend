@@ -10,7 +10,7 @@ import useContextData from "../../hooks/useContextData";
 // import VideoGallery from "./components/VideoGallery";
 // import Faq from "./components/FAQ";
 // import Packages from "./components/Packages";
-// import PhotoGallery from "./components/PhotoGallery";
+import PhotoGallery from "./components/PhotoGallery";
 // import Testimonial from "./components/Testimonial";
 
 // const Banner = lazy(() => import("./components/Banner"));
@@ -22,7 +22,7 @@ const PopularDestination = lazy(() =>
 const VideoGallery = lazy(() => import("./components/VideoGallery"));
 const Faq = lazy(() => import("./components/FAQ"));
 const Packages = lazy(() => import("./components/Packages"));
-const PhotoGallery = lazy(() => import("./components/PhotoGallery"));
+// const PhotoGallery = lazy(() => import("./components/PhotoGallery"));
 const Testimonial = lazy(() => import("./components/Testimonial"));
 
 const HomeScreen = () => {
@@ -103,14 +103,14 @@ const HomeScreen = () => {
       </Suspense>
       {/* <Packages /> */}
 
-      <Suspense
+      {/* <Suspense
         fallback={
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
         <PhotoGallery />
-      </Suspense>
-      {/* <PhotoGallery /> */}
+      </Suspense> */}
+      <PhotoGallery />
 
       <Suspense
         fallback={

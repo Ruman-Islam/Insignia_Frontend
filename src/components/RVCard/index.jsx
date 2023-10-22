@@ -5,7 +5,7 @@ import Image from "../UI/Image";
 import defaultProImg from "../../assets/images/profile/profile.png";
 
 const RVCard = ({ data }) => {
-  const { text, name, rating } = data;
+  const { name, rate, details, photoUrl } = data;
 
   return (
     <div className="h-[420px] border bg-brand__ash rounded">
@@ -14,7 +14,7 @@ const RVCard = ({ data }) => {
           <div className="flex-grow flex flex-col items-center  bg-primary text-white py-2">
             <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center">
               <Image
-                src={defaultProImg}
+                src={photoUrl ? photoUrl : defaultProImg}
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
@@ -24,7 +24,7 @@ const RVCard = ({ data }) => {
             <Rating
               className="text-brand__font__size__sm text-brand__orange"
               readonly
-              initialRating={rating}
+              initialRating={rate}
               emptySymbol={<AiOutlineStar />}
               fullSymbol={<AiFillStar />}
             />
@@ -32,7 +32,7 @@ const RVCard = ({ data }) => {
         </div>
 
         <div className="px-6 py-3 my-4 h-full overflow-y-auto custom__scrollbar">
-          <p className="leading-normal text-brand__font__size__sm">{text}</p>
+          <p className="leading-normal text-brand__font__size__sm">{details}</p>
         </div>
       </div>
     </div>

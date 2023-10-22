@@ -44,7 +44,7 @@ const Head = ({ packageDetail }) => {
       </Carousel>
 
       <PhotoProvider
-        speed={() => 800}
+        speed={() => 400}
         easing={(type) =>
           type === 2
             ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
@@ -85,7 +85,7 @@ const Head = ({ packageDetail }) => {
 
       <PhotoSlider
         overlay
-        speed={() => 800}
+        speed={() => 400}
         easing={(type) =>
           type === 2
             ? "cubic-bezier(0.36, 0, 0.66, -0.56)"

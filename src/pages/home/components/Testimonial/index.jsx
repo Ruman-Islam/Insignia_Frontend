@@ -1,7 +1,5 @@
-import {
-  faqCarouselResponsive,
-  reviewData,
-} from "../../../../constants/common";
+import { useEffect, useState } from "react";
+import { faqCarouselResponsive } from "../../../../constants/common";
 import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
@@ -11,8 +9,25 @@ import "react-multi-carousel/lib/styles.css";
 import RVCard from "../../../../components/RVCard";
 import { Link } from "react-router-dom";
 import Button from "../../../../components/UI/Button";
+import axios from "../../../../api/axios";
 
 const Testimonial = () => {
+  const [selectedReviews, setSelectedReviews] = useState([]);
+
+  useEffect(() => {
+    const handleData = async () => {
+      try {
+        const { data } = await axios.get("/review?isSelected=true");
+
+        setSelectedReviews(data?.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    };
+
+    handleData();
+  }, []);
+
   return (
     <section className="pt-10 lg:pb-20 my-10">
       <div className="max-w-screen-xl w-full mx-auto p-content__padding bg-testimonial__background bg-center bg-cover">
@@ -45,7 +60,7 @@ const Testimonial = () => {
           }
           responsive={faqCarouselResponsive}
         >
-          {reviewData?.map((item, index) => (
+          {selectedReviews?.map((item, index) => (
             <RVCard key={index} data={item} />
           ))}
         </Carousel>

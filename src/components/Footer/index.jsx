@@ -132,7 +132,7 @@ const Footer = () => {
           <p className="uppercase flex items-center gap-x-2">
             <AiOutlineCopyrightCircle /> {year} all rights reserved
           </p>
-          <p className="uppercase flex items-center gap-x-2">
+          {/* <p className="uppercase flex items-center gap-x-2">
             developed by{" "}
             <Link
               className="hover:underline duration-300  font-brand__font__bold"
@@ -140,7 +140,7 @@ const Footer = () => {
             >
               Tech-Hunt Technology
             </Link>
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
