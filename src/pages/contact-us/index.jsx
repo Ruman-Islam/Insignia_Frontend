@@ -74,9 +74,9 @@ const ContactUsScreen = () => {
                 <br />
                 <div>
                   <h5 className="underline">Location</h5>
-                  <h6>Random Location, 51/3. Dhaka</h6>
-                  <h6>example@gmail.com</h6>
-                  <h6>01758947856</h6>
+                  <h6>Dhaka, Bangladesh</h6>
+                  <h6>insigniatourstravels2016@gmail.com</h6>
+                  <h6>+880 1793-636525</h6>
                 </div>
               </div>
             </div>

@@ -91,15 +91,15 @@ const Footer = () => {
               <p className="text-2xl font-brand__font__bold">Contacts</p>
               <p className="lg:inline-flex lg:items-center gap-x-2">
                 <FaLocationDot className="hidden lg:block" />
-                Random Location, 51/3, Dhaka
+                Dhaka, Bangladesh
               </p>
               <p className="lg:inline-flex lg:items-center gap-x-2">
                 <BsEnvelope className="hidden lg:block" />
-                companyname@gmail.com
+                insigniatourstravels2016@gmail.com
               </p>
               <p className="lg:inline-flex lg:items-center gap-x-2">
                 <AiOutlineMobile className="hidden lg:block" />
-                01345678765
+                +880 1793-636525
               </p>
             </div>
           </div>

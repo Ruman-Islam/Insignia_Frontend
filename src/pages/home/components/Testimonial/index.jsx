@@ -36,8 +36,7 @@ const Testimonial = () => {
             What Travelers says
           </h2>
           <h3 className="text-brand__font__size__md ms-auto bg-brand__ash__light">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            cupiditate iure!
+          Exploring a new city, hiking through nature, relaxing on a beach, travelers often have a lot to say about their experiences what can be both insightful and inspiring, offering a glimpse into the diverse and enriching world of travel.
           </h3>
         </div>
 

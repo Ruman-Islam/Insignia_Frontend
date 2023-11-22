@@ -36,9 +36,12 @@ const Head = ({ packageDetail }) => {
         }
         responsive={faqCarouselResponsiveForPackageDetail}
       >
-        {packageDetail?.previews?.map((item, index) => (
+        {packageDetail?.pictures?.map((item, index) => (
           <div className="h-full w-full" key={index}>
-            <Image src={item} className="h-full w-full object-contain" />
+            <Image
+              src={item?.cloudinaryUrl}
+              className="h-full w-full object-contain"
+            />
           </div>
         ))}
       </Carousel>
@@ -52,14 +55,17 @@ const Head = ({ packageDetail }) => {
         }
       >
         <div className="flex md:flex-col justify-between gap-3">
-          {packageDetail?.previews.map((item, index) => (
-            <PhotoView rotate={() => 350} key={index} src={item}>
+          {packageDetail?.pictures?.map((item, index) => (
+            <PhotoView rotate={() => 350} key={index} src={item?.cloudinaryUrl}>
               {index < 3 ? (
                 <div
                   className="h-[100px] w-[100px] flex-1 md:flex-none cursor-pointer"
                   key={index}
                 >
-                  <Image src={item} className="h-full w-full object-cover" />
+                  <Image
+                    src={item?.cloudinaryUrl}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               ) : undefined}
             </PhotoView>
@@ -70,12 +76,12 @@ const Head = ({ packageDetail }) => {
           >
             <div className="w-full h-full relative">
               <div className="absolute top-0 left-0 bottom-0 right-0 bg-black bg-opacity-70 text-white w-full h-full flex flex-col justify-center items-center">
-                +{packageDetail?.previews.length - 3}{" "}
+                +{packageDetail?.pictures?.length - 3}{" "}
                 <MdOutlinePhotoLibrary size={18} />
               </div>
 
               <Image
-                src={packageDetail?.previews[3]}
+                src={packageDetail?.pictures[3]?.cloudinaryUrl}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -91,9 +97,9 @@ const Head = ({ packageDetail }) => {
             ? "cubic-bezier(0.36, 0, 0.66, -0.56)"
             : "cubic-bezier(0.34, 1.56, 0.64, 1)"
         }
-        images={packageDetail?.previews.map((item) => ({
-          src: item,
-          key: item,
+        images={packageDetail?.pictures?.map((item) => ({
+          src: item?.cloudinaryUrl,
+          key: item?.cloudinaryId,
         }))}
         visible={visible}
         onClose={() => setVisible(false)}

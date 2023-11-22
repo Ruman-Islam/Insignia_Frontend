@@ -1,9 +1,10 @@
-import { foreignerPackages } from "../../../../constants/common";
+/* eslint-disable react/prop-types */
+
 import FPCard from "../../../../components/FPCard";
 import UseNavbar from "../../../../hooks/UseNavbar";
 import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 
-const Foreigner = () => {
+const Foreigner = ({ packages }) => {
   const { navbar } = UseNavbar();
   return (
     <section className="relative w-full bg-brand__ash__light">
@@ -21,14 +22,17 @@ const Foreigner = () => {
         <div className={`duration-300 ${navbar ? "pt-20 md:pt-28" : "pt-0"}`}>
           <div className="p-content__padding max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {foreignerPackages?.slice(0, 4)?.map((pkg, index) => (
-                <FPCard key={index} pkg={pkg} />
-              ))}
+              {packages
+                ?.filter((pg) => pg?.category === "foreigner")
+                ?.slice(0, 4)
+                ?.map((pkg, index) => (
+                  <FPCard key={index} pkg={pkg} />
+                ))}
             </div>
 
             <div className="w-full flex justify-end mt-4">
               <ViewMoreBtn
-                route="/tour-list"
+                route="/tour-list?location=6542b6bdb5bf5a5c26f6aa89"
                 className="text-primary border-primary hover:bg-secondary hover:border-secondary hover:text-white"
               >
                 <span>view more</span>
@@ -48,9 +52,7 @@ const Foreigner = () => {
 
               <div className="basis-2/5 flex flex-col justify-between items-end">
                 <p className="text-justify">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                  consequuntur velit eius accusantium in, minima sapiente
-                  impedit obcaecati maxime modi provident numquam!
+                Explore an enthralling natural setting and magnificent culture.
                 </p>
                 <div>
                   <ViewMoreBtn

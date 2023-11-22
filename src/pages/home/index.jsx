@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import Spinner from "../../components/common/Spinner";
 import Banner from "./components/Banner";
 import Layout from "../../components/common/Layout";
@@ -26,7 +26,8 @@ const Packages = lazy(() => import("./components/Packages"));
 const Testimonial = lazy(() => import("./components/Testimonial"));
 
 const HomeScreen = () => {
-  const { setSystemData } = useContextData();
+  const { setSystemData, selected } = useContextData();
+  const [packages, setPackages] = useState([]);
 
   useEffect(() => {
     const handleData = async () => {
@@ -42,6 +43,22 @@ const HomeScreen = () => {
     handleData();
   }, [setSystemData]);
 
+  useEffect(() => {
+    let url = `/package`;
+    if (selected?.category === "foreigner") {
+      url += `&category=${selected?.category}`;
+    }
+
+    (async () => {
+      try {
+        const { data } = await axios.get(`/package?${url}`);
+        setPackages(data.data);
+      } catch ({ response }) {
+        // console.log(response);
+      }
+    })();
+  }, [selected?.category]);
+
   return (
     <Layout title="Home">
       {/* <Suspense fallback={<Spinner />}>
@@ -54,7 +71,7 @@ const HomeScreen = () => {
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <Foreigner />
+        <Foreigner packages={packages} />
       </Suspense>
       {/* <Foreigner /> */}
 
@@ -72,7 +89,7 @@ const HomeScreen = () => {
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <PopularDestination />
+        <PopularDestination packages={packages} />
       </Suspense>
       {/* <PopularDestination /> */}
 
@@ -99,7 +116,7 @@ const HomeScreen = () => {
           <Spinner className="h-screen flex flex-col justify-center items-center" />
         }
       >
-        <Packages />
+        <Packages packages={packages} />
       </Suspense>
       {/* <Packages /> */}
 

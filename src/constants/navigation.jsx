@@ -14,10 +14,13 @@ export const navItems = [
 ];
 
 export const dropdownNavItems = [
-  { title: "bangladesh", route: "/tour-list?country=bangladesh" },
-  { title: "india", route: "/tour-list?country=india" },
-  { title: "nepal", route: "/tour-list?country=nepal" },
-  { title: "foreigner", route: "/tour-list?country=foreigner" },
+  {
+    title: "bangladesh",
+    route: "/tour-list?location=6542b7a5b5bf5a5c26f6aa8b",
+  },
+  { title: "india", route: "/tour-list?location=6542b7cab5bf5a5c26f6aa8d" },
+  { title: "nepal", route: "/tour-list?location=6542b7d5b5bf5a5c26f6aa8f" },
+  { title: "foreigner", route: "/tour-list?location=6542b6bdb5bf5a5c26f6aa89" },
 ];
 
 export const userMenuDropdownLinks = [

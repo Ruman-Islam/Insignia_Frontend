@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Fragment, useState } from "react";
 import Button from "../UI/Button";
-import { Menu, Transition } from "@headlessui/react";
+import { Menu, Transition, Listbox } from "@headlessui/react";
 import { CgMenuRight } from "react-icons/cg";
 import { BiChevronDown } from "react-icons/bi";
+import { BsGlobe2 } from "react-icons/bs";
+import { AiOutlineCheck } from "react-icons/ai";
 import Image from "../UI/Image";
 import profile__image from "../../assets/images/profile/profile.png";
 import {
@@ -14,8 +16,9 @@ import {
 import { HashLink } from "react-router-hash-link";
 import { useLocation } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
+import bdLogo from "../../assets/images/background/bdlogo.png";
 
-const ToggleButton = ({ user }) => {
+const ToggleButton = ({ user, handleChangeCategory, selected }) => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
   const [submenuVisible, setSubmenuVisible] = useState(false);
@@ -28,11 +31,56 @@ const ToggleButton = ({ user }) => {
   return (
     <>
       <div className="flex items-center gap-x-2">
+        <div className="relative">
+          <Listbox
+            value={selected?.category}
+            onChange={(val) => handleChangeCategory(val)}
+          >
+            <div className="relative mt-1 capitalize">
+              <Listbox.Button className="w-full rounded-md text-brand__font__size__sm text-gray-600 capitalize flex items-center gap-x-1 mt-1.5">
+                <div className="w-8 h-8 border rounded-full flex items-center justify-center bg-white">
+                  {selected?.category === "regular" || !selected?.category ? (
+                    <Image src={bdLogo}/>
+                  ) : (
+                    <BsGlobe2 size={40} />
+                  )}
+                </div>
+                <BiChevronDown
+                  className={`${isHomePage ? "text-white" : "text-primary"}`}
+                  size={18}
+                />
+              </Listbox.Button>
+
+              <Listbox.Options className="absolute -left-[86px] mt-1 max-h-60 w-[150px] overflow-auto rounded-md bg-white py-1 shadow-lg border text-brand__font__size__sm">
+                <Listbox.Option value="regular">
+                  {({ selected }) => (
+                    <Button
+                      className={`text-gray-900 flex justify-between w-full items-center px-2 py-2 text-sm capitalize hover:bg-primary hover:text-white`}
+                    >
+                      <span>Regular</span>
+                      {selected && <AiOutlineCheck className="text-primary" />}
+                    </Button>
+                  )}
+                </Listbox.Option>
+                <Listbox.Option value="foreigner">
+                  {({ selected }) => (
+                    <Button
+                      className={`text-gray-900 flex justify-between w-full items-center px-2 py-2 text-sm capitalize hover:bg-primary hover:text-white`}
+                    >
+                      <span>Foreigner</span>
+                      {selected && <AiOutlineCheck className="text-primary" />}
+                    </Button>
+                  )}
+                </Listbox.Option>
+              </Listbox.Options>
+            </div>
+          </Listbox>
+        </div>
         {user ? (
           <div className="relative">
             <Menu as="div">
               <Menu.Button>
-                <div className="flex items-center gap-x-1 mt-1.5">
+                <div className="flex items-center gap-x-1 mt-2.5">
                   <div className="w-10 h-10 border rounded-full">
                     <Image
                       className="w-full h-full object-cover rounded-full"

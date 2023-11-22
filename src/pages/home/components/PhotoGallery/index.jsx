@@ -30,8 +30,8 @@ const PhotoGallery = () => {
             Photos from Travelers
           </h2>
           <h3 className="mt-1">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            cupiditate iure!
+            Photos which act as a memory and a testimony of traveller’s
+            experiences, serving as a way to share their adventures with us.
           </h3>
         </div>
 

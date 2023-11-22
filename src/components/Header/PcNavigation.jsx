@@ -16,7 +16,7 @@ const PcNavigation = () => {
           : "text-primary border-primary"
       }`}
     >
-      <ul className="flex items-center px-1 py-0.5 duration-300">
+      <div className="flex items-center px-1 py-0.5 duration-300">
         {navItems.map(({ title, route }) => (
           <li
             className={`group flex items-center rounded-full duration-300 relative ${
@@ -40,7 +40,7 @@ const PcNavigation = () => {
             )}
           </li>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

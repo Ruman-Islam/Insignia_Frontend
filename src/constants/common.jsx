@@ -81,15 +81,19 @@ export const foreignerPackages = [
 
 export const windowImagesTexts = [
   {
+    route: "/tour-list?location=6542b7a5b5bf5a5c26f6aa8b",
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
   },
   {
+    route: "/tour-list?location=6542b7cab5bf5a5c26f6aa8d",
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>INDIA</span>",
   },
   {
+    route: "/tour-list?location=6542b7d5b5bf5a5c26f6aa8f",
     text: "<span class='text-sm mb-2 font-font__bold'>VISIT</span> <span class='text-lg tracking-widest mb-2 font-font__bold'>NEPAL</span>",
   },
   {
+    route: "/tour-list?location=6542b6bdb5bf5a5c26f6aa89",
     text: "<span class='text-sm mb-2 font-font__bold'>FOREIGNERS</span><span class='text-lg tracking-widest mb-2 font-font__bold'>BANGLADESH</span>",
   },
 ];

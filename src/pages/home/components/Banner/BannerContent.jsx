@@ -7,9 +7,9 @@ const BannerContent = () => {
 
   return (
     <div className="w-full text-brand__white">
-      <div className="flex flex-col items-start">
-        <div className="max-w-screen-lg">
-          <h1 className="text-brand__font__size__xl  lg:text-brand__font__size__xl xl:text-brand__font__size__2xl font-brand__font__bold font-brand__font__family__fancy leading-none">
+      <div className="flex flex-col items-center">
+        <div className="max-w-screen-lg text-center">
+          <h1 className="text-brand__font__size__xl  lg:text-brand__font__size__xl xl:text-brand__font__size__2xl font-brand__font__bold font-brand__font__family__fancy leading-none ">
             {systemData?.bannerTitle?.bannerText}
           </h1>
           <br />

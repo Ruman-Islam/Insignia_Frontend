@@ -11,8 +11,12 @@ const Description = ({ packageDetail }) => {
             <span className="text-brand__font__size__md">Description</span>
           </h6>
         </div>
-        <div className="pl-10 text-brand__font__size__sm">
-          <p>{packageDetail?.description}</p>
+        <div className="pl-10 w-full text-brand__font__size__sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: packageDetail.description,
+            }}
+          ></div>
         </div>
       </div>
     </div>

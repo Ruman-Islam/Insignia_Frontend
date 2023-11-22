@@ -48,7 +48,7 @@ const Window = () => {
 
               <div className="absolute -bottom-20 group-hover:bottom-0 duration-300 left-0 right-0 w-full mx-auto h-20 flex flex-col items-center justify-center">
                 <ViewMoreBtn
-                  route="/tour-list"
+                  route={windowImagesTexts[index]?.route}
                   className="text-white border-brand__gray__border backdrop-blur-sm"
                 >
                   <span>view more</span>

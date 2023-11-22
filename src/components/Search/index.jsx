@@ -5,7 +5,7 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Button from "../UI/Button";
 import Autosuggest from "react-autosuggest";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "../../api/axios";
 
 const theme = {
   input: {
@@ -21,11 +21,11 @@ const theme = {
     top: "48px",
     left: "0",
     right: "0",
-    maxHeight: "250px",
+    maxHeight: "450px",
     overflowY: "auto",
     backgroundColor: "white",
     borderRadius: "12px",
-    padding: "20px 0",
+    padding: "25px 0",
     boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
   },
   suggestion: {
@@ -38,15 +38,19 @@ const theme = {
   },
 };
 
-const Search = ({ firstDivStyles, secondDivStyles }) => {
-  const navigate = useNavigate();
+const Search = ({
+  firstDivStyles,
+  secondDivStyles,
+  setLocation,
+  handleNavigate,
+}) => {
   const [value, setValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [y, setY] = useState(false);
 
   const getSuggestionValue = (suggestion) => {
-    console.log("getSuggestionValue .... ", suggestion);
-    navigate("https://tailwindcss.com/docs/border-radius");
+    setLocation(suggestion);
     return suggestion.title;
   };
 
@@ -54,51 +58,50 @@ const Search = ({ firstDivStyles, secondDivStyles }) => {
     return (
       <div>
         <div className="flex items-center gap-x-2">
-          <div className="border flex justify-center items-center w-9 h-9 rounded-full shadow-sm">
-            <GrLocation size={20} />
+          <div className="border flex justify-center items-center w-8 h-8 rounded-full shadow-sm">
+            <GrLocation size={16} />
           </div>
           <div className="pl-1">
-            <p>{suggestion.title}</p>
-            <small className="block">Chittagong Division, Bangladesh</small>
+            <p className="capitalize">{suggestion.title}</p>
           </div>
         </div>
       </div>
     );
   };
 
-  const onSuggestionsFetchRequested = ({ value }) => {
-    const inputValue = value.trim().toLowerCase();
-    const inputLength = inputValue.length;
-
+  const onSuggestionsFetchRequested = async ({ value }) => {
     setLoading(true);
-    if (inputLength === 0) {
+    try {
+      const { data } = await axios.get(
+        `/search/auto-suggestion?searchTerm=${value}`
+      );
+      setSuggestions(data.data);
       setLoading(false);
-      setSuggestions([]);
-    } else {
-      const url = `https://boighor-server.vercel.app/api/v1/book/search?char=${value}`;
-      fetch(url)
-        .then((res) => res.json())
-        .then((data) => {
-          setSuggestions(data.result);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.error("Error fetching suggestions:", error);
-          setLoading(false);
-        });
+    } catch (error) {
+      console.log(error);
     }
   };
 
   const onChange = (event, { newValue }) => {
     setValue(newValue);
+    setY(false);
   };
 
   const onSuggestionsClearRequested = () => {
     setSuggestions([]);
   };
 
-  const onFocusGetSuggestions = () => {
-    console.log("test .... ");
+  const onFocusGetSuggestions = async () => {
+    setLoading(true);
+    setY(true);
+    try {
+      const { data } = await axios.get("/search/auto-suggestion");
+      setSuggestions(data.data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
   };
 
   const inputProps = {
@@ -106,12 +109,15 @@ const Search = ({ firstDivStyles, secondDivStyles }) => {
     value,
     onChange: onChange,
     onFocus: onFocusGetSuggestions,
+    onBlur: () => {
+      setY(false);
+    },
   };
 
   return (
-    <div className={`${firstDivStyles} mr-auto w-full relative`}>
+    <div className={`${firstDivStyles} m-auto w-full relative`}>
       <div
-        className={`${secondDivStyles} relative rounded-full w-full border border-primary bg-white flex items-center justify-center`}
+        className={`${secondDivStyles} relative rounded-xl w-full border border-primary bg-white flex items-center justify-center`}
       >
         <div className="p-3 border-r">
           {loading ? (
@@ -130,12 +136,17 @@ const Search = ({ firstDivStyles, secondDivStyles }) => {
             onSuggestionsClearRequested={onSuggestionsClearRequested}
             getSuggestionValue={getSuggestionValue}
             renderSuggestion={renderSuggestion}
+            alwaysRenderSuggestions={y}
             inputProps={inputProps}
             theme={theme}
           />
         </div>
         <div>
-          <Button className="bg-primary hover:bg-secondary duration-300 rounded-full py-2.5 px-5 mr-0.5 text-brand__white">
+          <Button
+            disabled={value.length === 0}
+            onClick={handleNavigate}
+            className="bg-primary hover:bg-secondary duration-300 rounded-xl py-2.5 px-5 mr-0.5 text-brand__white"
+          >
             Search
           </Button>
         </div>

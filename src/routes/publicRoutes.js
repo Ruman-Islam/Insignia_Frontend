@@ -1,5 +1,6 @@
 import PackagesListScreen from "../pages/Packages";
 import AboutUsScreen from "../pages/about-us";
+import BookingScreen from "../pages/booking";
 import ContactUsScreen from "../pages/contact-us";
 import ForgetPasswordScreen from "../pages/forget-password";
 import GalleryScreen from "../pages/gallery";
@@ -15,6 +16,11 @@ export const publicRoutes = [
     path: "/package-detail/:id",
     name: "package-detail",
     Component: PackageDetailScreen,
+  },
+  {
+    path: "/booking",
+    name: "booking",
+    Component: BookingScreen,
   },
   {
     path: "/contact-us",

@@ -8,13 +8,13 @@ const Banner = () => {
         className="w-full h-full object-cover rounded-tl-3xl rounded-tr-3xl "
         src="https://www.regulusnepal.com/uploads/editors/WWW.jpg"
       />
-      <div className="absolute bottom-5 left-5 backdrop-blur-sm py-3 px-6 text-white border border-brand__gray__border rounded-3xl">
+      {/* <div className="absolute bottom-5 left-5 backdrop-blur-sm py-3 px-6 text-white border border-brand__gray__border rounded-3xl">
         <h4>5 Packages</h4>
         <h4 className="text-brand__font__size__lg font-brand__font__bold">
           Nepal
         </h4>
         <h4>Starts from BDT 20,000</h4>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -11,34 +11,12 @@ const Overview = ({ packageDetail }) => {
         </h6>
       </div>
 
-      <div className="pl-10 w-full">
-        <div className="mb-8">
-          <p className="text-brand__font__size__sm text-brand__detail__text">
-            {packageDetail?.overview?.description}
-          </p>
-        </div>
-
-        {packageDetail?.overview?.steps?.length && (
-          <div>
-            <p className="underline text-brand__font__size__sm text-brand__detail__text font-brand__font__bold">
-              For booking this tour, please follow the following steps,
-            </p>
-            <div className="flex flex-col my-4 gap-4">
-              {packageDetail?.overview?.steps.map((item, index) => (
-                <span
-                  key={index}
-                  className="text-secondary font-brand__font__bold text-brand__font__size__sm"
-                >
-                  Step {index + 1}: {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <span className="text-brand__font__size__sm font-brand__font__bold text-brand__detail__text">
-          {packageDetail?.overview?.NB}
-        </span>
+      <div className="pl-10 w-full text-brand__font__size__sm">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: packageDetail.overview,
+          }}
+        ></div>
       </div>
     </div>
   );

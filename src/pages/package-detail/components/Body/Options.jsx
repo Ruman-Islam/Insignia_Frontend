@@ -12,17 +12,12 @@ const Options = ({ packageDetail }) => {
             <span className="text-brand__font__size__md">Options</span>
           </h6>
         </div>
-        <div className="pl-10 text-brand__font__size__sm">
-          <ul className="list-disc max-w-[300px] w-full">
-            {packageDetail?.options.map((item, index) => (
-              <li key={index} className="mb-3">
-                <h6 className="uppercase text-secondary font-brand__font__bold text-brand__font__size__base">
-                  {item?.title}
-                </h6>
-                <p className="font-brand__font__thin">{item?.details}</p>
-              </li>
-            ))}
-          </ul>
+        <div className="pl-10 w-full text-brand__font__size__sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: packageDetail.options,
+            }}
+          ></div>
         </div>
       </div>
     </div>

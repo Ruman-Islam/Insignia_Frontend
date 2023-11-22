@@ -11,25 +11,12 @@ const Location = ({ packageDetail }) => {
           <span className="text-brand__font__size__md">Location</span>
         </h6>
       </div>
-      <div className="pl-10 text-brand__font__size__sm ">
-        <p className="mb-3">
-          <span className="text-secondary font-brand__font__bold">
-            Pick-up:
-          </span>{" "}
-          <span>{packageDetail?.location?.pickUpPoint}</span>
-        </p>
-        <p className="mb-3">
-          <span className="text-secondary font-brand__font__bold">
-            Around:
-          </span>{" "}
-          <span>{packageDetail?.location?.around}</span>
-        </p>
-        <p>
-          <span className="text-secondary font-brand__font__bold">
-            Recommended Restaurants nearby:
-          </span>{" "}
-          <span>{packageDetail?.location?.nearbyRestaurant}</span>
-        </p>
+      <div className="pl-10 w-full text-brand__font__size__sm">
+        <div
+          dangerouslySetInnerHTML={{
+            __html: packageDetail.location,
+          }}
+        ></div>
       </div>
     </div>
   );

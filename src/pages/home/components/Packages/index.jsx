@@ -1,8 +1,9 @@
+/* eslint-disable react/prop-types */
 import ViewMoreBtn from "../../../../components/common/ViewMoreBtn";
 import Banner from "./Banner";
 import PackagesSection from "./PackagesSection";
 
-const Packages = () => {
+const Packages = ({ packages }) => {
   return (
     <section>
       <div className="max-w-screen-xl mx-auto p-content__padding">
@@ -11,10 +12,10 @@ const Packages = () => {
             Checkout Our Packages
           </h2>
           <h3 className="mt-2">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora
-            <br />
-            cupiditate architecto perferendis officia voluptas, dicta corrupti
-            amet ullam doloremque iure!
+            Insignia prefers to make the world alive with tours that covers and
+            looks beyond the highlights: revealing hidden gems and offering
+            cultural encounters that build into multi-faceted and compelling
+            travel experiences.
           </h3>
         </div>
 
@@ -22,7 +23,7 @@ const Packages = () => {
           <div className="w-full">
             <Banner />
 
-            <PackagesSection />
+            <PackagesSection packages={packages} />
           </div>
 
           <div className="w-full flex justify-center my-5">

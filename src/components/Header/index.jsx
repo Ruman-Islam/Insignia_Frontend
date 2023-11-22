@@ -5,7 +5,7 @@ import ToggleButton from "./ToggleButton";
 import { useLocation } from "react-router-dom";
 
 const Header = () => {
-  const { auth } = useContextData();
+  const { auth, handleChangeCategory, selected } = useContextData();
   const location = useLocation();
   const isHomePage = location.pathname === "/"; // is using for keep header background
 
@@ -21,7 +21,11 @@ const Header = () => {
         <div className="flex justify-between items-center">
           <Logo />
           <PcNavigation />
-          <ToggleButton user={auth?.user} />
+          <ToggleButton
+            user={auth?.user}
+            handleChangeCategory={handleChangeCategory}
+            selected={selected}
+          />
         </div>
       </div>
     </header>

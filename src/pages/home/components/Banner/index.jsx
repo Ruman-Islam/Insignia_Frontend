@@ -1,8 +1,17 @@
 import BannerBackground from "./BannerBackground";
 import BannerContent from "./BannerContent";
 import Search from "../../../../components/Search";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Banner = () => {
+  const navigate = useNavigate();
+  const [location, setLocation] = useState({});
+
+  const handleNavigate = () => {
+    navigate(`/tour-list?location=${location.id}`);
+  };
+
   return (
     <section className="h-[100vh]">
       <div className="h-full relative overflow-hidden">
@@ -10,11 +19,15 @@ const Banner = () => {
       </div>
 
       <div className="flex flex-col items-center justify-center p-content__padding max-w-screen-xl absolute top-0 bottom-0 left-0 right-0 m-auto">
-        <div className="w-full flex flex-col justify-center items-start mb-5">
+        <div className="w-full flex flex-col justify-center items-center mb-5">
           <h1 className="text-brand__font__size__lg text-brand__white p-content__padding font-brand__font__family__fancy italic text-center">
             Where to?
           </h1>
-          <Search firstDivStyles="max-w-[600px]" />
+          <Search
+            setLocation={setLocation}
+            handleNavigate={handleNavigate}
+            firstDivStyles="max-w-[600px]"
+          />
         </div>
 
         <BannerContent />

@@ -1,28 +1,30 @@
 /* eslint-disable react/prop-types */
-import { AiOutlineDeploymentUnit } from "react-icons/ai";
+import { MdPolicy } from "react-icons/md";
 
-const InclusionExclusion = ({ packageDetail }) => {
+const AdditionalInformation = ({ packageDetail }) => {
   return (
-    <div id="inclusionExclusion">
+    <div id="additionalInformation">
       <div className="mt-5 border-t py-2">
         <div className="w-full sticky top-[175px] md:top-[140px] bg-white p-4">
           <h6 className="flex items-center gap-x-1 text-secondary font-brand__font__bold">
-            <AiOutlineDeploymentUnit size={20} />
+            <MdPolicy size={20} />
             <span className="text-brand__font__size__md">
-              Inclusion & Exclusion
+              Additional Information
             </span>
           </h6>
         </div>
         <div className="pl-10 w-full text-brand__font__size__sm">
-          <div
-            dangerouslySetInnerHTML={{
-              __html: packageDetail.inclusionExclusion,
-            }}
-          ></div>
+          <div className="prose">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: packageDetail.additionalInformation,
+              }}
+            ></div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default InclusionExclusion;
+export default AdditionalInformation;

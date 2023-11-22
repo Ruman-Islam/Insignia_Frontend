@@ -12,14 +12,12 @@ const Timing = ({ packageDetail }) => {
             <span className="text-brand__font__size__md">Timing</span>
           </h6>
         </div>
-        <div className="pl-10 text-brand__font__size__sm">
-          <p>{packageDetail?.timing?.timeSlot}</p>
-          <p>
-            <span className="text-secondary font-brand__font__bold ">
-              Duration:
-            </span>{" "}
-            {packageDetail?.timing?.duration}
-          </p>
+        <div className="pl-10 w-full text-brand__font__size__sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: packageDetail.timing,
+            }}
+          ></div>
         </div>
       </div>
     </div>

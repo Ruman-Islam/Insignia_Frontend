@@ -12,32 +12,12 @@ const Policy = ({ packageDetail }) => {
             <span className="text-brand__font__size__md">Policy</span>
           </h6>
         </div>
-        <div className="pl-10 text-brand__font__size__sm">
-          <div>
-            <h4 className="font-brand__font__bold text-secondary text-brand__font__size__base">
-              Cancellation
-            </h4>
-            <ul className="list-disc">
-              {packageDetail?.policy?.cancellation.map((item, index) => (
-                <li key={index} className="mb-3">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-brand__font__bold text-secondary text-brand__font__size__base">
-              Refund
-            </h4>
-            <ul className="list-disc">
-              {packageDetail?.policy?.refund.map((item, index) => (
-                <li key={index} className="mb-3">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="pl-10 w-full text-brand__font__size__sm">
+          <div
+            dangerouslySetInnerHTML={{
+              __html: packageDetail.policy,
+            }}
+          ></div>
         </div>
       </div>
     </div>

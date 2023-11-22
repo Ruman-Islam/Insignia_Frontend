@@ -11,9 +11,10 @@ const RVCard = ({ data }) => {
     <div className="h-[420px] border bg-brand__ash rounded">
       <div className="h-full flex flex-col">
         <div className="flex items-center border-b">
-          <div className="flex-grow flex flex-col items-center  bg-primary text-white py-2">
-            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center">
+          <div className="flex-grow flex flex-col items-center  bg-primary text-white py-3">
+            <div className="w-[50px] h-[50px] rounded-full flex justify-center items-center border-2">
               <Image
+                alt="Profile"
                 src={photoUrl ? photoUrl : defaultProImg}
                 className="w-full h-full object-cover rounded-full"
               />
